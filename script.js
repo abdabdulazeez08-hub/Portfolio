@@ -75,9 +75,12 @@ function updateProgress() {
 function queueProgress() {
   if (!progressPending) { progressPending = true; window.requestAnimationFrame(updateProgress); }
 }
-window.addEventListener("scroll", queueProgress, { passive: true });
-window.addEventListener("resize", queueProgress);
-updateProgress();
+// Modern browsers handle this entirely in CSS; older browsers use the fallback.
+if (!CSS.supports("animation-timeline: scroll()")) {
+  window.addEventListener("scroll", queueProgress, { passive: true });
+  window.addEventListener("resize", queueProgress);
+  window.addEventListener("load", queueProgress);
+}
 
 // Each story section updates a single sticky illustration. Text is always visible.
 const storyVisual = document.querySelector(".story-visual");
