@@ -111,6 +111,18 @@ if (contactForm) {
   const subjectFromUrl = new URLSearchParams(window.location.search).get("subject");
   if (subjectFromUrl) document.getElementById("subject").value = subjectFromUrl.slice(0, 150);
 
+  // Chrome may scroll only the textarea caret into view. Keep the whole field visible.
+  contactForm.addEventListener("focusin", event => {
+    if (!event.target.matches("input, textarea")) return;
+    const field = event.target;
+    window.requestAnimationFrame(() => {
+      const bounds = field.getBoundingClientRect();
+      if (bounds.top < 110 || bounds.bottom > window.innerHeight - 24) {
+        field.scrollIntoView({ block: "center", behavior: "instant" });
+      }
+    });
+  });
+
   function fieldError(field) {
     const value = field.value.trim();
     if (!value) return `Enter ${field.id === "message" ? "a message" : field.id === "subject" ? "a subject" : "your " + field.id}.`;
