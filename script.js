@@ -185,9 +185,30 @@ themeQuery.addEventListener("change", () => { if (!themePreference) applyTheme(t
 // Both unretouched photographs share the same circular CSS headshot frame.
 document.querySelectorAll(".portrait-switcher").forEach(portrait => {
   const button = portrait.querySelector(".portrait-flip");
+  const graduationImage = portrait.querySelector(".portrait-graduation");
+  let graduationReady = null;
+  function loadGraduation() {
+    if (!graduationReady) {
+      graduationImage.src = graduationImage.dataset.src;
+      graduationReady = graduationImage.decode().catch(() => { graduationReady = null; });
+    }
+    return graduationReady;
+  }
   button.disabled = false;
-  button.addEventListener("click", () => {
+  button.addEventListener("pointerenter", loadGraduation, { once: true });
+  button.addEventListener("focus", loadGraduation, { once: true });
+  button.addEventListener("click", async () => {
+    if (button.getAttribute("aria-busy") === "true") return;
     const graduation = portrait.dataset.portrait !== "graduation";
+    if (graduation) {
+      button.setAttribute("aria-busy", "true");
+      await loadGraduation();
+      button.removeAttribute("aria-busy");
+      if (!graduationImage.complete || graduationImage.naturalWidth === 0) {
+        portrait.querySelector("[data-portrait-label]").textContent = "The graduation photo could not load. Try again.";
+        return;
+      }
+    }
     portrait.dataset.portrait = graduation ? "graduation" : "professional";
     button.setAttribute("aria-pressed", String(graduation));
     button.setAttribute("aria-label", graduation ? "Show professional portrait of Abdallah Abdulazeez" : "Show graduation portrait of Abdallah Abdulazeez");

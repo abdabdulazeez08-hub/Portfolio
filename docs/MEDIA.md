@@ -7,6 +7,7 @@ The owner supplied the Protolight capstone notebook and graduation photograph on
 | portrait-professional.webp | Owner's professional portrait embedded in the supplied notebook (image7.png). Original pixels preserved apart from web-format compression. LinkedIn's public profile page did not load, so no unrelated search-result portrait was used. |
 | portrait-graduation.webp | Owner's supplied IMG_9530.jpeg. EXIF orientation normalized and full frame optimized for the web. Headshot framing is performed with CSS; the original source is unchanged. |
 | protolight-final.webp | Actual final L-shaped prototype photo from the notebook (image57.jpg, final revision). |
+| protolight-final-small.webp | Responsive 720-pixel edition of the same original photo for phone and preview use. No crop or visual retouching. |
 | protolight-v1.webp | Actual earlier dark-cover prototype from the notebook (image54.jpg). |
 | protolight-cad-v5.webp | Actual enclosure CAD image from the notebook (image39.png). |
 | protolight-cover.webp | Actual cover CAD image from the notebook (image44.png). |

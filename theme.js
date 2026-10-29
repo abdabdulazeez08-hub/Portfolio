@@ -1,5 +1,6 @@
 // Runs before CSS so saved/OS theme selection appears without a light-theme flash.
 (function () {
+  document.documentElement.classList.add("js-enabled");
   let saved = null;
   try { saved = localStorage.getItem("portfolio-theme"); } catch { /* Storage is optional. */ }
   const dark = saved === "dark" || (saved !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);

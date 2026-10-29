@@ -11,13 +11,13 @@ Double-click `index.html`. No package manager, build step, API key, or server is
 
 ## Pages and features
 
-- **Home:** introduction, selected work, and a three-stage Protolight story. The technical assembly changes as you scroll on desktop; on mobile it becomes a readable vertical sequence.
+- **Home:** switchable circular portraits, an introduction, a pausable skills ribbon, selected work, and a three-stage Protolight story. Scroll down to assemble the actual L-shaped prototype and reveal its real photo; scroll up to reverse. A compact sticky visual works on phones, while reduced motion uses normal document flow.
 - **About:** education, professional experience, community involvement, and interests from the supplied resume.
 - **Projects:** Protolight, an illuminated vehicle badge, HafizAI, and a soil-tilling CAD assembly, with descriptions, roles, tools, and images.
 - **Skills:** CAD, fabrication, electronics, software, and data skills connected to project evidence.
 - **Contact:** email, LinkedIn, GitHub, and a validated email-draft form. The form does not send or store messages; it opens a draft in the visitor's configured email app after a separate click.
 
-Shared features include a keyboard-accessible mobile menu, visible focus indicators, a skip link, current-page navigation, motion preference controls, and operating-system reduced-motion support. Reading progress uses native CSS scroll timelines where available. All page content and navigation remain usable without JavaScript.
+Shared features include a keyboard-accessible mobile menu, prominent LinkedIn link, persistent light/dark mode with an operating-system default, visible focus indicators, a skip link, current-page navigation, and motion preference controls. A small animated ring accompanies fine mouse pointers while preserving the native cursor; it is disabled for touch and reduced motion. Reading progress uses native CSS scroll timelines where available. All page content and navigation remain usable without JavaScript.
 
 ## Deployment
 
@@ -38,7 +38,9 @@ The owner must personally review AGENTS.md and the code, practice the keyboard d
 
 ## Project media
 
-At the owner's request, project visuals are **labeled illustrative placeholders**, not actual project photographs, CAD exports, or HafizAI screenshots. Actual media and a public HafizAI URL can be added later. Replace the relevant `assets/images/` files, update alt text and captions, and keep every image under 500 KB. No live product URL or third-party source repository is invented.
+**Protolight now uses actual photos and CAD exports** extracted from the supplied capstone notebook, plus an explanatory SVG reconstruction of the real L-shaped prototype. The professional portrait also comes from the notebook, and the graduation photo was supplied separately. Portrait headshot crops are CSS framing; the faces are not retouched or AI altered. The alternate graduation image loads on intent, and responsive project images reduce phone downloads. See [media sources](docs/MEDIA.md).
+
+The badge, HafizAI, and soil-tilling images remain **labeled illustrative placeholders** until their actual media is provided. A public HafizAI URL can also be added later. Keep every replacement image under 500 KB and update alt text/captions. No live product URL or third-party source repository is invented.
 
 The original resume is intentionally excluded because it includes a phone number and precise location details. The portfolio contains the supplied professional email and profile links.
 
