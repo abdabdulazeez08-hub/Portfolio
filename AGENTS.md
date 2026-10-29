@@ -1,10 +1,12 @@
 # Abdallah's portfolio
 
 ## Scope and pages
-Build a public, static personal portfolio: Home (`index.html`), About (`about.html`), Projects (`projects.html`), Skills (`skills.html`), Contact (`contact.html`). Include three working, original projects: this portfolio, a focus timer, and a weighted grade calculator. Do not invent credentials, employment, education, or previous projects. Request missing personal details from the owner.
+Build a public, static personal portfolio for Abdallah Abdulazeez: Home (`index.html`), About (`about.html`), Projects (`projects.html`), Skills (`skills.html`), Contact (`contact.html`). Ground content in the supplied resume: Mechanical Engineering Technology at NJIT (expected May 2030); Protolight adaptive headlights, illuminated vehicle badge, HafizAI, and soil-tilling CAD assembly. Never invent metrics, links, credentials, or project photographs. Label reconstructed technical illustrations. Do not publish the original resume because it contains a phone number and precise address.
 
 ## Design
-Use a clear workshop aesthetic: paper white #f5f8fc, ink navy #142a43, cobalt #2456ce, muted slate #51657a, and pale blue #e3ecfa. Use Georgia for large editorial headings and system sans-serif for interface text. Left-aligned content, generous whitespace, an original browser-window illustration, and restrained borders. Avoid unrelated imagery and decoration. Support light and dark modes.
+Use a precise engineering portfolio aesthetic: white #ffffff, drawing paper #f0f0ec, graphite #252723, slate #5c605a, burgundy #812f39, and rule #d6d8d0. Use locally hosted Archivo for clear large headings and system sans-serif for body text. Generous whitespace, asymmetric compositions, original exploded engineering diagrams, and restrained rules. No purple gradients, glowing orbs, generic card grids, or decorative stats. UI/UX Pro Max is a design reference; plain HTML/CSS/JS overrides its framework suggestions.
+
+Home tells the Protolight story through a sticky technical drawing and three scroll-driven stages: sensing, responding, building. Use native scrolling, IntersectionObserver, and compositor-friendly transitions. Never hijack scrolling. Preserve all text with JavaScript disabled. Include an explicit motion preference, honor prefers-reduced-motion, and simplify to normal document flow on mobile and in reduced-motion mode.
 
 ## Implementation rules
 Plain HTML, one external CSS stylesheet, and vanilla JavaScript only. No frameworks, npm, build steps, backend, accounts, external font dependencies, secrets, phone numbers, or home addresses. Use relative paths so index.html works from disk and under the GitHub Pages repository path. Use semantic markup, one h1 per page, ordered headings, descriptive image alternatives, visible keyboard focus, reduced-motion support, and responsive layouts. Keep every image below 500 KB.
