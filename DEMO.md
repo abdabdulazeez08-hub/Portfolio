@@ -1,0 +1,35 @@
+# Three-minute demo
+
+Use the live site: https://abdabdulazeez08-hub.github.io/Portfolio/
+
+## 0:00-0:40 - Introduce the site
+
+Say your name and discipline. Explain that the site has five separate HTML pages, shared CSS, and vanilla JavaScript. Show the homepage on a laptop and an actual phone. The technical images are labeled placeholders awaiting your project media.
+
+## 0:40-1:20 - Show the story
+
+Scroll through Protolight's sensing, response, and assembly stages. Explain the real prototype's temperature/humidity input, dew point calculation, Arduino output, and printed enclosure. On mobile the same story uses a normal vertical layout. Show the Reduce motion button in the footer; operating-system reduced motion also disables the animations.
+
+## 1:20-2:00 - Navigate with the keyboard
+
+Reload the page. Press Tab to reveal Skip to content and Enter to use it. Reload again and Tab through the brand and navigation. Use Enter to open Projects. On the phone-sized layout, focus Menu, press Enter, then Escape to close it. The focus returns to the menu button.
+
+## 2:00-2:45 - Explain JavaScript
+
+Open script.js. Pick one block and explain it in your own words:
+
+- **Mobile menu:** matchMedia determines whether the viewport is narrow. The button flips menuOpen. updateMenu changes the navigation's hidden state and the button's aria-expanded state. Escape closes the menu and restores focus.
+- **Scrollytelling:** IntersectionObserver detects which story step enters a band in the viewport. Its data-step value selects the illustration's data-stage. CSS transforms the individual SVG parts. The page never intercepts scrolling, and the text is always present.
+- **Contact validation:** fieldError trims input and checks required fields, email validity, and message length. Errors appear next to the inputs and focus goes to the first invalid field. Valid input becomes an encoded mailto URL. A separate click opens the email app; this site does not send messages.
+
+## 2:45-3:00 - Evidence
+
+Show TESTING.md and the Lighthouse accessibility scores. Mention the 320px overflow found in the first animation, the figure-level clipping fix, and the passing retest.
+
+## Before class
+
+- Review AGENTS.md and all source code yourself, as required by the assignment.
+- Replace the labeled visual placeholders with your actual project images when available; keep each under 500 KB and update alt text.
+- Open the site on a physical phone and your laptop, and practice Tab/Enter/Escape yourself.
+- Upload output/pdf/portfolio-report.pdf to the assignment. Submission to the course is a personal step, not performed by this site.
+- The existing commits are dated honestly. Work performed in one session does not fulfill a rubric item requiring work across multiple days.

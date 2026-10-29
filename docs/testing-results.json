@@ -1,0 +1,314 @@
+{
+  "site": "https://abdabdulazeez08-hub.github.io/Portfolio/",
+  "testDate": "October 29, 2026 (America/New_York)",
+  "functionalSourceCommit": "2046243c48ad158a2d7a4bbe9cdfbe39550f0303",
+  "directFileFixCommit": "350cf24",
+  "auditNote": "Lighthouse measured the font-optimized live pages before the final vector-icon and textarea-focus polish. The complete live browser suite and focus visibility check were rerun after that polish.",
+  "browser": "Google Chrome, isolated Playwright test contexts",
+  "viewports": [
+    "1440 × 1000",
+    "390 × 844",
+    "320 × 740",
+    "844 × 390",
+    "768 × 1024"
+  ],
+  "browserSuite": {
+    "base": "https://abdabdulazeez08-hub.github.io/Portfolio/",
+    "testedAt": "2026-10-29T23:03:40.469Z",
+    "results": [
+      {
+        "id": "desktop-index.html-structure",
+        "description": "index.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-index.html-navigation",
+        "description": "index.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-index.html-keyboard",
+        "description": "index.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-about.html-structure",
+        "description": "about.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-about.html-navigation",
+        "description": "about.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-about.html-keyboard",
+        "description": "about.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-projects.html-structure",
+        "description": "projects.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-projects.html-navigation",
+        "description": "projects.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-projects.html-keyboard",
+        "description": "projects.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-skills.html-structure",
+        "description": "skills.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-skills.html-navigation",
+        "description": "skills.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-skills.html-keyboard",
+        "description": "skills.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-contact.html-structure",
+        "description": "contact.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-contact.html-navigation",
+        "description": "contact.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-contact.html-keyboard",
+        "description": "contact.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-index.html-structure",
+        "description": "index.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-index.html-navigation",
+        "description": "index.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-index.html-keyboard",
+        "description": "index.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-about.html-structure",
+        "description": "about.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-about.html-navigation",
+        "description": "about.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-about.html-keyboard",
+        "description": "about.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-projects.html-structure",
+        "description": "projects.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-projects.html-navigation",
+        "description": "projects.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-projects.html-keyboard",
+        "description": "projects.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-skills.html-structure",
+        "description": "skills.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-skills.html-navigation",
+        "description": "skills.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-skills.html-keyboard",
+        "description": "skills.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-contact.html-structure",
+        "description": "contact.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-contact.html-navigation",
+        "description": "contact.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-contact.html-keyboard",
+        "description": "contact.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "menu-escape",
+        "description": "Mobile menu opens with Enter and closes with Escape",
+        "result": "Pass"
+      },
+      {
+        "id": "menu-resize",
+        "description": "Navigation restores across mobile/desktop resize",
+        "result": "Pass"
+      },
+      {
+        "id": "motion-preference",
+        "description": "Motion preference switches, persists, and respects operating system",
+        "result": "Pass"
+      },
+      {
+        "id": "scroll-story",
+        "description": "All three story stages update during native scrolling",
+        "result": "Pass"
+      },
+      {
+        "id": "form-invalid",
+        "description": "Empty, malformed email, and short message fail with inline errors",
+        "result": "Pass"
+      },
+      {
+        "id": "form-valid",
+        "description": "Valid form creates correctly encoded email draft without sending",
+        "result": "Pass"
+      },
+      {
+        "id": "form-whitespace",
+        "description": "Whitespace-only values are invalid",
+        "result": "Pass"
+      },
+      {
+        "id": "project-subject",
+        "description": "Case-study contact link prefills the subject safely",
+        "result": "Pass"
+      },
+      {
+        "id": "small-screens",
+        "description": "All five pages fit 320px and landscape layouts",
+        "result": "Pass"
+      },
+      {
+        "id": "no-script",
+        "description": "All pages and navigation work with JavaScript disabled",
+        "result": "Pass"
+      },
+      {
+        "id": "console",
+        "description": "No JavaScript errors or failed console resources during suite",
+        "result": "Pass"
+      }
+    ],
+    "consoleErrors": []
+  },
+  "lighthouse": [
+    {
+      "page": "index.html",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/index.html",
+      "testedAt": "2026-10-29T22:56:55.144Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "failedAccessibilityAudits": []
+    },
+    {
+      "page": "about.html",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/about.html",
+      "testedAt": "2026-10-29T22:57:13.848Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "failedAccessibilityAudits": []
+    },
+    {
+      "page": "projects.html",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/projects.html",
+      "testedAt": "2026-10-29T22:57:31.158Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "failedAccessibilityAudits": []
+    },
+    {
+      "page": "skills.html",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/skills.html",
+      "testedAt": "2026-10-29T22:57:48.273Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "failedAccessibilityAudits": []
+    },
+    {
+      "page": "contact.html",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/contact.html",
+      "testedAt": "2026-10-29T22:58:05.227Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "failedAccessibilityAudits": []
+    }
+  ],
+  "directFile": {
+    "result": "Pass",
+    "errors": []
+  },
+  "staticReferences": {
+    "checkedReferences": 98,
+    "imageFiles": 7,
+    "result": "Pass",
+    "errors": []
+  },
+  "focusVisibility": {
+    "result": "Pass",
+    "failures": []
+  },
+  "limitations": [
+    "Viewport emulation is not a physical-device test.",
+    "No messages were sent and the operating-system email app was not tested.",
+    "Project media remains labeled placeholders at the owner’s request.",
+    "Owner code review, physical-device demo, course submission, and work across multiple days are personal requirements."
+  ]
+}
