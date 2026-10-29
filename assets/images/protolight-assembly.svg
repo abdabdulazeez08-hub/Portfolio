@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 600">
+<defs><pattern id="drawing-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0v28" fill="none" stroke="#658b8a" stroke-opacity=".16" stroke-width=".6"/></pattern><pattern id="print-lines" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 7h7" stroke="#b9a589" stroke-width=".6"/></pattern></defs>
+<rect class="drawing-paper" width="760" height="600" rx="12" fill="#e0eeec"/><rect x="20" y="20" width="720" height="560" fill="url(#drawing-grid)"/>
+<g transform="matrix(.95 -.18 .35 .73 -55 112)" stroke="#665b47" stroke-width="1.8" stroke-linejoin="round">
+ <g class="proto-base">
+  <path d="M185 175h190v160h225v175H185Z" transform="translate(0 24)" fill="#96876e"/>
+  <path d="M185 175h190v160h225v175H185Z" fill="#d4c5a8"/>
+  <path d="M201 193h158v158h225v142H201Z" fill="#8c816d"/>
+  <path d="M215 207h130v156h225v116H215Z" fill="#b7ab91"/>
+  <path d="M201 193v300m158-300v158h225" fill="none"/>
+  <path d="M185 510h415v24H185Z" fill="url(#print-lines)"/>
+  <path d="M222 516h135v11H222Z" fill="#534d40"/>
+ </g>
+ <g class="proto-electronics" stroke="#31536b">
+  <path d="M390 384h139v73H390Z" fill="#376886"/>
+  <path d="M409 395h42v40h-42Z" fill="#243844"/>
+  <path d="M461 396h36v8h-36m0 9h36m-36 9h36m-36 9h36" fill="none" stroke="#adc9d3"/>
+  <path d="M387 404h-19v25h19" fill="#bbc4c6"/>
+  <g fill="#c9d4c8"><circle cx="401" cy="447" r="3"/><circle cx="516" cy="447" r="3"/><circle cx="401" cy="392" r="3"/><circle cx="516" cy="392" r="3"/></g>
+  <path d="M432 457v42l105 63h113q29 0 13-19l-47-46" fill="none" stroke="#296c9b" stroke-width="7"/>
+  <path d="m616 497 13-5 15 10-13 6Z" fill="#8ca3af"/>
+  <path d="M390 414h-54V280h-27M390 423h-71v-91h-45" stroke="#b96854" stroke-width="3" fill="none"/>
+ </g>
+ <g class="proto-cover" transform="translate(0 -95)">
+  <path d="M185 175h190v160h225v175H185Z" transform="translate(0 11)" fill="#c5b38f"/>
+  <path d="M185 175h190v160h225v175H185Z" fill="#e0ceb0"/>
+  <path d="M205 194h30v289h-30Zm48 0h30v289h-30Zm48 0h30v289h-30Z" fill="#aa987b"/>
+  <g class="proto-leds" stroke="#b7b5a5" stroke-width=".8">
+   <path d="M211 203h17v271h-17Zm48 0h17v271h-17Zm48 0h17v271h-17Z" fill="#f8f6e9"/>
+   <g fill="#e2d7ad"><path d="M215 219h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Z"/><path d="M263 219h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Z"/><path d="M311 219h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Zm0 38h9v9h-9Z"/></g>
+  </g>
+  <g class="proto-light" fill="#f0c55c" opacity=".12" stroke="none"><path d="M205 194h30v289h-30Zm48 0h30v289h-30Zm48 0h30v289h-30Z"/></g>
+  <path d="M575 349h13v139h-13Z" fill="#5a5446"/>
+  <g class="proto-sensors">
+   <path d="M493 431h63v43h-63Z" fill="#3e748b" stroke="#264858"/>
+   <path d="M500 438h20v21h-20Z" fill="#9cbac2" stroke="#264858"/>
+   <path d="M528 437h19m-19 7h19m-19 7h19m-19 7h19" stroke="#d2cdaa"/>
+   <path d="M557 447h26v-42" fill="none" stroke="#7d5275" stroke-width="3"/>
+   <circle cx="582" cy="397" r="8" fill="#c4b29b"/><path d="m577 397 3-4 3 8 3-4" stroke="#806451" fill="none"/>
+  </g>
+ </g>
+</g>
+<g class="proto-annotations" font-family="Arial,sans-serif" font-size="12" fill="#315f64" stroke="#5b8e8d" stroke-width="1">
+ <path d="M267 140 193 77H61M556 319l75-32h73M464 392l99 87h128" fill="none"/>
+ <g stroke="none"><text x="61" y="65">THREE LED CHANNELS</text><text x="575" y="272">SENSOR INPUTS</text><text x="570" y="498">ARDUINO CONTROL</text></g>
+</g>
+<g font-family="Arial,sans-serif" font-size="11" fill="#476a6a"><text x="33" y="558">PROTOLIGHT / L-SHAPED PROTOTYPE</text><text x="517" y="558">EXPLANATORY RECONSTRUCTION</text></g>
+</svg>
