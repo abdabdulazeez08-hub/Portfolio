@@ -16,6 +16,7 @@ function updateMotion() {
   motionButton.textContent = motionQuery.matches ? "Motion reduced by system" : reduced ? "Enable motion" : "Reduce motion";
   motionButton.disabled = motionQuery.matches;
   motionButton.title = motionQuery.matches ? "Your device’s reduced-motion preference is respected." : "Change animation preference";
+  document.dispatchEvent(new Event("portfolio:motion"));
 }
 motionButton.addEventListener("click", () => {
   userReducedMotion = !userReducedMotion;
@@ -82,25 +83,177 @@ if (!CSS.supports("animation-timeline: scroll()")) {
   window.addEventListener("load", queueProgress);
 }
 
-// Each story section updates a single sticky illustration. Text is always visible.
+// Scroll position is the source of truth in both directions, including fast jumps.
 const storyVisual = document.querySelector(".story-visual");
-if (storyVisual && "IntersectionObserver" in window) {
+if (storyVisual) {
+  const steps = [...document.querySelectorAll(".story-step")];
   const stages = {
     sense: ["01 / 03", "Sense the environment"],
-    respond: ["02 / 03", "Connect inputs to output"],
-    build: ["03 / 03", "Build and fit test"]
+    respond: ["02 / 03", "Connect readings to light"],
+    build: ["03 / 03", "The actual final prototype"]
   };
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      const stage = entry.target.dataset.step;
-      storyVisual.dataset.stage = stage;
-      storyVisual.querySelector(".stage-count").textContent = stages[stage][0];
-      storyVisual.querySelector(".stage-caption").textContent = stages[stage][1];
+  const count = storyVisual.querySelector(".stage-count");
+  const caption = storyVisual.querySelector(".stage-caption");
+  const note = storyVisual.querySelector(".figure-note");
+  const chapterLinks = [...document.querySelectorAll("[data-chapter]")];
+  let centers = [];
+  let focusOffset = 0;
+  let geometryDirty = true;
+  let storyFrame = 0;
+  let currentStage = null;
+  let currentNote = "";
+  const clamp = (value, low = 0, high = 1) => Math.min(high, Math.max(low, value));
+
+  function renderStory() {
+    storyFrame = 0;
+    if (geometryDirty) {
+      // Read layout together only after geometry changes, never per scroll frame.
+      centers = steps.map(step => {
+        const bounds = step.getBoundingClientRect();
+        return window.scrollY + bounds.top + bounds.height / 2;
+      });
+      const headerHeight = header.offsetHeight;
+      const visualHeight = storyVisual.offsetHeight;
+      const reduced = document.documentElement.dataset.motion === "reduced";
+      focusOffset = mobileQuery.matches && !reduced
+        ? headerHeight + visualHeight + Math.max(70, (window.innerHeight - headerHeight - visualHeight) / 2)
+        : window.innerHeight / 2;
+      geometryDirty = false;
     }
-  }, { rootMargin: "-25% 0px -45% 0px", threshold: 0 });
-  document.querySelectorAll(".story-step").forEach(step => observer.observe(step));
+    const focus = window.scrollY + focusOffset;
+    let active = 0;
+    for (let index = 1; index < centers.length; index += 1) {
+      if (Math.abs(centers[index] - focus) < Math.abs(centers[active] - focus)) active = index;
+    }
+    const progress = clamp((focus - centers[0]) / Math.max(1, centers.at(-1) - centers[0]), 0, 1) * 2;
+    const photo = clamp((progress - 1.45) / .45);
+    storyVisual.style.setProperty("--join", clamp(progress / 1.5).toFixed(3));
+    storyVisual.style.setProperty("--light-level", (.12 + .68 * clamp(1 - Math.abs(progress - .9))).toFixed(3));
+    storyVisual.style.setProperty("--photo-opacity", photo.toFixed(3));
+    storyVisual.dataset.progress = progress.toFixed(3);
+    const stage = steps[active].dataset.step;
+    if (currentStage !== stage) {
+      currentStage = stage;
+      storyVisual.dataset.stage = stage;
+      count.textContent = stages[stage][0];
+      caption.textContent = stages[stage][1];
+      chapterLinks.forEach(link => {
+        if (link.dataset.chapter === stage) link.setAttribute("aria-current", "step");
+        else link.removeAttribute("aria-current");
+      });
+    }
+    const nextNote = photo > .95
+      ? "Actual final prototype · May 2026 · supplied engineering notebook."
+      : "Explanatory reconstruction based on the actual prototype. Scroll to reveal the real build.";
+    if (currentNote !== nextNote) { note.textContent = nextNote; currentNote = nextNote; }
+  }
+  function queueStory(measure = false) {
+    if (measure) geometryDirty = true;
+    if (!storyFrame) storyFrame = window.requestAnimationFrame(renderStory);
+  }
+  window.addEventListener("scroll", () => queueStory(), { passive: true });
+  window.addEventListener("resize", () => queueStory(true));
+  window.addEventListener("pageshow", () => queueStory(true));
+  document.addEventListener("portfolio:motion", () => queueStory(true));
+  if ("ResizeObserver" in window) new ResizeObserver(() => queueStory(true)).observe(document.querySelector(".story-layout"));
+  document.fonts.ready.then(() => queueStory(true));
+  queueStory(true);
 }
+
+// Saved theme takes precedence; without a saved choice, follow the device theme.
+const themeButton = document.querySelector(".theme-toggle");
+const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+let themePreference = null;
+try { themePreference = localStorage.getItem("portfolio-theme"); } catch { /* Storage is optional. */ }
+function applyTheme(theme) {
+  const dark = theme === "dark";
+  document.documentElement.dataset.theme = theme;
+  themeButton.hidden = false;
+  themeButton.setAttribute("aria-pressed", String(dark));
+  themeButton.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  themeButton.title = dark ? "Switch to light mode" : "Switch to dark mode";
+  document.querySelector('meta[name="theme-color"]').content = dark ? "#14252d" : "#edf4f2";
+}
+applyTheme(themePreference === "light" || themePreference === "dark" ? themePreference : themeQuery.matches ? "dark" : "light");
+themeButton.addEventListener("click", () => {
+  themePreference = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  try { localStorage.setItem("portfolio-theme", themePreference); } catch { /* Current page still changes theme. */ }
+  applyTheme(themePreference);
+});
+themeQuery.addEventListener("change", () => { if (!themePreference) applyTheme(themeQuery.matches ? "dark" : "light"); });
+
+// Both unretouched photographs share the same circular CSS headshot frame.
+document.querySelectorAll(".portrait-switcher").forEach(portrait => {
+  const button = portrait.querySelector(".portrait-flip");
+  button.disabled = false;
+  button.addEventListener("click", () => {
+    const graduation = portrait.dataset.portrait !== "graduation";
+    portrait.dataset.portrait = graduation ? "graduation" : "professional";
+    button.setAttribute("aria-pressed", String(graduation));
+    button.setAttribute("aria-label", graduation ? "Show professional portrait of Abdallah Abdulazeez" : "Show graduation portrait of Abdallah Abdulazeez");
+    portrait.querySelector(".portrait-front").setAttribute("aria-hidden", String(graduation));
+    portrait.querySelector(".portrait-back").setAttribute("aria-hidden", String(!graduation));
+    portrait.querySelector("[data-portrait-label]").textContent = graduation ? "Graduation portrait" : "Professional portrait";
+  });
+});
+
+const ribbon = document.querySelector(".skills-banner");
+if (ribbon) {
+  const button = ribbon.querySelector(".ribbon-toggle");
+  let paused = false;
+  function updateRibbon() {
+    const reduced = document.documentElement.dataset.motion === "reduced";
+    ribbon.classList.toggle("is-paused", paused || reduced);
+    button.hidden = false;
+    button.disabled = reduced;
+    button.setAttribute("aria-pressed", String(paused || reduced));
+    button.textContent = reduced ? "Skills shown without motion" : paused ? "Play skills ribbon" : "Pause skills ribbon";
+  }
+  button.addEventListener("click", () => { paused = !paused; updateRibbon(); });
+  document.addEventListener("portfolio:motion", updateRibbon);
+  updateRibbon();
+}
+
+// A small companion ring follows only a fine mouse pointer; the native cursor stays.
+const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+const cursorHalo = document.createElement("div");
+cursorHalo.className = "cursor-halo";
+cursorHalo.setAttribute("aria-hidden", "true");
+cursorHalo.innerHTML = "<span></span>";
+document.body.append(cursorHalo);
+let cursorEnabled = false;
+let cursorFrame = 0;
+let cursorX = 0, cursorY = 0, targetX = 0, targetY = 0;
+function updateCursorAvailability() {
+  cursorEnabled = finePointerQuery.matches && !mobileQuery.matches && document.documentElement.dataset.motion !== "reduced";
+  cursorHalo.hidden = !cursorEnabled;
+  if (!cursorEnabled) {
+    cursorHalo.classList.remove("is-visible");
+    window.cancelAnimationFrame(cursorFrame);
+    cursorFrame = 0;
+  }
+}
+function renderCursor() {
+  cursorX += (targetX - cursorX) * .24;
+  cursorY += (targetY - cursorY) * .24;
+  cursorHalo.style.transform = `translate3d(${cursorX - 14}px, ${cursorY - 14}px, 0)`;
+  cursorFrame = Math.abs(targetX - cursorX) + Math.abs(targetY - cursorY) > .15 ? window.requestAnimationFrame(renderCursor) : 0;
+}
+document.addEventListener("pointermove", event => {
+  if (!cursorEnabled || event.pointerType !== "mouse") return;
+  targetX = event.clientX; targetY = event.clientY;
+  if (!cursorHalo.classList.contains("is-visible")) { cursorX = targetX; cursorY = targetY; }
+  cursorHalo.classList.add("is-visible");
+  cursorHalo.classList.toggle("is-hovering", Boolean(event.target.closest("a, button, summary, input, textarea")));
+  if (!cursorFrame) cursorFrame = window.requestAnimationFrame(renderCursor);
+}, { passive: true });
+document.addEventListener("pointerdown", () => { if (cursorEnabled) cursorHalo.classList.add("is-pressed"); });
+document.addEventListener("pointerup", () => cursorHalo.classList.remove("is-pressed"));
+document.documentElement.addEventListener("pointerleave", () => cursorHalo.classList.remove("is-visible"));
+document.addEventListener("portfolio:motion", updateCursorAvailability);
+finePointerQuery.addEventListener("change", updateCursorAvailability);
+mobileQuery.addEventListener("change", updateCursorAvailability);
+updateCursorAvailability();
 
 // Validate locally, then offer an explicit mailto link. No message is sent here.
 const contactForm = document.querySelector("#contact-form");
