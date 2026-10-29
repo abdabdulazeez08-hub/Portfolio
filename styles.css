@@ -100,6 +100,16 @@ svg { width: 22px; height: 22px; flex: 0 0 22px; fill: none; stroke: currentColo
 .story-visual { position: sticky; top: 130px; padding-top: 25px; }
 .story-drawing { position: relative; overflow: hidden; }
 .story-drawing > img { width: 100%; mix-blend-mode: multiply; transition: transform 500ms var(--ease); }
+.assembly-drawing { display: block; width: 100%; height: auto; stroke: none; mix-blend-mode: multiply; }
+.assembly-drawing .housing, .assembly-drawing .board, .assembly-drawing .reflector, .assembly-drawing .lens { transition: transform 650ms var(--ease); }
+.story-visual[data-stage="sense"] .assembly-drawing .lens { transform: translate(12px, -7px); }
+.story-visual[data-stage="respond"] .assembly-drawing .reflector { transform: translate(-30px, 18px); }
+.story-visual[data-stage="respond"] .assembly-drawing .lens { transform: translate(-50px, 30px); }
+.story-visual[data-stage="build"] .assembly-drawing .board { transform: translate(-95px, 55px); }
+.story-visual[data-stage="build"] .assembly-drawing .reflector { transform: translate(-195px, 110px); }
+.story-visual[data-stage="build"] .assembly-drawing .lens { transform: translate(-300px, 170px); }
+.assembly-drawing text, .assembly-drawing g[stroke="#812f39"] { transition: opacity 250ms; }
+.story-visual[data-stage="build"] .assembly-drawing text, .story-visual[data-stage="build"] .assembly-drawing g[stroke="#812f39"] { opacity: 0; }
 .story-visual[data-stage="respond"] .story-drawing > img { transform: scale(1.06) translate(-2%, 2%); }
 .story-visual[data-stage="build"] .story-drawing > img { transform: scale(.92) translate(1%, 0); }
 .sensor-overlay { position: absolute; inset: 0; transition: opacity 400ms; }
@@ -209,6 +219,8 @@ svg { width: 22px; height: 22px; flex: 0 0 22px; fill: none; stroke: currentColo
 :root[data-motion="reduced"] .story-visual, :root[data-motion="reduced"] .case-layout figure { position: static; }
 :root[data-motion="reduced"] .story-step { min-height: auto; padding-block: 35px; }
 :root[data-motion="reduced"] .story-drawing > img { transform: none !important; }
+:root[data-motion="reduced"] .assembly-drawing g { transform: none !important; }
+:root[data-motion="reduced"] .assembly-drawing text, :root[data-motion="reduced"] .assembly-drawing g[stroke="#812f39"] { opacity: 1 !important; }
 :root[data-motion="reduced"] .text-link:hover svg, :root[data-motion="reduced"] .project-preview:hover img { transform: none; }
 @media (prefers-reduced-motion: reduce) {
   :root { scroll-behavior: auto; }
@@ -216,6 +228,8 @@ svg { width: 22px; height: 22px; flex: 0 0 22px; fill: none; stroke: currentColo
   .story-visual, .case-layout figure { position: static; }
   .story-step { min-height: auto; padding-block: 35px; }
   .story-drawing > img, .text-link:hover svg, .project-preview:hover img { transform: none !important; }
+  .assembly-drawing g { transform: none !important; }
+  .assembly-drawing text, .assembly-drawing g[stroke="#812f39"] { opacity: 1 !important; }
 }
 @media (min-width: 1600px) { .hero { gap: 70px; } }
 @media (max-width: 1100px) {
@@ -263,6 +277,8 @@ svg { width: 22px; height: 22px; flex: 0 0 22px; fill: none; stroke: currentColo
   .story-layout { grid-template-columns: 1fr; gap: 0; }
   .story-visual { position: static; padding-top: 0; }
   .story-drawing > img { transform: none !important; }
+  .assembly-drawing g { transform: none !important; }
+  .assembly-drawing text, .assembly-drawing g[stroke="#812f39"] { opacity: 1 !important; }
   .story-state, .sensor-overlay, .beam-overlay, .assembly-overlay { display: none; }
   .story-step { min-height: auto; padding-block: 35px; border-top: 1px solid #c4c8bd; }
   .story-step h3 { font-size: 1.9rem; margin-bottom: 18px; }
