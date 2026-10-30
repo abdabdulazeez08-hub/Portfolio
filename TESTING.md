@@ -13,6 +13,8 @@ Two checks initially failed and were retested:
 
 Live deployment verification, refreshed Lighthouse measurements, screenshots, and the submission report will follow this source deployment. The October 29 results below remain the preceding verified snapshot.
 
+The first live deployment subsequently passed all 78 browser cases, both keyboard-focus checks, direct-file opening, and static checks. Lighthouse accessibility, best practices, and SEO were 100 on every audited page. The initial homepage performance sample was 84, with unnecessary full-size circuit/revision photo downloads. Added responsive 31.7 KB and 26.5 KB editions (originals retained) and repeated the 15 story/gesture cases locally; final live image and audit retests are pending this optimization deployment.
+
 Live site: https://abdabdulazeez08-hub.github.io/Portfolio/
 
 Executed October 29, 2026, America/New_York. The current interaction source is `e8f8813`. All tests below ran on live GitHub Pages unless explicitly labeled static/direct-file. Chrome viewport emulation covers laptop, phone, tablet, landscape, and 320px layouts. This is not a physical-device certification.

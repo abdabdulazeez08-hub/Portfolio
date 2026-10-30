@@ -12,6 +12,8 @@ The owner supplied the Protolight capstone notebook and graduation photograph on
 | protolight-cad-v5.webp | Actual LED cover CAD image from the notebook (image39.png). The historic filename is retained. |
 | protolight-cover.webp | Actual cover-and-housing CAD assembly from the notebook (image44.png). |
 | protolight-circuit.webp | Actual early circuit assembly from the notebook (image52.jpg). |
+| protolight-circuit-small.webp | Responsive 450 × 600 edition of the same circuit photograph; resized and compressed without cropping or retouching. |
+| protolight-v1-small.webp | Responsive 720 × 540 edition of the same earlier prototype photograph; resized and compressed without cropping or retouching. |
 | protolight-assembly.svg | Original explanatory vector reconstruction of the actual L-shaped prototype, LED channels, control circuit, and exposed sensors. It is not an actual CAD export or product photograph. |
 
 The badge, HafizAI, and soil-tilling illustration placeholders remain clearly labeled until the owner supplies their actual media. Every published image stays below 500 KB. All portrait cropping is visual framing in the website, not retouching or AI alteration of the face.
