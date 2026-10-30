@@ -1,5 +1,18 @@
 # Website test plan and results
 
+## October 30 interaction revision — local verification
+
+The homepage now has six chapters with actual CAD, circuit, revision, and final-build media. Diagram labels are outside the artwork. Themes use a sun/moon circular reveal with a fallback, and portraits support hover previews and horizontal touch swipes.
+
+Local verification passed: 41 core browser cases, 22 existing enhancement cases updated for six chapters, and 15 new cases covering chapter/media selection, readable labels, animated/rapid/fallback themes, hover cancellation, keyboard portrait controls, real browser touch gestures, reduced motion, short landscape, and no JavaScript. Static references, direct-file opening, and focus checks passed.
+
+Two checks initially failed and were retested:
+
+- The resize test read navigation before the asynchronous media-query event completed. Waiting for the actual navigation state resolved the harness race; all 41 core cases passed on the repeat.
+- Full-motion keyboard navigation found links behind the taller mobile sticky figure. The story now brings focused links below the figure; Tab and Shift+Tab retests passed.
+
+Live deployment verification, refreshed Lighthouse measurements, screenshots, and the submission report will follow this source deployment. The October 29 results below remain the preceding verified snapshot.
+
 Live site: https://abdabdulazeez08-hub.github.io/Portfolio/
 
 Executed October 29, 2026, America/New_York. The current interaction source is `e8f8813`. All tests below ran on live GitHub Pages unless explicitly labeled static/direct-file. Chrome viewport emulation covers laptop, phone, tablet, landscape, and 320px layouts. This is not a physical-device certification.

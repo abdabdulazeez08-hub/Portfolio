@@ -88,10 +88,17 @@ const storyVisual = document.querySelector(".story-visual");
 if (storyVisual) {
   const steps = [...document.querySelectorAll(".story-step")];
   const stages = {
-    sense: ["01 / 03", "Sense the environment"],
-    respond: ["02 / 03", "Connect readings to light"],
-    build: ["03 / 03", "The actual final prototype"]
+    sense: ["Sense the environment", "Explanatory reconstruction · based on the supplied engineering notebook."],
+    respond: ["Connect readings to light", "Explanatory reconstruction · three LED channels, sensors, and Arduino control."],
+    design: ["Design the enclosure", "Actual CAD export · enclosure revision from our engineering notebook."],
+    wire: ["Connect the circuit", "Actual build photograph · early Arduino and breadboard assembly."],
+    revise: ["Check, adjust, repeat", "Actual build photograph · an earlier printed cover and circuit."],
+    build: ["The actual final prototype", "Actual final prototype · May 2026 · supplied engineering notebook."]
   };
+  const scenes = [...storyVisual.querySelectorAll("[data-scene]")];
+  const diagram = storyVisual.querySelector(".prototype-diagram");
+  const key = storyVisual.querySelector(".diagram-key");
+  const source = storyVisual.querySelector(".scene-source");
   const count = storyVisual.querySelector(".stage-count");
   const caption = storyVisual.querySelector(".stage-caption");
   const note = storyVisual.querySelector(".figure-note");
@@ -125,26 +132,44 @@ if (storyVisual) {
     for (let index = 1; index < centers.length; index += 1) {
       if (Math.abs(centers[index] - focus) < Math.abs(centers[active] - focus)) active = index;
     }
-    const progress = clamp((focus - centers[0]) / Math.max(1, centers.at(-1) - centers[0]), 0, 1) * 2;
-    const photo = clamp((progress - 1.45) / .45);
-    storyVisual.style.setProperty("--join", clamp(progress / 1.5).toFixed(3));
+    // Interpolate between adjacent chapter centers, even when their copy differs in height.
+    let progress = 0;
+    for (let index = 1; index < centers.length; index += 1) {
+      if (focus >= centers[index]) progress = index;
+      else if (focus > centers[index - 1]) {
+        progress = index - 1 + (focus - centers[index - 1]) / Math.max(1, centers[index] - centers[index - 1]);
+        break;
+      } else break;
+    }
+    storyVisual.style.setProperty("--join", clamp(progress / 1.6).toFixed(3));
     storyVisual.style.setProperty("--light-level", (.12 + .68 * clamp(1 - Math.abs(progress - .9))).toFixed(3));
-    storyVisual.style.setProperty("--photo-opacity", photo.toFixed(3));
+    storyVisual.style.setProperty("--photo-opacity", clamp(progress - (steps.length - 2)).toFixed(3));
+    diagram.style.opacity = (1 - clamp(progress - 1)).toFixed(3);
+    scenes.forEach(scene => {
+      const index = steps.findIndex(step => step.dataset.step === scene.dataset.scene);
+      scene.style.opacity = clamp(1 - Math.abs(progress - index)).toFixed(3);
+    });
+    steps.forEach((step, index) => step.style.setProperty("--chapter-focus", clamp(1 - Math.abs(progress - index)).toFixed(3)));
+    storyVisual.style.setProperty("--story-progress", (progress / (steps.length - 1)).toFixed(3));
     storyVisual.dataset.progress = progress.toFixed(3);
     const stage = steps[active].dataset.step;
     if (currentStage !== stage) {
       currentStage = stage;
       storyVisual.dataset.stage = stage;
-      count.textContent = stages[stage][0];
-      caption.textContent = stages[stage][1];
+      count.textContent = `${String(active + 1).padStart(2, "0")} / ${String(steps.length).padStart(2, "0")}`;
+      caption.textContent = stages[stage][0];
+      const illustrated = active < 2;
+      key.hidden = !illustrated;
+      source.hidden = illustrated;
+      source.textContent = stages[stage][1];
+      diagram.setAttribute("aria-hidden", String(!illustrated));
+      scenes.forEach(scene => scene.setAttribute("aria-hidden", String(scene.dataset.scene !== stage)));
       chapterLinks.forEach(link => {
         if (link.dataset.chapter === stage) link.setAttribute("aria-current", "step");
         else link.removeAttribute("aria-current");
       });
     }
-    const nextNote = photo > .95
-      ? "Actual final prototype · May 2026 · supplied engineering notebook."
-      : "Explanatory reconstruction based on the actual prototype. Scroll to reveal the real build.";
+    const nextNote = document.documentElement.dataset.motion === "reduced" ? stages.build[1] : stages[stage][1];
     if (currentNote !== nextNote) { note.textContent = nextNote; currentNote = nextNote; }
   }
   function queueStory(measure = false) {
@@ -157,6 +182,19 @@ if (storyVisual) {
   document.addEventListener("portfolio:motion", () => queueStory(true));
   if ("ResizeObserver" in window) new ResizeObserver(() => queueStory(true)).observe(document.querySelector(".story-layout"));
   document.fonts.ready.then(() => queueStory(true));
+  document.querySelector(".story-layout").addEventListener("focusin", event => {
+    const control = event.target.closest(".story-step a, .story-step button");
+    if (!control) return;
+    window.requestAnimationFrame(() => {
+      if (getComputedStyle(storyVisual).position !== "sticky" || !mobileQuery.matches) return;
+      const bounds = control.getBoundingClientRect();
+      const safeTop = header.offsetHeight + storyVisual.offsetHeight + 24;
+      if (bounds.top < safeTop || bounds.bottom > innerHeight - 24) {
+        // Native focus scrolling does not account for an overlapping sticky sibling.
+        window.scrollTo({ top: scrollY + bounds.top - safeTop, behavior: "instant" });
+      }
+    });
+  });
   queueStory(true);
 }
 
@@ -175,18 +213,81 @@ function applyTheme(theme) {
   document.querySelector('meta[name="theme-color"]').content = dark ? "#14252d" : "#edf4f2";
 }
 applyTheme(themePreference === "light" || themePreference === "dark" ? themePreference : themeQuery.matches ? "dark" : "light");
+let themeTransition = null;
+let themeSequence = 0;
+let themeFallbackTimer = 0;
+function animateTheme(theme) {
+  const sequence = ++themeSequence;
+  themeTransition?.skipTransition();
+  clearTimeout(themeFallbackTimer);
+  document.documentElement.classList.remove("theme-fallback");
+  if (document.documentElement.dataset.motion === "reduced") {
+    applyTheme(theme);
+    delete document.documentElement.dataset.themeAnimating;
+    return;
+  }
+  document.documentElement.dataset.themeAnimating = theme;
+  themeButton.animate([{ transform: "rotate(-25deg) scale(.85)" }, { transform: "rotate(0) scale(1)" }], { duration: 600, easing: "cubic-bezier(.22,.68,.2,1)" });
+  const finish = () => {
+    if (sequence === themeSequence) {
+      delete document.documentElement.dataset.themeAnimating;
+      document.documentElement.classList.remove("theme-fallback");
+      themeTransition = null;
+    }
+  };
+  if (!document.startViewTransition) {
+    document.documentElement.classList.add("theme-fallback");
+    applyTheme(theme);
+    themeFallbackTimer = setTimeout(finish, 650);
+    return;
+  }
+  const bounds = themeButton.getBoundingClientRect();
+  const x = bounds.left + bounds.width / 2;
+  const y = bounds.top + bounds.height / 2;
+  const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+  const transition = document.startViewTransition(() => {
+    if (sequence === themeSequence) applyTheme(theme);
+  });
+  themeTransition = transition;
+  transition.ready.then(() => {
+    if (sequence !== themeSequence) return;
+    document.documentElement.animate({
+      clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`]
+    }, { duration: 650, easing: "cubic-bezier(.22,.68,.2,1)", pseudoElement: "::view-transition-new(root)" });
+  }).catch(() => { /* A newer click or navigation may skip an in-progress transition. */ });
+  transition.finished.then(finish, finish);
+}
 themeButton.addEventListener("click", () => {
-  themePreference = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  themePreference = (themePreference || document.documentElement.dataset.theme) === "dark" ? "light" : "dark";
   try { localStorage.setItem("portfolio-theme", themePreference); } catch { /* Current page still changes theme. */ }
-  applyTheme(themePreference);
+  animateTheme(themePreference);
 });
 themeQuery.addEventListener("change", () => { if (!themePreference) applyTheme(themeQuery.matches ? "dark" : "light"); });
+document.addEventListener("portfolio:motion", () => {
+  if (document.documentElement.dataset.motion === "reduced") {
+    themeSequence += 1;
+    themeButton.getAnimations().forEach(animation => animation.cancel());
+    themeTransition?.skipTransition();
+    themeTransition = null;
+    clearTimeout(themeFallbackTimer);
+    document.documentElement.classList.remove("theme-fallback");
+    delete document.documentElement.dataset.themeAnimating;
+    applyTheme(themePreference || (themeQuery.matches ? "dark" : "light"));
+  }
+});
 
 // Both unretouched photographs share the same circular CSS headshot frame.
 document.querySelectorAll(".portrait-switcher").forEach(portrait => {
   const button = portrait.querySelector(".portrait-flip");
   const graduationImage = portrait.querySelector(".portrait-graduation");
   let graduationReady = null;
+  let request = 0;
+  let desiredGraduation = false;
+  let restingGraduation = false;
+  let hoverPreview = false;
+  let swipeStart = null;
+  let suppressClickUntil = 0;
+  const hoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
   function loadGraduation() {
     if (!graduationReady) {
       graduationImage.src = graduationImage.dataset.src;
@@ -195,26 +296,62 @@ document.querySelectorAll(".portrait-switcher").forEach(portrait => {
     return graduationReady;
   }
   button.disabled = false;
-  button.addEventListener("pointerenter", loadGraduation, { once: true });
   button.addEventListener("focus", loadGraduation, { once: true });
-  button.addEventListener("click", async () => {
-    if (button.getAttribute("aria-busy") === "true") return;
-    const graduation = portrait.dataset.portrait !== "graduation";
+  async function showPortrait(graduation) {
+    desiredGraduation = graduation;
+    const ticket = ++request;
     if (graduation) {
       button.setAttribute("aria-busy", "true");
       await loadGraduation();
+      if (ticket !== request) return;
       button.removeAttribute("aria-busy");
       if (!graduationImage.complete || graduationImage.naturalWidth === 0) {
         portrait.querySelector("[data-portrait-label]").textContent = "The graduation photo could not load. Try again.";
         return;
       }
     }
+    button.removeAttribute("aria-busy");
     portrait.dataset.portrait = graduation ? "graduation" : "professional";
     button.setAttribute("aria-pressed", String(graduation));
     button.setAttribute("aria-label", graduation ? "Show professional portrait of Abdallah Abdulazeez" : "Show graduation portrait of Abdallah Abdulazeez");
     portrait.querySelector(".portrait-front").setAttribute("aria-hidden", String(graduation));
     portrait.querySelector(".portrait-back").setAttribute("aria-hidden", String(!graduation));
     portrait.querySelector("[data-portrait-label]").textContent = graduation ? "Graduation portrait" : "Professional portrait";
+  }
+  button.addEventListener("pointerenter", event => {
+    loadGraduation();
+    if (event.pointerType === "mouse" && hoverQuery.matches && document.documentElement.dataset.motion !== "reduced") {
+      hoverPreview = true;
+      showPortrait(!restingGraduation);
+    }
+  });
+  button.addEventListener("pointerleave", event => {
+    if (event.pointerType === "mouse") { hoverPreview = false; showPortrait(restingGraduation); }
+  });
+  button.addEventListener("click", event => {
+    if (event.detail > 0 && performance.now() < suppressClickUntil) return;
+    restingGraduation = hoverPreview && event.detail > 0 ? desiredGraduation : !desiredGraduation;
+    hoverPreview = false;
+    showPortrait(restingGraduation);
+  });
+  // Horizontal swipes flip; vertical gestures remain native page scrolling.
+  button.addEventListener("pointerdown", event => {
+    if (event.pointerType === "touch" || event.pointerType === "pen") swipeStart = { x: event.clientX, y: event.clientY, id: event.pointerId };
+  }, { passive: true });
+  button.addEventListener("pointerup", event => {
+    if (!swipeStart || swipeStart.id !== event.pointerId) return;
+    const dx = event.clientX - swipeStart.x;
+    const dy = event.clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(dx) >= 30 && Math.abs(dx) > Math.abs(dy) * 1.35) {
+      suppressClickUntil = performance.now() + 500;
+      restingGraduation = !desiredGraduation;
+      showPortrait(restingGraduation);
+    }
+  }, { passive: true });
+  button.addEventListener("pointercancel", () => { swipeStart = null; });
+  document.addEventListener("portfolio:motion", () => {
+    if (document.documentElement.dataset.motion === "reduced") showPortrait(restingGraduation);
   });
 });
 

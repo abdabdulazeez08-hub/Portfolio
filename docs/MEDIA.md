@@ -9,8 +9,8 @@ The owner supplied the Protolight capstone notebook and graduation photograph on
 | protolight-final.webp | Actual final L-shaped prototype photo from the notebook (image57.jpg, final revision). |
 | protolight-final-small.webp | Responsive 720-pixel edition of the same original photo for phone and preview use. No crop or visual retouching. |
 | protolight-v1.webp | Actual earlier dark-cover prototype from the notebook (image54.jpg). |
-| protolight-cad-v5.webp | Actual enclosure CAD image from the notebook (image39.png). |
-| protolight-cover.webp | Actual cover CAD image from the notebook (image44.png). |
+| protolight-cad-v5.webp | Actual LED cover CAD image from the notebook (image39.png). The historic filename is retained. |
+| protolight-cover.webp | Actual cover-and-housing CAD assembly from the notebook (image44.png). |
 | protolight-circuit.webp | Actual early circuit assembly from the notebook (image52.jpg). |
 | protolight-assembly.svg | Original explanatory vector reconstruction of the actual L-shaped prototype, LED channels, control circuit, and exposed sensors. It is not an actual CAD export or product photograph. |
 

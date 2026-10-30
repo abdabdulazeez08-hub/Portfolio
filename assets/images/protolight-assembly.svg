@@ -40,9 +40,10 @@
   </g>
  </g>
 </g>
-<g class="proto-annotations" font-family="Arial,sans-serif" font-size="12" fill="#315f64" stroke="#5b8e8d" stroke-width="1">
- <path d="M267 140 193 77H61M556 319l75-32h73M464 392l99 87h128" fill="none"/>
- <g stroke="none"><text x="61" y="65">THREE LED CHANNELS</text><text x="575" y="272">SENSOR INPUTS</text><text x="570" y="498">ARDUINO CONTROL</text></g>
+<g class="proto-pins" font-family="Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle" stroke="none" aria-hidden="true">
+ <g transform="translate(239 139)"><circle r="21" fill="#206d72"/><text y="6" fill="#fff">01</text></g>
+ <g transform="translate(628 319)"><circle r="21" fill="#8a3656"/><text y="6" fill="#fff">02</text></g>
+ <g transform="translate(447 464)"><circle r="21" fill="#8b5f25"/><text y="6" fill="#fff">03</text></g>
 </g>
-<g font-family="Arial,sans-serif" font-size="11" fill="#476a6a"><text x="33" y="558">PROTOLIGHT / L-SHAPED PROTOTYPE</text><text x="517" y="558">EXPLANATORY RECONSTRUCTION</text></g>
+
 </svg>
