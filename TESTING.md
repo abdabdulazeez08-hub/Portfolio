@@ -2,11 +2,11 @@
 
 Live site: https://abdabdulazeez08-hub.github.io/Portfolio/
 
-Executed October 29, 2026, America/New_York. Functional browser checks ran on live GitHub Pages, not only local preview. Chrome used isolated browser contexts, with desktop and phone viewport emulation. Screenshots were visually reviewed for layout. Automated checks do not substitute for the owner’s physical-phone and classroom demo.
+Executed October 29, 2026, America/New_York. The current interaction source is `e8f8813`. All tests below ran on live GitHub Pages unless explicitly labeled static/direct-file. Chrome viewport emulation covers laptop, phone, tablet, landscape, and 320px layouts. This is not a physical-device certification.
 
-## Functional tests
+## Core regression tests
 
-The 41-check live suite passed on `8a6bb3b` and was repeated successfully on final interaction source commit `2046243` after the direct-file fix, vector-icon polish, and textarea-focus improvement. Raw summaries are in [docs/testing-results.json](docs/testing-results.json). Each navigation row tests all five destinations from the named source page.
+All 41 original browser cases were repeated after the redesign. Each navigation row checks all five destinations from the named source page. The test harness explicitly waits for image decoding and asynchronous theme/motion changes.
 
 | ID | What is tested | Steps | Expected result | Actual result |
 | --- | --- | --- | --- | --- |
@@ -52,42 +52,73 @@ The 41-check live suite passed on `8a6bb3b` and was repeated successfully on fin
 | T40 | All pages and navigation work with JavaScript disabled | Disable JavaScript and open all five pages at 390px. | All content, h1s, and five navigation links remain visible; enhanced menu control stays hidden. | Pass |
 | T41 | No JavaScript errors or failed console resources during suite | Collect page errors and error-level console messages throughout the complete live browser suite. | No JavaScript exceptions or failed console resources. | Pass |
 
-## Lighthouse on every live page
-
-Chrome Lighthouse 13.6.0, mobile preset, default simulated throttling. Each page was audited individually after font optimization, before the final icon/focus polish; the full browser suite was repeated after that polish. Accessibility target: at least 90. Performance scores are point-in-time lab measurements, not a guarantee of identical results on every device.
-
-| ID | Page | Steps | Expected | Accessibility | Performance | Best practices | SEO | Actual result |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| T42 | index.html | Open the live page and run Lighthouse with mobile preset. | Accessibility ≥90; no failed automated accessibility audits. | 100 | 98 | 100 | 100 | Pass |
-| T43 | about.html | Open the live page and run Lighthouse with mobile preset. | Accessibility ≥90; no failed automated accessibility audits. | 100 | 99 | 100 | 100 | Pass |
-| T44 | projects.html | Open the live page and run Lighthouse with mobile preset. | Accessibility ≥90; no failed automated accessibility audits. | 100 | 99 | 100 | 100 | Pass |
-| T45 | skills.html | Open the live page and run Lighthouse with mobile preset. | Accessibility ≥90; no failed automated accessibility audits. | 100 | 100 | 100 | 100 | Pass |
-| T46 | contact.html | Open the live page and run Lighthouse with mobile preset. | Accessibility ≥90; no failed automated accessibility audits. | 100 | 100 | 100 | 100 | Pass |
-
-## Additional verification
+## New interaction tests
 
 | ID | What is tested | Steps | Expected result | Actual result |
 | --- | --- | --- | --- | --- |
-| T47 | Double-click / direct-file use, all five pages | Open each page via file:// in Chrome; wait for fonts; collect console and page errors. | Content and menu work; no errors. | Pass |
-| T48 | Relative links, anchors, image metadata, and image sizes | Parse all HTML references; resolve files and fragments; check every image's alt/dimensions and file size. | All local references resolve; no inline styles; every image under 500 KB. | Pass: 98 references; 7 images. |
-| T49 | Focus is not obscured | Tab through every page at 390px and 1440px; compare focused controls to sticky header and viewport. | Focused controls remain visible below the header. | Pass |
+| T42 | desktop: scroll down progresses sense → respond → build | At the stated viewport, scroll the center of Sense, Respond, and Build through the reading area. | Progress increases, stages advance, and the final photo reaches full visibility. | Pass |
+| T43 | desktop: scroll up reverses build → respond → sense | Scroll backward from Build to Respond and Sense. | Progress decreases and the assembly returns to its initial state; the final photo disappears. | Pass |
+| T44 | desktop: large scroll jumps retain the correct stage | Jump directly between Build, Sense, Build, Respond, and Sense. | Every jump immediately resolves to the correct stage and label. | Pass |
+| T45 | desktop: visual stays below header without covering all copy | Center Respond and inspect the sticky figure/header geometry. | Figure remains below the header and takes less than 75% of viewport height. | Pass |
+| T46 | mobile: scroll down progresses sense → respond → build | At the stated viewport, scroll the center of Sense, Respond, and Build through the reading area. | Progress increases, stages advance, and the final photo reaches full visibility. | Pass |
+| T47 | mobile: scroll up reverses build → respond → sense | Scroll backward from Build to Respond and Sense. | Progress decreases and the assembly returns to its initial state; the final photo disappears. | Pass |
+| T48 | mobile: large scroll jumps retain the correct stage | Jump directly between Build, Sense, Build, Respond, and Sense. | Every jump immediately resolves to the correct stage and label. | Pass |
+| T49 | mobile: visual stays below header without covering all copy | Center Respond and inspect the sticky figure/header geometry. | Figure remains below the header and takes less than 75% of viewport height. | Pass |
+| T50 | Scroll state recalculates when resizing desktop ↔ mobile | Resize from desktop at Build to phone at Sense, then return to desktop at Respond. | Cached geometry recalculates and active stage stays correct. | Pass |
+| T51 | Dark mode toggles and persists across pages/reloads | Switch to dark, navigate to Skills, reload, then switch back. | Theme persists; button state, icon, color-scheme, and browser theme color agree. | Pass |
+| T52 | Unsaved theme follows the system; a saved choice wins | Clear theme preference, emulate dark OS, reload, then save Light and change OS colors. | Unchosen theme follows OS; an explicit saved choice wins. | Pass |
+| T53 | index.html: circular portraits flip both ways with keyboard | On the named page, focus the circular portrait; press Enter, then Space. | Photo loads on intent, flips both ways, retains equal circular dimensions, and updates ARIA/visible labels. | Pass |
+| T54 | about.html: circular portraits flip both ways with keyboard | On the named page, focus the circular portrait; press Enter, then Space. | Photo loads on intent, flips both ways, retains equal circular dimensions, and updates ARIA/visible labels. | Pass |
+| T55 | Skills ribbon contains CAD, fabrication, electronics, software, and languages | Inspect both accessible ribbon lists. | CAD, fabrication, electronics, software, and language skills are present, including laser engraving, Fusion, AutoCAD, sensors, and Arduino. | Pass |
+| T56 | Skills ribbon pause/play control stops and resumes animation | Press Pause; inspect animation state; press Play and move outside the text ribbon. | Animation pauses and resumes; control state/text follows the action. | Pass |
+| T57 | Fine mouse cursor halo follows and reacts without hiding native cursor | Move a fine mouse pointer, hover a control, press and release. | Companion ring follows, expands on controls, and reacts to click; native cursor stays visible. | Pass |
+| T58 | Reduced motion disables ribbon/cursor/flip transitions and sticky story | Enable OS reduced motion and inspect ribbon, cursor, portrait transition, and sticky figure. | Ribbon becomes static, cursor halo hides, flip transition stops, and the story uses normal flow. | Pass |
+| T59 | Touch devices do not get a cursor halo | Open a touch/mobile browser context. | No cursor halo is displayed. | Pass |
+| T60 | Authentic final photo and CAD media are used and labeled correctly | Inspect the Protolight photo/CAD labels; expand build details and decode the images. | Real final photo, responsive sources, CAD exports, early build photos, and team credits are present. | Pass |
+| T61 | LinkedIn is available from every header and both portrait pages | Open all five pages and inspect header links. | Every header uses the supplied LinkedIn profile URL. | Pass |
+| T62 | All five pages fit 320px, phone, tablet, landscape, and laptop in both themes | Open all five pages at 320, 390, 768, 844 landscape, and 1440px in both themes. | No horizontal scrolling in any combination. | Pass |
+| T63 | New interactions produce no JavaScript exceptions | Collect JavaScript exceptions through the new interaction suite. | No page exceptions. | Pass |
 
-## Failed checks, fixes, and retests
+## Lighthouse on every live page in both themes
 
-| Initial result | Cause / fix | Retest |
+Mobile preset, default simulated throttling. Dark audits launch Chrome with its dark-mode preference; the website follows that preference with no saved theme. These are point-in-time lab measurements. Accessibility target: at least 90.
+
+| ID | Page / theme | Steps | Expected | Accessibility | Performance | Best practices | SEO | Actual result |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| T64 | index.html / light | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | 98 | 100 | 100 | Pass |
+| T65 | about.html / light | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | 100 | 100 | 100 | Pass |
+| T66 | projects.html / light | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | 99 | 100 | 100 | Pass |
+| T67 | skills.html / light | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | 99 | 100 | 100 | Pass |
+| T68 | contact.html / light | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | 100 | 100 | 100 | Pass |
+| T69 | index.html / dark | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | Not measured | 100 | 100 | Pass |
+| T70 | about.html / dark | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | Not measured | 100 | 100 | Pass |
+| T71 | projects.html / dark | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | Not measured | 100 | 100 | Pass |
+| T72 | skills.html / dark | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | Not measured | 100 | 100 | Pass |
+| T73 | contact.html / dark | Open live page with the stated theme and run Lighthouse 13.6.0. | Accessibility ≥90; readable controls, names, and contrast. | 100 | Not measured | 100 | 100 | Pass |
+
+## Additional checks
+
+| ID | What is tested | Steps | Expected | Actual result |
+| --- | --- | --- | --- | --- |
+| T74 | Direct-file opening | Open each HTML page via file://; flip the About portrait and collect errors. | Pages, themes, and portrait loading work without a server or console errors. | Pass |
+| T75 | Local references and media | Parse relative links/fragments, image dimensions/alt, inline-style absence, and every image file size. | All references resolve; every image is under 500 KB. | Pass: 116 references, 17 image files. |
+| T76 | Keyboard focus visibility | Tab through every page at 390px and 1440px. | Focus remains visible below the header; contact textarea stays fully in view. | Pass |
+| T77 | Full-motion keyboard scrolling | Tab and Shift+Tab through Home on a phone viewport, waiting for native smooth focus scrolling to settle. | Header and sticky drawing do not obscure the focused controls. | Pass |
+
+## Issues, fixes, and retests
+
+| Observed issue | Fix | Retest |
 | --- | --- | --- |
-| **Fail, live 320px homepage:** document width 327px. | The hero entrance translated its image 25px outside the figure during the animation. Codex added `overflow: hidden` to `.hero-figure`, containing the animated image without hiding page overflow globally. | **Pass:** live T39 small-screen test; 320px document fits 320px viewport. |
-| **Fail, direct-file font resource:** Chrome reported a CORS error. | The font preload used crossorigin on file://. Removed the preload from all five pages; the CSS @font-face still loads the same local WOFF2. | **Pass:** all five direct-file pages, no console errors. |
-| **Fail, live mobile focus visibility:** part of the contact textarea remained below the viewport after Tab. | Chrome scrolled only the caret into view. Added a focus handler that centers fields when they fall outside the usable viewport. | **Pass:** final live focus visibility check and repeated 41-check suite on `2046243`. |
-| Test-harness failures during local QA. | A lazy image was inspected before loading; an OS motion change was checked before its event fired; Enter-to-Home needed an explicit navigation wait. Fixed test timing rather than changing correct site behavior. | **Pass:** 41/41 local checks and 41/41 live checks. |
+| Owner reported unreliable reverse scrollytelling. | Replaced section-entry callbacks with cached section-center geometry and scroll-position-based progress. Geometry updates after resizing, fonts, and motion changes. | **Pass:** forward, reverse, fast-jump, and resize tests on desktop and phone. |
+| Redesign Lighthouse showed about 0.175 layout shift when the mobile menu initialized. | Reserve the enhanced header/menu/theme-control geometry before CSS paint; keep a separate no-JavaScript fallback. | **Pass:** repeat Lighthouse layout-shift metrics recorded in the evidence JSON. |
+| LinkedIn visible-label/accessibility-name warning. | Give the mark/text appropriate responsive visibility and an accessible name containing both visible labels. | **Pass:** final accessibility audits contain no label/name warning. |
+| Large unused graduation photo and oversized phone project image downloads. | Load graduation on pointer/focus/click intent; add a responsive 85 KB project-image edition. Keep original high-resolution photo for larger screens. | **Pass:** portrait flip and responsive-source checks; final Lighthouse rerun. |
+| Earlier 320px hero animation overflow, direct-file font-preload CORS error, and partly hidden textarea. | Contain the hero entrance, remove file-incompatible preload, and center offscreen focused fields. | **Pass:** repeated core suite, direct-file, and focus checks. |
 
-The first live Lighthouse homepage run scored 90 performance and 100 accessibility/best practices/SEO. The font reduction and native CSS progress timeline improved the final homepage performance score to 98. A visible-label/accessibility-name warning on the brand link was also corrected by including its visible initials in the accessible name.
+## Evidence and remaining personal steps
 
-## Manual review and remaining personal steps
-
-- Genuine live captures: [desktop](docs/screenshots/home-desktop.jpg) and [phone viewport](docs/screenshots/home-mobile.jpg). Full-page desktop/mobile captures of all five pages and the three scroll stages were reviewed locally.
-- No message was sent. Form tests verify validation, focus, and the mailto handoff URL; delivery depends on the visitor’s email application.
-- External email and professional-profile destinations come from the supplied resume or verified repository; no actual project product URL was invented.
-- Owner requested labeled placeholder project illustrations until real media is supplied. This is an intentional exception to the original no-placeholder content requirement.
-- Owner must review AGENTS.md and the code, test on an actual phone/laptop, perform the three-minute demo, and submit the report. Physical hardware testing and the classroom presentation are not marked complete.
-- Commits use their real dates. This one-session implementation does not fulfill a requirement to work across multiple days.
+- [Machine summaries](docs/testing-results.json), [media sources](docs/MEDIA.md), and genuine [desktop](docs/screenshots/home-desktop.jpg), [phone light](docs/screenshots/home-mobile.jpg), and [phone dark](docs/screenshots/home-mobile-dark.jpg) captures.
+- All five pages, both portrait crops, desktop/phone story states, and both themes were visually reviewed.
+- No email was sent. The form validates locally and creates a draft URL for the visitor’s email app.
+- Protolight now has actual photos/CAD. The other three project images remain labeled placeholders at the owner’s request.
+- The owner must review the code and AGENTS.md, practice on a physical phone/laptop, perform the three-minute class demo, and submit the PDF. Commits retain honest dates; one session cannot fulfill a rubric requiring work over multiple days.

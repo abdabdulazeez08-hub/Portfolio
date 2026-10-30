@@ -1,10 +1,8 @@
 {
   "site": "https://abdabdulazeez08-hub.github.io/Portfolio/",
   "testDate": "October 29, 2026 (America/New_York)",
-  "functionalSourceCommit": "2046243c48ad158a2d7a4bbe9cdfbe39550f0303",
-  "directFileFixCommit": "350cf24",
-  "auditNote": "Lighthouse measured the font-optimized live pages before the final vector-icon and textarea-focus polish. The complete live browser suite and focus visibility check were rerun after that polish.",
-  "browser": "Google Chrome, isolated Playwright test contexts",
+  "functionalSourceCommit": "e8f8813a344f1161d53b39ccfefc36b0c53c8a88",
+  "browser": "Google Chrome; isolated browser contexts",
   "viewports": [
     "1440 × 1000",
     "390 × 844",
@@ -14,7 +12,7 @@
   ],
   "browserSuite": {
     "base": "https://abdabdulazeez08-hub.github.io/Portfolio/",
-    "testedAt": "2026-10-29T23:03:40.469Z",
+    "testedAt": "2026-10-30T03:12:56.697Z",
     "results": [
       {
         "id": "desktop-index.html-structure",
@@ -224,14 +222,206 @@
     ],
     "consoleErrors": []
   },
+  "enhancementSuite": {
+    "base": "https://abdabdulazeez08-hub.github.io/Portfolio/",
+    "testedAt": "2026-10-30T03:14:23.278Z",
+    "results": [
+      {
+        "id": "story-desktop-forward",
+        "what": "desktop: scroll down progresses sense → respond → build",
+        "result": "Pass"
+      },
+      {
+        "id": "story-desktop-reverse",
+        "what": "desktop: scroll up reverses build → respond → sense",
+        "result": "Pass"
+      },
+      {
+        "id": "story-desktop-jump",
+        "what": "desktop: large scroll jumps retain the correct stage",
+        "result": "Pass"
+      },
+      {
+        "id": "story-desktop-sticky",
+        "what": "desktop: visual stays below header without covering all copy",
+        "result": "Pass"
+      },
+      {
+        "id": "story-mobile-forward",
+        "what": "mobile: scroll down progresses sense → respond → build",
+        "result": "Pass"
+      },
+      {
+        "id": "story-mobile-reverse",
+        "what": "mobile: scroll up reverses build → respond → sense",
+        "result": "Pass"
+      },
+      {
+        "id": "story-mobile-jump",
+        "what": "mobile: large scroll jumps retain the correct stage",
+        "result": "Pass"
+      },
+      {
+        "id": "story-mobile-sticky",
+        "what": "mobile: visual stays below header without covering all copy",
+        "result": "Pass"
+      },
+      {
+        "id": "story-resize",
+        "what": "Scroll state recalculates when resizing desktop ↔ mobile",
+        "result": "Pass"
+      },
+      {
+        "id": "theme-toggle",
+        "what": "Dark mode toggles and persists across pages/reloads",
+        "result": "Pass"
+      },
+      {
+        "id": "theme-os",
+        "what": "Unsaved theme follows the system; a saved choice wins",
+        "result": "Pass"
+      },
+      {
+        "id": "portrait-index.html",
+        "what": "index.html: circular portraits flip both ways with keyboard",
+        "result": "Pass"
+      },
+      {
+        "id": "portrait-about.html",
+        "what": "about.html: circular portraits flip both ways with keyboard",
+        "result": "Pass"
+      },
+      {
+        "id": "skills-complete",
+        "what": "Skills ribbon contains CAD, fabrication, electronics, software, and languages",
+        "result": "Pass"
+      },
+      {
+        "id": "skills-pause",
+        "what": "Skills ribbon pause/play control stops and resumes animation",
+        "result": "Pass"
+      },
+      {
+        "id": "cursor-mouse",
+        "what": "Fine mouse cursor halo follows and reacts without hiding native cursor",
+        "result": "Pass"
+      },
+      {
+        "id": "reduced-motion-new",
+        "what": "Reduced motion disables ribbon/cursor/flip transitions and sticky story",
+        "result": "Pass"
+      },
+      {
+        "id": "cursor-touch",
+        "what": "Touch devices do not get a cursor halo",
+        "result": "Pass"
+      },
+      {
+        "id": "actual-media",
+        "what": "Authentic final photo and CAD media are used and labeled correctly",
+        "result": "Pass"
+      },
+      {
+        "id": "linkedin-links",
+        "what": "LinkedIn is available from every header and both portrait pages",
+        "result": "Pass"
+      },
+      {
+        "id": "both-theme-layouts",
+        "what": "All five pages fit 320px, phone, tablet, landscape, and laptop in both themes",
+        "result": "Pass"
+      },
+      {
+        "id": "new-console",
+        "what": "New interactions produce no JavaScript exceptions",
+        "result": "Pass"
+      }
+    ],
+    "errors": []
+  },
   "lighthouse": [
     {
       "page": "index.html",
+      "theme": "light",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/index.html",
-      "testedAt": "2026-10-29T22:56:55.144Z",
+      "testedAt": "2026-10-30T03:17:24.391Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
         "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "layoutShift": 0,
+      "failedAccessibilityAudits": []
+    },
+    {
+      "page": "about.html",
+      "theme": "light",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/about.html",
+      "testedAt": "2026-10-30T03:12:57.652Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "layoutShift": 0,
+      "failedAccessibilityAudits": []
+    },
+    {
+      "page": "projects.html",
+      "theme": "light",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/projects.html",
+      "testedAt": "2026-10-30T03:13:16.670Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "layoutShift": 0,
+      "failedAccessibilityAudits": []
+    },
+    {
+      "page": "skills.html",
+      "theme": "light",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/skills.html",
+      "testedAt": "2026-10-30T03:17:44.174Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "layoutShift": 0,
+      "failedAccessibilityAudits": []
+    },
+    {
+      "page": "contact.html",
+      "theme": "light",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/contact.html",
+      "testedAt": "2026-10-30T03:14:01.222Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "layoutShift": 0,
+      "failedAccessibilityAudits": []
+    },
+    {
+      "page": "index.html",
+      "theme": "dark",
+      "url": "https://abdabdulazeez08-hub.github.io/Portfolio/index.html",
+      "testedAt": "2026-10-30T03:14:24.159Z",
+      "lighthouseVersion": "13.6.0",
+      "scores": {
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
@@ -240,11 +430,11 @@
     },
     {
       "page": "about.html",
+      "theme": "dark",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/about.html",
-      "testedAt": "2026-10-29T22:57:13.848Z",
+      "testedAt": "2026-10-30T03:14:41.646Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
-        "performance": 99,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
@@ -253,11 +443,11 @@
     },
     {
       "page": "projects.html",
+      "theme": "dark",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/projects.html",
-      "testedAt": "2026-10-29T22:57:31.158Z",
+      "testedAt": "2026-10-30T03:15:00.220Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
-        "performance": 99,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
@@ -266,11 +456,11 @@
     },
     {
       "page": "skills.html",
+      "theme": "dark",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/skills.html",
-      "testedAt": "2026-10-29T22:57:48.273Z",
+      "testedAt": "2026-10-30T03:15:19.883Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
-        "performance": 100,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
@@ -279,11 +469,11 @@
     },
     {
       "page": "contact.html",
+      "theme": "dark",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/contact.html",
-      "testedAt": "2026-10-29T22:58:05.227Z",
+      "testedAt": "2026-10-30T03:15:37.163Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
-        "performance": 100,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
@@ -296,8 +486,8 @@
     "errors": []
   },
   "staticReferences": {
-    "checkedReferences": 98,
-    "imageFiles": 7,
+    "checkedReferences": 116,
+    "imageFiles": 17,
     "result": "Pass",
     "errors": []
   },
@@ -305,10 +495,15 @@
     "result": "Pass",
     "failures": []
   },
+  "stickyFocus": {
+    "result": "Pass",
+    "failures": []
+  },
+  "auditNote": "The homepage and Skills performance samples were repeated without concurrent interaction testing after CPU contention produced inconsistent blocking times. All initial samples remain in local QA records.",
   "limitations": [
-    "Viewport emulation is not a physical-device test.",
-    "No messages were sent and the operating-system email app was not tested.",
-    "Project media remains labeled placeholders at the owner’s request.",
-    "Owner code review, physical-device demo, course submission, and work across multiple days are personal requirements."
+    "Phone viewport emulation is not physical-device testing.",
+    "No messages were sent. Email-client handoff is verified as a correctly encoded mailto link.",
+    "Badge, HafizAI, and soil-tilling visuals remain labeled placeholders; Protolight uses actual supplied media.",
+    "Owner review, physical-device classroom demo, course submission, and multi-day work remain personal requirements."
   ]
 }
