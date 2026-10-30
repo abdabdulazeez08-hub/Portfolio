@@ -1,7 +1,7 @@
 {
   "site": "https://abdabdulazeez08-hub.github.io/Portfolio/",
-  "testDate": "October 29, 2026 (America/New_York)",
-  "functionalSourceCommit": "e8f8813a344f1161d53b39ccfefc36b0c53c8a88",
+  "testDate": "October 30, 2026 (America/New_York)",
+  "functionalSourceCommit": "6d574d967d54df620e033f4f4a68ae54ca7b3d59",
   "browser": "Google Chrome; isolated browser contexts",
   "viewports": [
     "1440 × 1000",
@@ -12,7 +12,7 @@
   ],
   "browserSuite": {
     "base": "https://abdabdulazeez08-hub.github.io/Portfolio/",
-    "testedAt": "2026-10-30T03:12:56.697Z",
+    "testedAt": "2026-10-30T12:55:21.470Z",
     "results": [
       {
         "id": "desktop-index.html-structure",
@@ -181,7 +181,7 @@
       },
       {
         "id": "scroll-story",
-        "description": "All three story stages update during native scrolling",
+        "description": "All six story stages update during native scrolling",
         "result": "Pass"
       },
       {
@@ -224,16 +224,16 @@
   },
   "enhancementSuite": {
     "base": "https://abdabdulazeez08-hub.github.io/Portfolio/",
-    "testedAt": "2026-10-30T03:14:23.278Z",
+    "testedAt": "2026-10-30T12:54:57.674Z",
     "results": [
       {
         "id": "story-desktop-forward",
-        "what": "desktop: scroll down progresses sense → respond → build",
+        "what": "desktop: scroll down progresses sense → respond → design → wire → refine → build",
         "result": "Pass"
       },
       {
         "id": "story-desktop-reverse",
-        "what": "desktop: scroll up reverses build → respond → sense",
+        "what": "desktop: scroll up reverses build → refine → wire → design → respond → sense",
         "result": "Pass"
       },
       {
@@ -248,12 +248,12 @@
       },
       {
         "id": "story-mobile-forward",
-        "what": "mobile: scroll down progresses sense → respond → build",
+        "what": "mobile: scroll down progresses sense → respond → design → wire → refine → build",
         "result": "Pass"
       },
       {
         "id": "story-mobile-reverse",
-        "what": "mobile: scroll up reverses build → respond → sense",
+        "what": "mobile: scroll up reverses build → refine → wire → design → respond → sense",
         "result": "Pass"
       },
       {
@@ -339,15 +339,485 @@
     ],
     "errors": []
   },
+  "storyAndGestureSuite": {
+    "base": "https://abdabdulazeez08-hub.github.io/Portfolio/",
+    "testedAt": "2026-10-30T12:55:58.879Z",
+    "results": [
+      {
+        "id": "six-chapters-desktop",
+        "what": "All six chapters advance, reverse, and select the matching real media on desktop",
+        "result": "Pass"
+      },
+      {
+        "id": "labels-desktop",
+        "what": "Component labels sit below the image and remain readable on desktop",
+        "result": "Pass"
+      },
+      {
+        "id": "six-chapters-phone",
+        "what": "All six chapters advance, reverse, and select the matching real media on phone",
+        "result": "Pass"
+      },
+      {
+        "id": "labels-phone",
+        "what": "Component labels sit below the image and remain readable on phone",
+        "result": "Pass"
+      },
+      {
+        "id": "theme-reveal",
+        "what": "Theme button animates sun/moon and reveals the selected palette",
+        "result": "Pass"
+      },
+      {
+        "id": "theme-rapid",
+        "what": "Rapid repeated theme toggles settle on the last choice",
+        "result": "Pass"
+      },
+      {
+        "id": "theme-fallback",
+        "what": "Theme controls animate and persist without the View Transition API",
+        "result": "Pass"
+      },
+      {
+        "id": "portrait-hover",
+        "what": "Hover previews the alternate portrait; leaving restores the original",
+        "result": "Pass"
+      },
+      {
+        "id": "portrait-hover-cancel",
+        "what": "Leaving before photo loading finishes cancels the pending hover flip",
+        "result": "Pass"
+      },
+      {
+        "id": "portrait-click-pin",
+        "what": "Click pins the hover preview and keyboard still flips both ways",
+        "result": "Pass"
+      },
+      {
+        "id": "motion-reduced-v3",
+        "what": "Reduced motion disables hover flips and theme reveal, with static story copy",
+        "result": "Pass"
+      },
+      {
+        "id": "portrait-touch-swipe",
+        "what": "Real browser touch gestures flip portraits horizontally and preserve vertical page scrolling",
+        "result": "Pass"
+      },
+      {
+        "id": "short-landscape",
+        "what": "Short landscape screens show the story in document flow",
+        "result": "Pass"
+      },
+      {
+        "id": "nojs-v3",
+        "what": "Without JavaScript, all six chapters and the actual final photo remain available",
+        "result": "Pass"
+      },
+      {
+        "id": "console-v3",
+        "what": "New story, theme, and portrait interactions produce no page errors",
+        "result": "Pass"
+      }
+    ],
+    "errors": []
+  },
+  "initialFailures": {
+    "resizeHarness": {
+      "base": "http://127.0.0.1:4173/",
+      "testedAt": "2026-10-30T12:34:23.004Z",
+      "results": [
+        {
+          "id": "desktop-index.html-structure",
+          "description": "index.html: semantic structure and 1440px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-index.html-navigation",
+          "description": "index.html: all five main navigation links at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-index.html-keyboard",
+          "description": "index.html: Tab, Enter, skip link, focus visibility at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-about.html-structure",
+          "description": "about.html: semantic structure and 1440px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-about.html-navigation",
+          "description": "about.html: all five main navigation links at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-about.html-keyboard",
+          "description": "about.html: Tab, Enter, skip link, focus visibility at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-projects.html-structure",
+          "description": "projects.html: semantic structure and 1440px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-projects.html-navigation",
+          "description": "projects.html: all five main navigation links at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-projects.html-keyboard",
+          "description": "projects.html: Tab, Enter, skip link, focus visibility at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-skills.html-structure",
+          "description": "skills.html: semantic structure and 1440px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-skills.html-navigation",
+          "description": "skills.html: all five main navigation links at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-skills.html-keyboard",
+          "description": "skills.html: Tab, Enter, skip link, focus visibility at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-contact.html-structure",
+          "description": "contact.html: semantic structure and 1440px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-contact.html-navigation",
+          "description": "contact.html: all five main navigation links at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "desktop-contact.html-keyboard",
+          "description": "contact.html: Tab, Enter, skip link, focus visibility at 1440px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-index.html-structure",
+          "description": "index.html: semantic structure and 390px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-index.html-navigation",
+          "description": "index.html: all five main navigation links at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-index.html-keyboard",
+          "description": "index.html: Tab, Enter, skip link, focus visibility at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-about.html-structure",
+          "description": "about.html: semantic structure and 390px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-about.html-navigation",
+          "description": "about.html: all five main navigation links at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-about.html-keyboard",
+          "description": "about.html: Tab, Enter, skip link, focus visibility at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-projects.html-structure",
+          "description": "projects.html: semantic structure and 390px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-projects.html-navigation",
+          "description": "projects.html: all five main navigation links at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-projects.html-keyboard",
+          "description": "projects.html: Tab, Enter, skip link, focus visibility at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-skills.html-structure",
+          "description": "skills.html: semantic structure and 390px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-skills.html-navigation",
+          "description": "skills.html: all five main navigation links at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-skills.html-keyboard",
+          "description": "skills.html: Tab, Enter, skip link, focus visibility at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-contact.html-structure",
+          "description": "contact.html: semantic structure and 390px layout",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-contact.html-navigation",
+          "description": "contact.html: all five main navigation links at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "mobile-contact.html-keyboard",
+          "description": "contact.html: Tab, Enter, skip link, focus visibility at 390px",
+          "result": "Pass"
+        },
+        {
+          "id": "menu-escape",
+          "description": "Mobile menu opens with Enter and closes with Escape",
+          "result": "Pass"
+        },
+        {
+          "id": "menu-resize",
+          "description": "Navigation restores across mobile/desktop resize",
+          "result": "Fail",
+          "error": "The expression evaluated to a falsy value:\n\n  assert.ok(await page.locator('#primary-navigation').isVisible())\n"
+        },
+        {
+          "id": "motion-preference",
+          "description": "Motion preference switches, persists, and respects operating system",
+          "result": "Pass"
+        },
+        {
+          "id": "scroll-story",
+          "description": "All six story stages update during native scrolling",
+          "result": "Pass"
+        },
+        {
+          "id": "form-invalid",
+          "description": "Empty, malformed email, and short message fail with inline errors",
+          "result": "Pass"
+        },
+        {
+          "id": "form-valid",
+          "description": "Valid form creates correctly encoded email draft without sending",
+          "result": "Pass"
+        },
+        {
+          "id": "form-whitespace",
+          "description": "Whitespace-only values are invalid",
+          "result": "Pass"
+        },
+        {
+          "id": "project-subject",
+          "description": "Case-study contact link prefills the subject safely",
+          "result": "Pass"
+        },
+        {
+          "id": "small-screens",
+          "description": "All five pages fit 320px and landscape layouts",
+          "result": "Pass"
+        },
+        {
+          "id": "no-script",
+          "description": "All pages and navigation work with JavaScript disabled",
+          "result": "Pass"
+        },
+        {
+          "id": "console",
+          "description": "No JavaScript errors or failed console resources during suite",
+          "result": "Pass"
+        }
+      ],
+      "consoleErrors": []
+    },
+    "stickyFocus": {
+      "result": "Fail",
+      "failures": [
+        {
+          "key": "Tab",
+          "cls": "text-link",
+          "text": "Explore the circuit and build ",
+          "obscured": true,
+          "hit": "story-visual",
+          "rect": {
+            "x": 24,
+            "y": 445.4375,
+            "width": 342,
+            "height": 44,
+            "top": 445.4375,
+            "right": 366,
+            "bottom": 489.4375,
+            "left": 24
+          }
+        },
+        {
+          "key": "Shift+Tab",
+          "cls": "text-link",
+          "text": "See the real CAD and photos ",
+          "obscured": true,
+          "hit": "story-visual",
+          "rect": {
+            "x": 24,
+            "y": 445.078125,
+            "width": 342,
+            "height": 44,
+            "top": 445.078125,
+            "right": 366,
+            "bottom": 489.078125,
+            "left": 24
+          }
+        },
+        {
+          "key": "Shift+Tab",
+          "cls": "text-link",
+          "text": "Explore the circuit and build ",
+          "obscured": true,
+          "hit": "scene-source",
+          "rect": {
+            "x": 24,
+            "y": 385.4375,
+            "width": 342,
+            "height": 44,
+            "top": 385.4375,
+            "right": 366,
+            "bottom": 429.4375,
+            "left": 24
+          }
+        },
+        {
+          "key": "Shift+Tab",
+          "cls": "text-link",
+          "text": "See the real CAD and photos ",
+          "obscured": true,
+          "hit": "story-visual",
+          "rect": {
+            "x": 24,
+            "y": 445.078125,
+            "width": 342,
+            "height": 44,
+            "top": 445.078125,
+            "right": 366,
+            "bottom": 489.078125,
+            "left": 24
+          }
+        },
+        {
+          "key": "Shift+Tab",
+          "cls": "text-link",
+          "text": "Explore the circuit and build ",
+          "obscured": true,
+          "hit": "story-state",
+          "rect": {
+            "x": 24,
+            "y": 358.4375,
+            "width": 342,
+            "height": 44,
+            "top": 358.4375,
+            "right": 366,
+            "bottom": 402.4375,
+            "left": 24
+          }
+        }
+      ]
+    },
+    "deferredInitializationHarness": {
+      "base": "https://abdabdulazeez08-hub.github.io/Portfolio/",
+      "testedAt": "2026-10-30T12:54:56.133Z",
+      "results": [
+        {
+          "id": "six-chapters-desktop",
+          "what": "All six chapters advance, reverse, and select the matching real media on desktop",
+          "result": "Fail",
+          "error": "The expression evaluated to a falsy value:\n\n  assert.ok(Number(await p.locator('.prototype-diagram').evaluate(e=>e.style.opacity))>.97)\n"
+        },
+        {
+          "id": "labels-desktop",
+          "what": "Component labels sit below the image and remain readable on desktop",
+          "result": "Pass"
+        },
+        {
+          "id": "six-chapters-phone",
+          "what": "All six chapters advance, reverse, and select the matching real media on phone",
+          "result": "Pass"
+        },
+        {
+          "id": "labels-phone",
+          "what": "Component labels sit below the image and remain readable on phone",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-reveal",
+          "what": "Theme button animates sun/moon and reveals the selected palette",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-rapid",
+          "what": "Rapid repeated theme toggles settle on the last choice",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-fallback",
+          "what": "Theme controls animate and persist without the View Transition API",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-hover",
+          "what": "Hover previews the alternate portrait; leaving restores the original",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-hover-cancel",
+          "what": "Leaving before photo loading finishes cancels the pending hover flip",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-click-pin",
+          "what": "Click pins the hover preview and keyboard still flips both ways",
+          "result": "Pass"
+        },
+        {
+          "id": "motion-reduced-v3",
+          "what": "Reduced motion disables hover flips and theme reveal, with static story copy",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-touch-swipe",
+          "what": "Real browser touch gestures flip portraits horizontally and preserve vertical page scrolling",
+          "result": "Pass"
+        },
+        {
+          "id": "short-landscape",
+          "what": "Short landscape screens show the story in document flow",
+          "result": "Pass"
+        },
+        {
+          "id": "nojs-v3",
+          "what": "Without JavaScript, all six chapters and the actual final photo remain available",
+          "result": "Pass"
+        },
+        {
+          "id": "console-v3",
+          "what": "New story, theme, and portrait interactions produce no page errors",
+          "result": "Pass"
+        }
+      ],
+      "errors": []
+    }
+  },
   "lighthouse": [
     {
       "page": "index.html",
       "theme": "light",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/index.html",
-      "testedAt": "2026-10-30T03:17:24.391Z",
+      "testedAt": "2026-10-30T12:56:16.237Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
-        "performance": 98,
+        "performance": 92,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
@@ -359,10 +829,10 @@
       "page": "about.html",
       "theme": "light",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/about.html",
-      "testedAt": "2026-10-30T03:12:57.652Z",
+      "testedAt": "2026-10-30T12:41:29.550Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
-        "performance": 100,
+        "performance": 99,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
@@ -374,7 +844,7 @@
       "page": "projects.html",
       "theme": "light",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/projects.html",
-      "testedAt": "2026-10-30T03:13:16.670Z",
+      "testedAt": "2026-10-30T12:41:49.878Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
         "performance": 99,
@@ -389,10 +859,10 @@
       "page": "skills.html",
       "theme": "light",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/skills.html",
-      "testedAt": "2026-10-30T03:17:44.174Z",
+      "testedAt": "2026-10-30T12:42:11.990Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
-        "performance": 99,
+        "performance": 100,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
@@ -404,7 +874,7 @@
       "page": "contact.html",
       "theme": "light",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/contact.html",
-      "testedAt": "2026-10-30T03:14:01.222Z",
+      "testedAt": "2026-10-30T12:42:33.500Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
         "performance": 100,
@@ -419,7 +889,7 @@
       "page": "index.html",
       "theme": "dark",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/index.html",
-      "testedAt": "2026-10-30T03:14:24.159Z",
+      "testedAt": "2026-10-30T12:56:34.229Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
         "accessibility": 100,
@@ -432,7 +902,7 @@
       "page": "about.html",
       "theme": "dark",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/about.html",
-      "testedAt": "2026-10-30T03:14:41.646Z",
+      "testedAt": "2026-10-30T12:43:16.109Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
         "accessibility": 100,
@@ -445,7 +915,7 @@
       "page": "projects.html",
       "theme": "dark",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/projects.html",
-      "testedAt": "2026-10-30T03:15:00.220Z",
+      "testedAt": "2026-10-30T12:43:34.468Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
         "accessibility": 100,
@@ -458,7 +928,7 @@
       "page": "skills.html",
       "theme": "dark",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/skills.html",
-      "testedAt": "2026-10-30T03:15:19.883Z",
+      "testedAt": "2026-10-30T12:43:53.515Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
         "accessibility": 100,
@@ -471,7 +941,7 @@
       "page": "contact.html",
       "theme": "dark",
       "url": "https://abdabdulazeez08-hub.github.io/Portfolio/contact.html",
-      "testedAt": "2026-10-30T03:15:37.163Z",
+      "testedAt": "2026-10-30T12:44:13.034Z",
       "lighthouseVersion": "13.6.0",
       "scores": {
         "accessibility": 100,
@@ -486,8 +956,8 @@
     "errors": []
   },
   "staticReferences": {
-    "checkedReferences": 116,
-    "imageFiles": 17,
+    "checkedReferences": 122,
+    "imageFiles": 22,
     "result": "Pass",
     "errors": []
   },
@@ -499,11 +969,26 @@
     "result": "Pass",
     "failures": []
   },
-  "auditNote": "The homepage and Skills performance samples were repeated without concurrent interaction testing after CPU contention produced inconsistent blocking times. All initial samples remain in local QA records.",
+  "auditNote": "Audits were run separately from browser interaction testing. Scores are point-in-time mobile laboratory measurements; initial failed checks and their retests are retained in the evidence.",
   "limitations": [
     "Phone viewport emulation is not physical-device testing.",
     "No messages were sent. Email-client handoff is verified as a correctly encoded mailto link.",
     "Badge, HafizAI, and soil-tilling visuals remain labeled placeholders; Protolight uses actual supplied media.",
-    "Owner review, physical-device classroom demo, course submission, and multi-day work remain personal requirements."
-  ]
+    "Owner code review, physical-device classroom demo, and course submission remain personal requirements. Commit dates are retained honestly."
+  ],
+  "beforeResponsiveImageOptimization": {
+    "sourceCommit": "40d715b3efdf2a7a963b5546e478279b4251ecc3",
+    "performance": 84,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "totalBlockingTimeMs": 537.5,
+    "originalCircuitAndRevisionBytes": 353552,
+    "phoneVariantsBytes": 58208
+  },
+  "afterResponsiveImagesBeforeDeferredLayout": {
+    "sourceCommit": "e7b8b81",
+    "performance": 85,
+    "remainingCause": "Synchronous initial offscreen story layout; fixed by waking the renderer near the viewport."
+  }
 }
