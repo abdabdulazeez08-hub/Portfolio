@@ -19,7 +19,7 @@ Reload the page. Press Tab to reveal Skip to content and Enter to use it. Reload
 Open script.js. Pick one block and explain it in your own words:
 
 - **Mobile menu:** matchMedia determines whether the viewport is narrow. The button flips menuOpen. updateMenu changes the navigation's hidden state and the button's aria-expanded state. Escape closes the menu and restores focus.
-- **Scrollytelling:** layout geometry is cached when fonts, dimensions, or motion preferences change. On scroll, requestAnimationFrame compares the current reading position to the six step centers. That determines the chapter and continuous assembly/media progress, so going backward also reverses the visual. The page never intercepts scrolling, and the text is always present.
+- **Scrollytelling:** an intersection observer wakes the renderer near the story; scroll position selects the chapter. Layout geometry is cached when fonts, dimensions, or motion preferences change. On scroll, requestAnimationFrame compares the current reading position to the six step centers. That determines continuous assembly/media progress, so going backward also reverses the visual. The page never intercepts scrolling, and the text is always present.
 - **Contact validation:** fieldError trims input and checks required fields, email validity, and message length. Errors appear next to the inputs and focus goes to the first invalid field. Valid input becomes an encoded mailto URL. A separate click opens the email app; this site does not send messages.
 
 ## 2:45-3:00 - Evidence

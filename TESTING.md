@@ -15,6 +15,8 @@ Live deployment verification, refreshed Lighthouse measurements, screenshots, an
 
 The first live deployment subsequently passed all 78 browser cases, both keyboard-focus checks, direct-file opening, and static checks. Lighthouse accessibility, best practices, and SEO were 100 on every audited page. The initial homepage performance sample was 84, with unnecessary full-size circuit/revision photo downloads. Added responsive 31.7 KB and 26.5 KB editions (originals retained) and repeated the 15 story/gesture cases locally; final live image and audit retests are pending this optimization deployment.
 
+The responsive-photo deployment also passed all 78 live cases. Its homepage performance sample was 85; profiling identified synchronous offscreen story geometry as the remaining layout cost. The renderer now wakes within 600px of the viewport, with chapter state still derived from scroll position. All 15 new cases passed locally, and an isolated local Lighthouse sample measured 99 performance, 7ms total blocking time, and zero layout shift. The live sample will be repeated after publishing this change.
+
 Live site: https://abdabdulazeez08-hub.github.io/Portfolio/
 
 Executed October 29, 2026, America/New_York. The current interaction source is `e8f8813`. All tests below ran on live GitHub Pages unless explicitly labeled static/direct-file. Chrome viewport emulation covers laptop, phone, tablet, landscape, and 320px layouts. This is not a physical-device certification.

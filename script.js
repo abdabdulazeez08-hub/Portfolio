@@ -109,10 +109,12 @@ if (storyVisual) {
   let storyFrame = 0;
   let currentStage = null;
   let currentNote = "";
+  let storyNearViewport = !("IntersectionObserver" in window);
   const clamp = (value, low = 0, high = 1) => Math.min(high, Math.max(low, value));
 
   function renderStory() {
     storyFrame = 0;
+    if (!storyNearViewport) return;
     if (geometryDirty) {
       // Read layout together only after geometry changes, never per scroll frame.
       centers = steps.map(step => {
@@ -174,7 +176,16 @@ if (storyVisual) {
   }
   function queueStory(measure = false) {
     if (measure) geometryDirty = true;
+    if (!storyNearViewport) return;
     if (!storyFrame) storyFrame = window.requestAnimationFrame(renderStory);
+  }
+  // Let the initial page finish laying out before reading this offscreen section.
+  // This observer only wakes the renderer; native scroll position still determines state.
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(entries => {
+      storyNearViewport = entries[0].isIntersecting;
+      if (storyNearViewport) queueStory(true);
+    }, { rootMargin: "600px 0px" }).observe(document.querySelector(".story-layout"));
   }
   window.addEventListener("scroll", () => queueStory(), { passive: true });
   window.addEventListener("resize", () => queueStory(true));
