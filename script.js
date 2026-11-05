@@ -109,6 +109,8 @@ if (storyVisual) {
   let storyFrame = 0;
   let currentStage = null;
   let currentNote = "";
+  let storyIsStatic = false;
+  let previousStatic = null;
   let storyNearViewport = !("IntersectionObserver" in window);
   const clamp = (value, low = 0, high = 1) => Math.min(high, Math.max(low, value));
 
@@ -123,8 +125,8 @@ if (storyVisual) {
       });
       const headerHeight = header.offsetHeight;
       const visualHeight = storyVisual.offsetHeight;
-      const reduced = document.documentElement.dataset.motion === "reduced";
-      focusOffset = mobileQuery.matches && !reduced
+      storyIsStatic = getComputedStyle(storyVisual).position !== "sticky";
+      focusOffset = mobileQuery.matches && !storyIsStatic
         ? headerHeight + visualHeight + Math.max(70, (window.innerHeight - headerHeight - visualHeight) / 2)
         : window.innerHeight / 2;
       geometryDirty = false;
@@ -155,8 +157,9 @@ if (storyVisual) {
     storyVisual.style.setProperty("--story-progress", (progress / (steps.length - 1)).toFixed(3));
     storyVisual.dataset.progress = progress.toFixed(3);
     const stage = steps[active].dataset.step;
-    if (currentStage !== stage) {
+    if (currentStage !== stage || previousStatic !== storyIsStatic) {
       currentStage = stage;
+      previousStatic = storyIsStatic;
       storyVisual.dataset.stage = stage;
       count.textContent = `${String(active + 1).padStart(2, "0")} / ${String(steps.length).padStart(2, "0")}`;
       caption.textContent = stages[stage][0];
@@ -164,14 +167,14 @@ if (storyVisual) {
       key.hidden = !illustrated;
       source.hidden = illustrated;
       source.textContent = stages[stage][1];
-      diagram.setAttribute("aria-hidden", String(!illustrated));
-      scenes.forEach(scene => scene.setAttribute("aria-hidden", String(scene.dataset.scene !== stage)));
+      diagram.setAttribute("aria-hidden", String(storyIsStatic || !illustrated));
+      scenes.forEach(scene => scene.setAttribute("aria-hidden", String(scene.dataset.scene !== (storyIsStatic ? "build" : stage))));
       chapterLinks.forEach(link => {
         if (link.dataset.chapter === stage) link.setAttribute("aria-current", "step");
         else link.removeAttribute("aria-current");
       });
     }
-    const nextNote = document.documentElement.dataset.motion === "reduced" ? stages.build[1] : stages[stage][1];
+    const nextNote = storyIsStatic ? stages.build[1] : stages[stage][1];
     if (currentNote !== nextNote) { note.textContent = nextNote; currentNote = nextNote; }
   }
   function queueStory(measure = false) {
@@ -213,7 +216,13 @@ if (storyVisual) {
 const themeButton = document.querySelector(".theme-toggle");
 const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 let themePreference = null;
-try { themePreference = localStorage.getItem("portfolio-theme"); } catch { /* Storage is optional. */ }
+function readThemePreference() {
+  try {
+    const saved = localStorage.getItem("portfolio-theme");
+    return saved === "light" || saved === "dark" ? saved : null;
+  } catch { return null; }
+}
+themePreference = readThemePreference();
 function applyTheme(theme) {
   const dark = theme === "dark";
   document.documentElement.dataset.theme = theme;
@@ -287,10 +296,32 @@ document.addEventListener("portfolio:motion", () => {
   }
 });
 
+// Restore current preferences after Back/Forward cache or a change in another tab.
+function restorePreferences() {
+  themePreference = readThemePreference();
+  const theme = themePreference || (themeQuery.matches ? "dark" : "light");
+  if (theme !== document.documentElement.dataset.theme || themeTransition) {
+    themeSequence += 1;
+    themeTransition?.skipTransition();
+    themeTransition = null;
+    clearTimeout(themeFallbackTimer);
+    document.documentElement.classList.remove("theme-fallback");
+    delete document.documentElement.dataset.themeAnimating;
+    applyTheme(theme);
+  }
+  try { userReducedMotion = localStorage.getItem("portfolio-reduced-motion") === "true"; } catch { /* Keep the current choice when storage is unavailable. */ }
+  updateMotion();
+}
+window.addEventListener("pageshow", event => { if (event.persisted) restorePreferences(); });
+window.addEventListener("storage", event => {
+  if (event.key === null || event.key === "portfolio-theme" || event.key === "portfolio-reduced-motion") restorePreferences();
+});
+
 // Both unretouched photographs share the same circular CSS headshot frame.
 document.querySelectorAll(".portrait-switcher").forEach(portrait => {
   const button = portrait.querySelector(".portrait-flip");
   const graduationImage = portrait.querySelector(".portrait-graduation");
+  const status = portrait.querySelector(".portrait-status");
   let graduationReady = null;
   let request = 0;
   let desiredGraduation = false;
@@ -311,13 +342,17 @@ document.querySelectorAll(".portrait-switcher").forEach(portrait => {
   async function showPortrait(graduation) {
     desiredGraduation = graduation;
     const ticket = ++request;
+    status.textContent = "";
     if (graduation) {
       button.setAttribute("aria-busy", "true");
       await loadGraduation();
       if (ticket !== request) return;
       button.removeAttribute("aria-busy");
       if (!graduationImage.complete || graduationImage.naturalWidth === 0) {
-        portrait.querySelector("[data-portrait-label]").textContent = "The graduation photo could not load. Try again.";
+        desiredGraduation = portrait.dataset.portrait === "graduation";
+        restingGraduation = desiredGraduation;
+        hoverPreview = false;
+        status.textContent = "The graduation photo could not load. Select the portrait to try again.";
         return;
       }
     }

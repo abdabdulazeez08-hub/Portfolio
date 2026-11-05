@@ -33,6 +33,7 @@ Use small, descriptive commits and normal pushes. Do not force-push or backdate 
 - [Submission report](output/pdf/portfolio-report.pdf): two-page report with real screenshots of the live site at desktop and phone viewport sizes.
 - [DEMO.md](DEMO.md): a three-minute demonstration outline and JavaScript explanations.
 - [Test evidence](docs/testing-results.json): browser-check results and Lighthouse scores.
+- [Rubric checklist](docs/RUBRIC.md): every grading criterion, its evidence, and the remaining owner media/demo/submission steps.
 
 The owner must personally review AGENTS.md and the code, practice the keyboard demo on actual devices, and upload the report to the course assignment.
 
@@ -42,7 +43,7 @@ The owner must personally review AGENTS.md and the code, practice the keyboard d
 
 The badge, HafizAI, and soil-tilling images remain **labeled illustrative placeholders** until their actual media is provided. A public HafizAI URL can also be added later. Keep every replacement image under 500 KB and update alt text/captions. No live product URL or third-party source repository is invented.
 
-The original resume is intentionally excluded because it includes a phone number and precise location details. The portfolio contains the supplied professional email and profile links.
+A [public resume PDF](output/pdf/abdallah-abdulazeez-resume.pdf) is available from About and Contact. It preserves the supplied resume content with the private contact header removed; only the professional email and LinkedIn remain in that header. The original resume is excluded because it includes a phone number and precise location details.
 
 ## Acknowledgments
 

@@ -7,4 +7,8 @@
   document.documentElement.dataset.theme = dark ? "dark" : "light";
   const color = document.querySelector('meta[name="theme-color"]');
   if (color) color.content = dark ? "#14252d" : "#edf4f2";
+  // If the enhancement script cannot load, restore the visible native navigation.
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!document.body.classList.contains("js-ready")) document.documentElement.classList.remove("js-enabled");
+  }, { once: true });
 }());

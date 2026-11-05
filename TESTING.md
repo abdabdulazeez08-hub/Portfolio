@@ -149,3 +149,23 @@ Mobile preset, default simulated throttling. Dark audits launch Chrome with its 
 - No email was sent. The form validates locally and creates a draft URL for the visitor’s email app.
 - Protolight now has actual photos/CAD. The other three project images remain labeled placeholders at the owner’s request.
 - The owner must review the code and AGENTS.md, practice on a physical phone/laptop, perform the three-minute class demo, and submit the PDF. Commits retain their actual dates; review the history against your course process requirements.
+
+
+## November 5, 2026 - public resume and rubric review
+
+Earlier tables retain their original run dates. Fresh evidence is recorded separately in [resume and rubric results](docs/resume-rubric-results.json).
+
+| ID | What is tested | Steps | Expected | Actual result |
+| --- | --- | --- | --- | --- |
+| T93 | Public resume privacy and layout | Extract the generated PDF text, compare with supplied resume, inspect a rendered page. | One readable page; original private header absent; no phone or postal code; source claims preserved. | Pass locally; visual review completed. |
+| T94 | About resume download | At 390px and 1440px, focus the download link and press Enter; compare downloaded bytes with reviewed PDF. | Keyboard downloads the correct PDF; no horizontal overflow. | Pass locally at both widths. |
+| T95 | Contact resume download | Repeat T94 on Contact. | Correct PDF and keyboard access at both widths. | Pass locally at both widths. |
+| T96 | New resume button spacing | Inspect About at phone and laptop widths. | Button separated from introduction and portrait. | Initial visual review: Fail, cramped spacing. Added 24px top margin; visual and download retest: Pass. |
+| T97 | Existing site regression | Run core, theme/layout, story/gesture, and expanded audit suites locally. | Navigation, keyboard, forms, layouts, motion, and recovery work. | Pass: 41 + 22 + 15 + 42 cases; zero JavaScript exceptions. |
+| T98 | Local assets | Parse local references and check image sizes. | All references resolve and images are below 500 KB. | Pass: 124 references, 22 images. |
+| T99 | Live deployment and downloads | Publish to main, repeat browser checks and compare live PDF bytes. | New links and reviewed PDF available on GitHub Pages. | Pending post-push verification. |
+| T100 | Fresh live Lighthouse | Audit every page with installed Lighthouse. | Accessibility at least 90 on all five pages. | Pre-push audit summary script failed on an unexpected details.items shape; fix uses an array guard. Final post-push audit pending. |
+
+Live browser access initially failed with ERR_NETWORK_ACCESS_DENIED in the sandbox. This is an environment failure; live retesting requires the network-enabled execution context. No website pass is inferred from that failure.
+
+The existing report remains a two-page report with genuine screenshots; it predates the new resume link. Three projects still have explicitly labeled illustrative media. These are content review gaps, not automatically awarded rubric points. Owner code review, physical-device demo, JavaScript explanation, and assignment submission remain required.

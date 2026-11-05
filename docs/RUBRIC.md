@@ -1,0 +1,39 @@
+# Assignment rubric checklist
+
+Checked against the supplied 100-point Personal Portfolio Website Development and Deployment rubric. [TESTING.md](../TESTING.md) records browser checks, failures, fixes, live retests, and Lighthouse results. The source uses plain HTML, one external stylesheet, and vanilla JavaScript.
+
+| Rubric requirement | Points | Evidence / status |
+| --- | ---: | --- |
+| Five pages, linked from every navigation | 6 | Home, About, Projects, Skills, and Contact; all five destinations checked from each page on phone and laptop. |
+| At least three projects, descriptions, images, applicable links | 7 | Four described projects, descriptive image alternatives, and working project/contact links. Protolight has genuine photos/CAD. Three other projects use clearly labeled illustrations while owner media is pending; a public HafizAI product URL has not been supplied. |
+| No placeholder text or empty sections | 4 | Personal and project descriptions are written from the supplied sources; no empty sections or lorem ipsum. The three pending-media captions remain honest about illustrative placeholders. Replace those figures when the owner supplies the media. |
+| Contact details or functional static form | 3 | Public email/profile links; validated form creates an encoded email draft. It never sends or stores messages. |
+| Semantic HTML5 | 5 | Landmarks and meaningful elements on every page; corrected figure/caption structure and named signal group. All five pages checked with the W3C HTML checker. |
+| One h1, ordered headings | 2 | Structure checks on every page. |
+| One external stylesheet, no authored inline styles | 3 | One styles.css; no style elements or style attributes in the HTML. JavaScript updates animation values at runtime. |
+| Consistent colors and typography | 4 | Shared light/dark tokens, locally hosted Archivo headings, system body font, and shared header/footer. |
+| Phone and laptop, no sideways scrolling | 6 | Both themes at 320px, phone, tablet, landscape, and laptop sizes; extra short-screen and text-scaling checks. |
+| Responsive navigation opens and closes | 6 | On every page: menu button, Escape, outside click, and focus leaving the header. Navigation stays available if the enhancement script cannot download. |
+| Another working JavaScript feature | 6 | Scroll story, theme reveal, portrait controls, ribbon pause, motion preference, and contact validation. |
+| No browser console errors | 3 | Normal navigation/interaction suites collect errors. Separate failure tests deliberately abort image/script downloads to verify recovery. |
+| Every image has alt text | 3 | Descriptive alternatives for meaningful images; empty alternatives only for redundant linked preview images. |
+| Keyboard access | 3 | Tab/Enter on every page, visible focus, skip link, Escape, Space on disclosure/portrait controls, and unobscured focus below sticky content. |
+| Lighthouse accessibility at least 90 on every page | 4 | Per-page light/dark audit scores recorded in TESTING.md and the evidence JSON. |
+| At least 12 complete test cases | 4 | Test IDs, steps, expected outcomes, actual results, and failure/retest records in TESTING.md. |
+| Required test coverage | 3 | Every page, main navigation destination, JavaScript feature, keyboard flow, and Lighthouse accessibility audit. Added real chapter-link clicks and failure recovery. |
+| Tests run live; failures corrected and rerun | 3 | Live GitHub Pages results and source commits recorded. |
+| Public GitHub Pages deployment; working links/images | 3 | Existing Portfolio repository; main branch, root folder. Repository name/casing preserved as directed by the owner. |
+| README | 2 | Description, live/repository links, local opening instructions, notes, and acknowledgments. |
+| AGENTS.md | 2 | Scope, design, static implementation, privacy, Git, testing, and owner review rules. **Owner must personally review this file.** |
+| Small clear commits across multiple days | 3 | Genuine dated commit history includes October 29 and October 30, 2026. No backdating or history rewriting. Review it against the instructor's process expectations. |
+| Phone/laptop and keyboard class demo | 4 | **Owner action pending.** Use DEMO.md and practice on physical devices. Emulation does not replace the classroom demonstration. |
+| Explain JavaScript | 6 | **Owner action pending.** DEMO.md explains the main blocks; read the source and explain it in your own words. |
+| Report includes overview, challenges, Codex mistake/fix, screenshots | 5 | Two-page PDF with repository/live links at the top and genuine laptop/phone screenshots. **Owner must upload it to the assignment.** |
+
+## Remaining owner items
+
+- Supply the badge, HafizAI, and soil-tilling project photos/screenshots; supply a HafizAI public link if one should be shown. Until then the figures remain explicitly illustrative.
+- Personally review AGENTS.md and the source, practice the keyboard and JavaScript explanations, and demonstrate on a physical phone and laptop.
+- Upload the report to the course assignment. No classroom demo or course submission is claimed by automated checks.
+
+The external email-app handoff is checked as a correctly encoded mailto link. Sending a message and configuring a visitor's email application are outside this static website.

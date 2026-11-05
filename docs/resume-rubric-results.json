@@ -1,0 +1,1240 @@
+{
+  "date": "2026-11-05",
+  "local": {
+    "core": [
+      {
+        "id": "desktop-index.html-structure",
+        "description": "index.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-index.html-navigation",
+        "description": "index.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-index.html-keyboard",
+        "description": "index.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-about.html-structure",
+        "description": "about.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-about.html-navigation",
+        "description": "about.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-about.html-keyboard",
+        "description": "about.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-projects.html-structure",
+        "description": "projects.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-projects.html-navigation",
+        "description": "projects.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-projects.html-keyboard",
+        "description": "projects.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-skills.html-structure",
+        "description": "skills.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-skills.html-navigation",
+        "description": "skills.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-skills.html-keyboard",
+        "description": "skills.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-contact.html-structure",
+        "description": "contact.html: semantic structure and 1440px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-contact.html-navigation",
+        "description": "contact.html: all five main navigation links at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "desktop-contact.html-keyboard",
+        "description": "contact.html: Tab, Enter, skip link, focus visibility at 1440px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-index.html-structure",
+        "description": "index.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-index.html-navigation",
+        "description": "index.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-index.html-keyboard",
+        "description": "index.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-about.html-structure",
+        "description": "about.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-about.html-navigation",
+        "description": "about.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-about.html-keyboard",
+        "description": "about.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-projects.html-structure",
+        "description": "projects.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-projects.html-navigation",
+        "description": "projects.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-projects.html-keyboard",
+        "description": "projects.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-skills.html-structure",
+        "description": "skills.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-skills.html-navigation",
+        "description": "skills.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-skills.html-keyboard",
+        "description": "skills.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-contact.html-structure",
+        "description": "contact.html: semantic structure and 390px layout",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-contact.html-navigation",
+        "description": "contact.html: all five main navigation links at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "mobile-contact.html-keyboard",
+        "description": "contact.html: Tab, Enter, skip link, focus visibility at 390px",
+        "result": "Pass"
+      },
+      {
+        "id": "menu-escape",
+        "description": "Mobile menu opens with Enter and closes with Escape",
+        "result": "Pass"
+      },
+      {
+        "id": "menu-resize",
+        "description": "Navigation restores across mobile/desktop resize",
+        "result": "Pass"
+      },
+      {
+        "id": "motion-preference",
+        "description": "Motion preference switches, persists, and respects operating system",
+        "result": "Pass"
+      },
+      {
+        "id": "scroll-story",
+        "description": "All six story stages update during native scrolling",
+        "result": "Pass"
+      },
+      {
+        "id": "form-invalid",
+        "description": "Empty, malformed email, and short message fail with inline errors",
+        "result": "Pass"
+      },
+      {
+        "id": "form-valid",
+        "description": "Valid form creates correctly encoded email draft without sending",
+        "result": "Pass"
+      },
+      {
+        "id": "form-whitespace",
+        "description": "Whitespace-only values are invalid",
+        "result": "Pass"
+      },
+      {
+        "id": "project-subject",
+        "description": "Case-study contact link prefills the subject safely",
+        "result": "Pass"
+      },
+      {
+        "id": "small-screens",
+        "description": "All five pages fit 320px and landscape layouts",
+        "result": "Pass"
+      },
+      {
+        "id": "no-script",
+        "description": "All pages and navigation work with JavaScript disabled",
+        "result": "Pass"
+      },
+      {
+        "id": "console",
+        "description": "No JavaScript errors or failed console resources during suite",
+        "result": "Pass"
+      }
+    ],
+    "theme": {
+      "base": "http://127.0.0.1:8000/",
+      "testedAt": "2026-11-05T21:59:00.683Z",
+      "results": [
+        {
+          "id": "story-desktop-forward",
+          "what": "desktop: scroll down progresses sense → respond → design → wire → refine → build",
+          "result": "Pass"
+        },
+        {
+          "id": "story-desktop-reverse",
+          "what": "desktop: scroll up reverses build → refine → wire → design → respond → sense",
+          "result": "Pass"
+        },
+        {
+          "id": "story-desktop-jump",
+          "what": "desktop: large scroll jumps retain the correct stage",
+          "result": "Pass"
+        },
+        {
+          "id": "story-desktop-sticky",
+          "what": "desktop: visual stays below header without covering all copy",
+          "result": "Pass"
+        },
+        {
+          "id": "story-mobile-forward",
+          "what": "mobile: scroll down progresses sense → respond → design → wire → refine → build",
+          "result": "Pass"
+        },
+        {
+          "id": "story-mobile-reverse",
+          "what": "mobile: scroll up reverses build → refine → wire → design → respond → sense",
+          "result": "Pass"
+        },
+        {
+          "id": "story-mobile-jump",
+          "what": "mobile: large scroll jumps retain the correct stage",
+          "result": "Pass"
+        },
+        {
+          "id": "story-mobile-sticky",
+          "what": "mobile: visual stays below header without covering all copy",
+          "result": "Pass"
+        },
+        {
+          "id": "story-resize",
+          "what": "Scroll state recalculates when resizing desktop ↔ mobile",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-toggle",
+          "what": "Dark mode toggles and persists across pages/reloads",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-os",
+          "what": "Unsaved theme follows the system; a saved choice wins",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-index.html",
+          "what": "index.html: circular portraits flip both ways with keyboard",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-about.html",
+          "what": "about.html: circular portraits flip both ways with keyboard",
+          "result": "Pass"
+        },
+        {
+          "id": "skills-complete",
+          "what": "Skills ribbon contains CAD, fabrication, electronics, software, and languages",
+          "result": "Pass"
+        },
+        {
+          "id": "skills-pause",
+          "what": "Skills ribbon pause/play control stops and resumes animation",
+          "result": "Pass"
+        },
+        {
+          "id": "cursor-mouse",
+          "what": "Fine mouse cursor halo follows and reacts without hiding native cursor",
+          "result": "Pass"
+        },
+        {
+          "id": "reduced-motion-new",
+          "what": "Reduced motion disables ribbon/cursor/flip transitions and sticky story",
+          "result": "Pass"
+        },
+        {
+          "id": "cursor-touch",
+          "what": "Touch devices do not get a cursor halo",
+          "result": "Pass"
+        },
+        {
+          "id": "actual-media",
+          "what": "Authentic final photo and CAD media are used and labeled correctly",
+          "result": "Pass"
+        },
+        {
+          "id": "linkedin-links",
+          "what": "LinkedIn is available from every header and both portrait pages",
+          "result": "Pass"
+        },
+        {
+          "id": "both-theme-layouts",
+          "what": "All five pages fit 320px, phone, tablet, landscape, and laptop in both themes",
+          "result": "Pass"
+        },
+        {
+          "id": "new-console",
+          "what": "New interactions produce no JavaScript exceptions",
+          "result": "Pass"
+        }
+      ],
+      "errors": []
+    },
+    "story": {
+      "base": "http://127.0.0.1:8000/",
+      "testedAt": "2026-11-05T21:58:20.351Z",
+      "results": [
+        {
+          "id": "six-chapters-desktop",
+          "what": "All six chapters advance, reverse, and select the matching real media on desktop",
+          "result": "Pass"
+        },
+        {
+          "id": "labels-desktop",
+          "what": "Component labels sit below the image and remain readable on desktop",
+          "result": "Pass"
+        },
+        {
+          "id": "six-chapters-phone",
+          "what": "All six chapters advance, reverse, and select the matching real media on phone",
+          "result": "Pass"
+        },
+        {
+          "id": "labels-phone",
+          "what": "Component labels sit below the image and remain readable on phone",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-reveal",
+          "what": "Theme button animates sun/moon and reveals the selected palette",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-rapid",
+          "what": "Rapid repeated theme toggles settle on the last choice",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-fallback",
+          "what": "Theme controls animate and persist without the View Transition API",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-hover",
+          "what": "Hover previews the alternate portrait; leaving restores the original",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-hover-cancel",
+          "what": "Leaving before photo loading finishes cancels the pending hover flip",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-click-pin",
+          "what": "Click pins the hover preview and keyboard still flips both ways",
+          "result": "Pass"
+        },
+        {
+          "id": "motion-reduced-v3",
+          "what": "Reduced motion disables hover flips and theme reveal, with static story copy",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-touch-swipe",
+          "what": "Real browser touch gestures flip portraits horizontally and preserve vertical page scrolling",
+          "result": "Pass"
+        },
+        {
+          "id": "short-landscape",
+          "what": "Short landscape screens show the story in document flow",
+          "result": "Pass"
+        },
+        {
+          "id": "nojs-v3",
+          "what": "Without JavaScript, all six chapters and the actual final photo remain available",
+          "result": "Pass"
+        },
+        {
+          "id": "console-v3",
+          "what": "New story, theme, and portrait interactions produce no page errors",
+          "result": "Pass"
+        }
+      ],
+      "errors": []
+    },
+    "expanded": {
+      "base": "http://127.0.0.1:8000/",
+      "testedAt": "2026-11-05T21:59:00.789Z",
+      "results": [
+        {
+          "id": "all-local-links-index",
+          "what": "index: every local destination, project link, footer link, and anchor resolves",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-buttons-index",
+          "what": "index: theme buttons work both directions and retain visible accessible names",
+          "result": "Pass"
+        },
+        {
+          "id": "menu-dismiss-index",
+          "what": "index: mobile menu closes with Escape, outside click, and focus leaving the header",
+          "result": "Pass"
+        },
+        {
+          "id": "footer-motion-index",
+          "what": "index: footer motion control toggles, persists on reload, and re-enables",
+          "result": "Pass"
+        },
+        {
+          "id": "all-local-links-about",
+          "what": "about: every local destination, project link, footer link, and anchor resolves",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-buttons-about",
+          "what": "about: theme buttons work both directions and retain visible accessible names",
+          "result": "Pass"
+        },
+        {
+          "id": "menu-dismiss-about",
+          "what": "about: mobile menu closes with Escape, outside click, and focus leaving the header",
+          "result": "Pass"
+        },
+        {
+          "id": "footer-motion-about",
+          "what": "about: footer motion control toggles, persists on reload, and re-enables",
+          "result": "Pass"
+        },
+        {
+          "id": "all-local-links-projects",
+          "what": "projects: every local destination, project link, footer link, and anchor resolves",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-buttons-projects",
+          "what": "projects: theme buttons work both directions and retain visible accessible names",
+          "result": "Pass"
+        },
+        {
+          "id": "menu-dismiss-projects",
+          "what": "projects: mobile menu closes with Escape, outside click, and focus leaving the header",
+          "result": "Pass"
+        },
+        {
+          "id": "footer-motion-projects",
+          "what": "projects: footer motion control toggles, persists on reload, and re-enables",
+          "result": "Pass"
+        },
+        {
+          "id": "all-local-links-skills",
+          "what": "skills: every local destination, project link, footer link, and anchor resolves",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-buttons-skills",
+          "what": "skills: theme buttons work both directions and retain visible accessible names",
+          "result": "Pass"
+        },
+        {
+          "id": "menu-dismiss-skills",
+          "what": "skills: mobile menu closes with Escape, outside click, and focus leaving the header",
+          "result": "Pass"
+        },
+        {
+          "id": "footer-motion-skills",
+          "what": "skills: footer motion control toggles, persists on reload, and re-enables",
+          "result": "Pass"
+        },
+        {
+          "id": "all-local-links-contact",
+          "what": "contact: every local destination, project link, footer link, and anchor resolves",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-buttons-contact",
+          "what": "contact: theme buttons work both directions and retain visible accessible names",
+          "result": "Pass"
+        },
+        {
+          "id": "menu-dismiss-contact",
+          "what": "contact: mobile menu closes with Escape, outside click, and focus leaving the header",
+          "result": "Pass"
+        },
+        {
+          "id": "footer-motion-contact",
+          "what": "contact: footer motion control toggles, persists on reload, and re-enables",
+          "result": "Pass"
+        },
+        {
+          "id": "chapter-links-320x740",
+          "what": "320×740: clicking all six chapter links lands on readable content with the correct state",
+          "result": "Pass"
+        },
+        {
+          "id": "sticky-fit-320x740",
+          "what": "320×740: the whole sticky artwork, legend, and source note fit within the viewport",
+          "result": "Pass"
+        },
+        {
+          "id": "chapter-links-390x844",
+          "what": "390×844: clicking all six chapter links lands on readable content with the correct state",
+          "result": "Pass"
+        },
+        {
+          "id": "sticky-fit-390x844",
+          "what": "390×844: the whole sticky artwork, legend, and source note fit within the viewport",
+          "result": "Pass"
+        },
+        {
+          "id": "chapter-links-768x1024",
+          "what": "768×1024: clicking all six chapter links lands on readable content with the correct state",
+          "result": "Pass"
+        },
+        {
+          "id": "sticky-fit-768x1024",
+          "what": "768×1024: the whole sticky artwork, legend, and source note fit within the viewport",
+          "result": "Pass"
+        },
+        {
+          "id": "chapter-links-1366x650",
+          "what": "1366×650: clicking all six chapter links lands on readable content with the correct state",
+          "result": "Pass"
+        },
+        {
+          "id": "sticky-fit-1366x650",
+          "what": "1366×650: the whole sticky artwork, legend, and source note fit within the viewport",
+          "result": "Pass"
+        },
+        {
+          "id": "chapter-links-1440x900",
+          "what": "1440×900: clicking all six chapter links lands on readable content with the correct state",
+          "result": "Pass"
+        },
+        {
+          "id": "sticky-fit-1440x900",
+          "what": "1440×900: the whole sticky artwork, legend, and source note fit within the viewport",
+          "result": "Pass"
+        },
+        {
+          "id": "short-phone-logic",
+          "what": "Short phone: a static story uses an overview image and the viewport reading line",
+          "result": "Pass"
+        },
+        {
+          "id": "theme-invalid-storage",
+          "what": "Invalid saved theme falls back to OS and the first toggle changes the visible theme",
+          "result": "Pass"
+        },
+        {
+          "id": "history-preferences",
+          "what": "Back navigation restores the current theme and motion preferences",
+          "result": "Pass"
+        },
+        {
+          "id": "cross-tab-preferences",
+          "what": "Theme and motion choices sync to an already-open page and restore from page cache",
+          "result": "Pass"
+        },
+        {
+          "id": "portrait-failure-retry",
+          "what": "A failed portrait load gives visible feedback and one retry click loads the alternate image",
+          "result": "Pass"
+        },
+        {
+          "id": "form-roundtrip-and-recovery",
+          "what": "Contact form preserves punctuation/newlines, clears stale drafts, and recovers from errors",
+          "result": "Pass"
+        },
+        {
+          "id": "details-keyboard",
+          "what": "Project build notes expand and collapse with Enter and Space",
+          "result": "Pass"
+        },
+        {
+          "id": "text-zoom",
+          "what": "All five pages remain readable without sideways scrolling at a 200% text scale",
+          "result": "Pass"
+        },
+        {
+          "id": "figure-semantics",
+          "what": "Every figure has its caption first or last, and named generic containers have an appropriate role",
+          "result": "Pass"
+        },
+        {
+          "id": "script-load-fallback",
+          "what": "If the enhancement script fails to download, phone navigation and page content remain usable",
+          "result": "Pass"
+        },
+        {
+          "id": "storage-unavailable",
+          "what": "Theme and motion controls work when browser storage is unavailable",
+          "result": "Pass"
+        },
+        {
+          "id": "new-audit-console",
+          "what": "Full audit actions produce no JavaScript exceptions",
+          "result": "Pass"
+        }
+      ],
+      "errors": [],
+      "inventory": [
+        {
+          "page": "index",
+          "headings": [
+            "From a first sketchto something real.",
+            "The tools behind the work.",
+            "Ideas, made tangible.",
+            "Protolight ",
+            "Illuminated vehicle badge ",
+            "Every part hasa story to tell.",
+            "Read the conditions.",
+            "Turn readings into light.",
+            "Give the electronicsa place to live.",
+            "Make the connections.Then check them.",
+            "The first fitis a starting point.",
+            "From a modelto the real thing.",
+            "A builder with morethan one perspective.",
+            "Good work startswith a conversation."
+          ],
+          "buttons": [
+            {
+              "text": "Menu ＋",
+              "label": null,
+              "hidden": true
+            },
+            {
+              "text": "",
+              "label": "Switch to dark mode",
+              "hidden": false
+            },
+            {
+              "text": "↻",
+              "label": "Show graduation portrait of Abdallah Abdulazeez",
+              "hidden": false
+            },
+            {
+              "text": "Pause skills ribbon",
+              "label": null,
+              "hidden": false
+            },
+            {
+              "text": "Reduce motion",
+              "label": null,
+              "hidden": false
+            }
+          ],
+          "links": [
+            {
+              "text": "Skip to content",
+              "href": "#main"
+            },
+            {
+              "text": "Aa.Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Home",
+              "href": "index.html"
+            },
+            {
+              "text": "About",
+              "href": "about.html"
+            },
+            {
+              "text": "Projects",
+              "href": "projects.html"
+            },
+            {
+              "text": "Skills",
+              "href": "skills.html"
+            },
+            {
+              "text": "Contact",
+              "href": "contact.html"
+            },
+            {
+              "text": "inLinkedIn",
+              "href": "https://www.linkedin.com/in/abdallah-abdulazeez/"
+            },
+            {
+              "text": "Connect on LinkedIn",
+              "href": "https://www.linkedin.com/in/abdallah-abdulazeez/"
+            },
+            {
+              "text": "Explore my work",
+              "href": "projects.html"
+            },
+            {
+              "text": "Scroll to explore ↓",
+              "href": "#selected-work"
+            },
+            {
+              "text": "All four projects",
+              "href": "projects.html"
+            },
+            {
+              "text": "",
+              "href": "projects.html#protolight"
+            },
+            {
+              "text": "Protolight",
+              "href": "projects.html#protolight"
+            },
+            {
+              "text": "",
+              "href": "projects.html#badge"
+            },
+            {
+              "text": "Illuminated vehicle badge",
+              "href": "projects.html#badge"
+            },
+            {
+              "text": "01 Sense",
+              "href": "#story-sense"
+            },
+            {
+              "text": "02 Respond",
+              "href": "#story-respond"
+            },
+            {
+              "text": "03 Design",
+              "href": "#story-design"
+            },
+            {
+              "text": "04 Wire",
+              "href": "#story-wire"
+            },
+            {
+              "text": "05 Refine",
+              "href": "#story-revise"
+            },
+            {
+              "text": "06 Build",
+              "href": "#story-build"
+            },
+            {
+              "text": "Explore the circuit and build",
+              "href": "projects.html#protolight"
+            },
+            {
+              "text": "See the real CAD and photos",
+              "href": "projects.html#protolight"
+            },
+            {
+              "text": "More about me",
+              "href": "about.html"
+            },
+            {
+              "text": "Get in touch",
+              "href": "contact.html"
+            },
+            {
+              "text": "Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Let’s connect",
+              "href": "contact.html"
+            },
+            {
+              "text": "Back to top ↑",
+              "href": "#main"
+            }
+          ]
+        },
+        {
+          "page": "about",
+          "headings": [
+            "Curiosity, followedthrough.",
+            "Comfortable at the intersection.",
+            "A foundationin engineering.",
+            "New Jersey Institute of Technology",
+            "Passaic County Technical Institute",
+            "Responsibility,in different settings.",
+            "Line cook · Al Manakeesh",
+            "Owner & operator · Online resale business",
+            "Game manager · Muslim Basketball",
+            "Youth program volunteer · ICPC Boys Juniors",
+            "Discipline carries over.",
+            "Good work startswith a conversation."
+          ],
+          "buttons": [
+            {
+              "text": "Menu ＋",
+              "label": null,
+              "hidden": true
+            },
+            {
+              "text": "",
+              "label": "Switch to dark mode",
+              "hidden": false
+            },
+            {
+              "text": "↻",
+              "label": "Show graduation portrait of Abdallah Abdulazeez",
+              "hidden": false
+            },
+            {
+              "text": "Reduce motion",
+              "label": null,
+              "hidden": false
+            }
+          ],
+          "links": [
+            {
+              "text": "Skip to content",
+              "href": "#main"
+            },
+            {
+              "text": "Aa.Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Home",
+              "href": "index.html"
+            },
+            {
+              "text": "About",
+              "href": "about.html"
+            },
+            {
+              "text": "Projects",
+              "href": "projects.html"
+            },
+            {
+              "text": "Skills",
+              "href": "skills.html"
+            },
+            {
+              "text": "Contact",
+              "href": "contact.html"
+            },
+            {
+              "text": "inLinkedIn",
+              "href": "https://www.linkedin.com/in/abdallah-abdulazeez/"
+            },
+            {
+              "text": "Download resume (PDF)",
+              "href": "output/pdf/abdallah-abdulazeez-resume.pdf"
+            },
+            {
+              "text": "Find me on LinkedIn",
+              "href": "https://www.linkedin.com/in/abdallah-abdulazeez/"
+            },
+            {
+              "text": "See that thinking in practice",
+              "href": "projects.html"
+            },
+            {
+              "text": "Get in touch",
+              "href": "contact.html"
+            },
+            {
+              "text": "Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Let’s connect",
+              "href": "contact.html"
+            },
+            {
+              "text": "Back to top ↑",
+              "href": "#main"
+            }
+          ]
+        },
+        {
+          "page": "projects",
+          "headings": [
+            "Thinking in parts.Building the whole.",
+            "Protolight",
+            "Responding to more than darkness.",
+            "My contribution",
+            "What we tested",
+            "Illuminated vehicle badge",
+            "The details disappear into the build.",
+            "From enclosure to light",
+            "HafizAI",
+            "Helping a meaningful habit take shape.",
+            "From product to first interest",
+            "Soil-tilling utility vehicle",
+            "A mechanism with a job to do.",
+            "Designing the relationships",
+            "Good work startswith a conversation."
+          ],
+          "buttons": [
+            {
+              "text": "Menu ＋",
+              "label": null,
+              "hidden": true
+            },
+            {
+              "text": "",
+              "label": "Switch to dark mode",
+              "hidden": false
+            },
+            {
+              "text": "Build progression and team credits",
+              "label": null,
+              "hidden": false
+            },
+            {
+              "text": "Reduce motion",
+              "label": null,
+              "hidden": false
+            }
+          ],
+          "links": [
+            {
+              "text": "Skip to content",
+              "href": "#main"
+            },
+            {
+              "text": "Aa.Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Home",
+              "href": "index.html"
+            },
+            {
+              "text": "About",
+              "href": "about.html"
+            },
+            {
+              "text": "Projects",
+              "href": "projects.html"
+            },
+            {
+              "text": "Skills",
+              "href": "skills.html"
+            },
+            {
+              "text": "Contact",
+              "href": "contact.html"
+            },
+            {
+              "text": "inLinkedIn",
+              "href": "https://www.linkedin.com/in/abdallah-abdulazeez/"
+            },
+            {
+              "text": "Protolight",
+              "href": "#protolight"
+            },
+            {
+              "text": "Vehicle badge",
+              "href": "#badge"
+            },
+            {
+              "text": "HafizAI",
+              "href": "#hafizai"
+            },
+            {
+              "text": "Soil-tilling vehicle",
+              "href": "#tiller"
+            },
+            {
+              "text": "Ask me about this project",
+              "href": "contact.html?subject=Let%E2%80%99s%20talk%20about%20Protolight"
+            },
+            {
+              "text": "Ask me about this project",
+              "href": "contact.html?subject=Let%E2%80%99s%20talk%20about%20Illuminated%20vehicle%20badge"
+            },
+            {
+              "text": "Ask me about this project",
+              "href": "contact.html?subject=Let%E2%80%99s%20talk%20about%20HafizAI"
+            },
+            {
+              "text": "Ask me about this project",
+              "href": "contact.html?subject=Let%E2%80%99s%20talk%20about%20Soil-tilling%20utility%20vehicle"
+            },
+            {
+              "text": "Get in touch",
+              "href": "contact.html"
+            },
+            {
+              "text": "Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Let’s connect",
+              "href": "contact.html"
+            },
+            {
+              "text": "Back to top ↑",
+              "href": "#main"
+            }
+          ]
+        },
+        {
+          "page": "skills",
+          "headings": [
+            "A toolkit builtby making.",
+            "CAD & mechanical design",
+            "Fabrication & prototyping",
+            "Electronics & control",
+            "Software, product & data",
+            "Learning is part of the process.",
+            "Good work startswith a conversation."
+          ],
+          "buttons": [
+            {
+              "text": "Menu ＋",
+              "label": null,
+              "hidden": true
+            },
+            {
+              "text": "",
+              "label": "Switch to dark mode",
+              "hidden": false
+            },
+            {
+              "text": "Reduce motion",
+              "label": null,
+              "hidden": false
+            }
+          ],
+          "links": [
+            {
+              "text": "Skip to content",
+              "href": "#main"
+            },
+            {
+              "text": "Aa.Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Home",
+              "href": "index.html"
+            },
+            {
+              "text": "About",
+              "href": "about.html"
+            },
+            {
+              "text": "Projects",
+              "href": "projects.html"
+            },
+            {
+              "text": "Skills",
+              "href": "skills.html"
+            },
+            {
+              "text": "Contact",
+              "href": "contact.html"
+            },
+            {
+              "text": "inLinkedIn",
+              "href": "https://www.linkedin.com/in/abdallah-abdulazeez/"
+            },
+            {
+              "text": "In practice: soil-tilling vehicle",
+              "href": "projects.html#tiller"
+            },
+            {
+              "text": "In practice: illuminated badge",
+              "href": "projects.html#badge"
+            },
+            {
+              "text": "In practice: Protolight",
+              "href": "projects.html#protolight"
+            },
+            {
+              "text": "In practice: HafizAI",
+              "href": "projects.html#hafizai"
+            },
+            {
+              "text": "Get in touch",
+              "href": "contact.html"
+            },
+            {
+              "text": "Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Let’s connect",
+              "href": "contact.html"
+            },
+            {
+              "text": "Back to top ↑",
+              "href": "#main"
+            }
+          ]
+        },
+        {
+          "page": "contact",
+          "headings": [
+            "Let’s buildon an idea.",
+            "A direct connection.",
+            "Start an email."
+          ],
+          "buttons": [
+            {
+              "text": "Menu ＋",
+              "label": null,
+              "hidden": true
+            },
+            {
+              "text": "",
+              "label": "Switch to dark mode",
+              "hidden": false
+            },
+            {
+              "text": "Prepare email",
+              "label": null,
+              "hidden": false
+            },
+            {
+              "text": "Reduce motion",
+              "label": null,
+              "hidden": false
+            }
+          ],
+          "links": [
+            {
+              "text": "Skip to content",
+              "href": "#main"
+            },
+            {
+              "text": "Aa.Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Home",
+              "href": "index.html"
+            },
+            {
+              "text": "About",
+              "href": "about.html"
+            },
+            {
+              "text": "Projects",
+              "href": "projects.html"
+            },
+            {
+              "text": "Skills",
+              "href": "skills.html"
+            },
+            {
+              "text": "Contact",
+              "href": "contact.html"
+            },
+            {
+              "text": "inLinkedIn",
+              "href": "https://www.linkedin.com/in/abdallah-abdulazeez/"
+            },
+            {
+              "text": "abdabdulazeez08@gmail.com",
+              "href": "mailto:abdabdulazeez08@gmail.com"
+            },
+            {
+              "text": "Abdallah Abdulazeez",
+              "href": "https://www.linkedin.com/in/abdallah-abdulazeez/"
+            },
+            {
+              "text": "abdabdulazeez08-hub",
+              "href": "https://github.com/abdabdulazeez08-hub"
+            },
+            {
+              "text": "Download resume (PDF)",
+              "href": "output/pdf/abdallah-abdulazeez-resume.pdf"
+            },
+            {
+              "text": "View the portfolio source.",
+              "href": "https://github.com/abdabdulazeez08-hub/Portfolio"
+            },
+            {
+              "text": "Abdallah Abdulazeez",
+              "href": "index.html"
+            },
+            {
+              "text": "Let’s connect",
+              "href": "contact.html"
+            },
+            {
+              "text": "Back to top ↑",
+              "href": "#main"
+            }
+          ]
+        }
+      ]
+    },
+    "resume": {
+      "base": "http://127.0.0.1:8000/",
+      "testedAt": "2026-11-05T22:00:51.370Z",
+      "results": [
+        {
+          "page": "about.html",
+          "width": 390,
+          "result": "Pass",
+          "checks": "Keyboard download matches reviewed PDF; no horizontal overflow"
+        },
+        {
+          "page": "contact.html",
+          "width": 390,
+          "result": "Pass",
+          "checks": "Keyboard download matches reviewed PDF; no horizontal overflow"
+        },
+        {
+          "page": "about.html",
+          "width": 1440,
+          "result": "Pass",
+          "checks": "Keyboard download matches reviewed PDF; no horizontal overflow"
+        },
+        {
+          "page": "contact.html",
+          "width": 1440,
+          "result": "Pass",
+          "checks": "Keyboard download matches reviewed PDF; no horizontal overflow"
+        }
+      ]
+    }
+  }
+}
