@@ -37,3 +37,8 @@ Checked against the supplied 100-point Personal Portfolio Website Development an
 - Upload the report to the course assignment. No classroom demo or course submission is claimed by automated checks.
 
 The external email-app handoff is checked as a correctly encoded mailto link. Sending a message and configuring a visitor's email application are outside this static website.
+
+
+## November 5 recheck
+
+Added the privacy-safe resume PDF to About and Contact. The original private resume was not published. Fresh checks against deployed commit a118bac passed all 124 browser cases (41 core, 22 theme/layout, 15 story/gesture, 42 expanded, and four resume downloads). See [new evidence](resume-rubric-results.json) and the November 5 section in TESTING.md. These automated passes do not guarantee the instructor's score for illustrative media, personal review, commit-process expectations, or the classroom demo.

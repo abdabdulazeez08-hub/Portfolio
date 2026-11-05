@@ -2,7 +2,7 @@
 
 Live site: https://abdabdulazeez08-hub.github.io/Portfolio/
 
-Executed October 30, 2026, America/New_York. The current interaction source is `6d574d9`. All tests below ran on live GitHub Pages unless explicitly labeled static/direct-file. Chrome viewport emulation covers laptop, phone, tablet, landscape, and 320px layouts. This is not a physical-device certification.
+Historical run: October 30, 2026, America/New_York, interaction source `6d574d9`. See the November 5 section below for the latest deployed-source verification. All tests below ran on live GitHub Pages unless explicitly labeled static/direct-file. Chrome viewport emulation covers laptop, phone, tablet, landscape, and 320px layouts. This is not a physical-device certification.
 
 ## Core regression tests
 
@@ -158,14 +158,16 @@ Earlier tables retain their original run dates. Fresh evidence is recorded separ
 | ID | What is tested | Steps | Expected | Actual result |
 | --- | --- | --- | --- | --- |
 | T93 | Public resume privacy and layout | Extract the generated PDF text, compare with supplied resume, inspect a rendered page. | One readable page; original private header absent; no phone or postal code; source claims preserved. | Pass locally; visual review completed. |
-| T94 | About resume download | At 390px and 1440px, focus the download link and press Enter; compare downloaded bytes with reviewed PDF. | Keyboard downloads the correct PDF; no horizontal overflow. | Pass locally at both widths. |
-| T95 | Contact resume download | Repeat T94 on Contact. | Correct PDF and keyboard access at both widths. | Pass locally at both widths. |
+| T94 | About resume download | At 390px and 1440px, focus the download link and press Enter; compare downloaded bytes with reviewed PDF. | Keyboard downloads the correct PDF; no horizontal overflow. | Pass locally and on live GitHub Pages at both widths. |
+| T95 | Contact resume download | Repeat T94 on Contact. | Correct PDF and keyboard access at both widths. | Pass locally and on live GitHub Pages at both widths. |
 | T96 | New resume button spacing | Inspect About at phone and laptop widths. | Button separated from introduction and portrait. | Initial visual review: Fail, cramped spacing. Added 24px top margin; visual and download retest: Pass. |
 | T97 | Existing site regression | Run core, theme/layout, story/gesture, and expanded audit suites locally. | Navigation, keyboard, forms, layouts, motion, and recovery work. | Pass: 41 + 22 + 15 + 42 cases; zero JavaScript exceptions. |
 | T98 | Local assets | Parse local references and check image sizes. | All references resolve and images are below 500 KB. | Pass: 124 references, 22 images. |
-| T99 | Live deployment and downloads | Publish to main, repeat browser checks and compare live PDF bytes. | New links and reviewed PDF available on GitHub Pages. | Pending post-push verification. |
-| T100 | Fresh live Lighthouse | Audit every page with installed Lighthouse. | Accessibility at least 90 on all five pages. | Pre-push audit summary script failed on an unexpected details.items shape; fix uses an array guard. Final post-push audit pending. |
+| T99 | Live deployment and downloads | Publish to main, repeat browser checks and compare live PDF bytes. | New links and reviewed PDF available on GitHub Pages. | Pass live: all 124 browser checks passed against deployed commit a118bac; four keyboard downloads match the reviewed PDF byte for byte. |
+| T100 | Fresh live Lighthouse | Audit every page with installed Lighthouse. | Accessibility at least 90 on all five pages. | Initial summary script: Fail (unexpected details.items shape). Added an array guard. Post-push retest: Pass; all five pages scored 100 accessibility, best practices, and SEO. Performance: Home 99; others 100. |
 
-Live browser access initially failed with ERR_NETWORK_ACCESS_DENIED in the sandbox. This is an environment failure; live retesting requires the network-enabled execution context. No website pass is inferred from that failure.
+Live browser access initially failed with ERR_NETWORK_ACCESS_DENIED in the sandbox. Retest using the network-enabled execution context: Pass. This was an environment failure, not a site failure.
 
 The existing report remains a two-page report with genuine screenshots; it predates the new resume link. Three projects still have explicitly labeled illustrative media. These are content review gaps, not automatically awarded rubric points. Owner code review, physical-device demo, JavaScript explanation, and assignment submission remain required.
+
+Fresh live Lighthouse (November 5, 2026, light/default theme): Home 100 accessibility, About 100, Projects 100, Skills 100, Contact 100. These are point-in-time lab measurements; earlier dark-theme scores retain their original dates.
