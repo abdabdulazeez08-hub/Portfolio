@@ -13,7 +13,7 @@ Double-click `index.html`. No package manager, build step, API key, or server is
 
 - **Home:** switchable circular portraits, an introduction, a pausable skills ribbon, selected work, and a six-chapter Protolight story. Native scrolling moves through sensing, response, CAD, wiring, revisions, and the real final build; scrolling up reverses the visuals. Component labels stay below the artwork. A compact sticky visual works on phones, while reduced motion uses normal document flow.
 - **About:** education, professional experience, community involvement, and interests from the supplied resume.
-- **Projects:** Protolight, an illuminated vehicle badge, HafizAI, and a soil-tilling CAD assembly, with descriptions, roles, tools, and images.
+- **Projects:** Protolight, an illuminated vehicle badge, HafizAI, and a soil-tilling CAD assembly, with descriptions, roles, tools, and actual media. The badge, HafizAI, and tiller each have reversible scroll-driven chapters; full-image links, reduced motion, short-screen layouts, and JavaScript-off reading are supported.
 - **Skills:** CAD, fabrication, electronics, software, and data skills connected to project evidence.
 - **Contact:** email, LinkedIn, GitHub, and a validated email-draft form. The form does not send or store messages; it opens a draft in the visitor's configured email app after a separate click.
 
@@ -27,6 +27,8 @@ Use small, descriptive commits and normal pushes. Do not force-push or backdate 
 
 ## Documentation and review
 
+- [HANDOFF.md](HANDOFF.md): complete continuation guide, architecture, verification history, and remaining work.
+- [CODE_REVIEW.md](CODE_REVIEW.md): owner review checklist and JavaScript walkthrough.
 - [AGENTS.md](AGENTS.md): scope, design, coding, Git, privacy, and review rules.
 - [DESIGN.md](DESIGN.md): visual and motion decisions.
 - [TESTING.md](TESTING.md): live test plan, results, failures, fixes, and retests.
@@ -41,13 +43,13 @@ The owner must personally review AGENTS.md and the code, practice the keyboard d
 
 **Protolight now uses actual photos and CAD exports** extracted from the supplied capstone notebook, plus an explanatory SVG reconstruction of the real L-shaped prototype. The professional portrait also comes from the notebook, and the graduation photo was supplied separately. Portraits preview the alternate image on mouse hover, restore it on exit, and support horizontal touch swipes, click, and keyboard controls. Headshot crops are CSS framing; the faces are not retouched or AI altered. The alternate graduation image loads on intent, and responsive project images reduce phone downloads. See [media sources](docs/MEDIA.md).
 
-The badge, HafizAI, and soil-tilling images remain **labeled illustrative placeholders** until their actual media is provided. A public HafizAI URL can also be added later. Keep every replacement image under 500 KB and update alt text/captions. No live product URL or third-party source repository is invented.
+**All four projects now use actual supplied media.** The November 5 update adds 18 optimized assets: badge photographs, HafizAI screenshots/logo, and four tiller CAD views. Projects includes 15 new scroll-driven chapters. Complete frames remain in the files; mobile sticky panels show CSS-framed details. A full-image link is available in every chapter. Screenshots demonstrate the captured interface, not independently verified product accuracy, launch status, or user metrics. A HafizAI public URL remains optional and has not been supplied.
 
 A [public resume PDF](output/pdf/abdallah-abdulazeez-resume.pdf) is available from About and Contact. It preserves the supplied resume content with the private contact header removed; only the professional email and LinkedIn remain in that header. The original resume is excluded because it includes a phone number and precise location details.
 
 ## Acknowledgments
 
-Created with Codex assistance. The technical placeholder illustrations and site implementation are original to this repository. No third-party website template, framework, runtime CDN, API, or animation library is used.
+Created with Codex assistance. The explanatory Protolight reconstruction and site implementation are original to this repository. No third-party website template, framework, runtime CDN, API, or animation library is used.
 
 - [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill): design-system and accessibility guidance (MIT; reference only).
 - [Vercel Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines): interface review reference.
@@ -56,3 +58,5 @@ Created with Codex assistance. The technical placeholder illustrations and site 
 Browser automation and Lighthouse were used as isolated development verification tools. They are not website dependencies; no npm installation or build step is needed to run this site.
 
 Theme transitions progressively enhance the [native View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/same-document), with a color-transition fallback and an immediate reduced-motion alternative.
+
+For optional development preview, run `node tools/serve.cjs` from the repository root and open `http://127.0.0.1:8000/`. The server binds only to localhost; it is not part of the published site. Browser-check setup is documented in HANDOFF.md.

@@ -1,0 +1,146 @@
+[
+  {
+    "asset": "assets/images/tiller-overview.webp",
+    "source": "Screenshot 2026-11-05 201519.png",
+    "width": 1400,
+    "height": 1027,
+    "bytes": 85980,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/tiller-side.webp",
+    "source": "Screenshot 2026-11-05 201701.png",
+    "width": 1400,
+    "height": 505,
+    "bytes": 37038,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/tiller-rear.webp",
+    "source": "Screenshot 2026-11-05 201711.png",
+    "width": 1400,
+    "height": 879,
+    "bytes": 80996,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/tiller-drive.webp",
+    "source": "Screenshot 2026-11-05 201725.png",
+    "width": 1400,
+    "height": 873,
+    "bytes": 84482,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/badge-exterior.webp",
+    "source": "IMG_0360.jpeg",
+    "width": 1200,
+    "height": 1600,
+    "bytes": 270770,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/badge-interior.webp",
+    "source": "IMG_0362.jpeg",
+    "width": 1200,
+    "height": 1600,
+    "bytes": 204064,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/badge-back.webp",
+    "source": "IMG_0363.jpeg",
+    "width": 1200,
+    "height": 1600,
+    "bytes": 269148,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/badge-finished.webp",
+    "source": "IMG_0365.jpeg",
+    "width": 1200,
+    "height": 1600,
+    "bytes": 327122,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/badge-lit.webp",
+    "source": "IMG_0367.jpeg",
+    "width": 1200,
+    "height": 1600,
+    "bytes": 40330,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/hafizai-recitation.webp",
+    "source": "AI Recitiation.PNG",
+    "width": 900,
+    "height": 1948,
+    "bytes": 131116,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/hafizai-community.webp",
+    "source": "Community Leaderboard.PNG",
+    "width": 900,
+    "height": 1948,
+    "bytes": 43734,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/hafizai-logo.webp",
+    "source": "HafizAI Logo.png",
+    "width": 176,
+    "height": 176,
+    "bytes": 2004,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/hafizai-tracker.webp",
+    "source": "Memorization Tracker.PNG",
+    "width": 900,
+    "height": 1948,
+    "bytes": 53442,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/hafizai-practice.webp",
+    "source": "Practice Page.PNG",
+    "width": 900,
+    "height": 1948,
+    "bytes": 45752,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/hafizai-quran.webp",
+    "source": "Quran Page.PNG",
+    "width": 900,
+    "height": 1948,
+    "bytes": 211984,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/hafizai-score.webp",
+    "source": "Recitation Score.PNG",
+    "width": 900,
+    "height": 1948,
+    "bytes": 56098,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/hafizai-coach.webp",
+    "source": "Sheik AI Page.PNG",
+    "width": 900,
+    "height": 1948,
+    "bytes": 46694,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/hafizai-waitlist.webp",
+    "source": "Waitlist Page.png",
+    "width": 1440,
+    "height": 641,
+    "bytes": 24792,
+    "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  }
+]

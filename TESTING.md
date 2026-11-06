@@ -171,3 +171,45 @@ Live browser access initially failed with ERR_NETWORK_ACCESS_DENIED in the sandb
 The existing report remains a two-page report with genuine screenshots; it predates the new resume link. Three projects still have explicitly labeled illustrative media. These are content review gaps, not automatically awarded rubric points. Owner code review, physical-device demo, JavaScript explanation, and assignment submission remain required.
 
 Fresh live Lighthouse (November 5, 2026, light/default theme): Home 100 accessibility, About 100, Projects 100, Skills 100, Contact 100. These are point-in-time lab measurements; earlier dark-theme scores retain their original dates.
+
+
+## Actual project media and scrollytelling update
+
+Local execution: November 5, 2026, America/New_York. The new source replaces three placeholders with 18 supplied-photo/screenshot assets and 15 chapters. Detailed results: [local](docs/project-story-local-results.json), [initial failures](docs/project-story-initial-results.json), [second attempt](docs/project-story-second-results.json). All rows below are local until the live retest is recorded.
+
+| ID | What is tested | Steps | Expected result | Actual result |
+| --- | --- | --- | --- | --- |
+| T101 | All three projects use actual source images, descriptive alternatives, ordered headings, and 15 chapters | Inspect all project headings, source captions, original images, and chapter count. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T102 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | At 1440 x 1000, scroll all four badge chapters forward/back, then jump between distant chapters. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T103 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat all seven HafizAI chapters at 1440 x 1000. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T104 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat all four tiller chapters at 1440 x 1000. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T105 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat badge directions and jumps at 390 x 844. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T106 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat HafizAI directions and jumps at 390 x 844. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T107 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat tiller directions and jumps at 390 x 844. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T108 | Resize between phone and laptop at distant chapters and verify current state | Resize between 390, 1440, and 320px; select the last chapter of each story. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T109 | Every full-image link works with focus and Enter; focus clears the sticky panel | At phone/laptop widths, focus every full-image link, wait for native focus scrolling, press Enter, decode the opened image, and return. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T110 | OS reduced motion restores every image beside its chapter and removes sticky visuals | Emulate OS reduced motion, inspect all 15 original images and absence of sticky panels. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T111 | Footer motion control switches between static and sticky stories | Toggle the footer motion control both directions. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T112 | Short landscape uses normal chapter flow with every original image | Resize to 844 x 390 and inspect chapter images and page width. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T113 | Both themes fit phone, landscape, tablet, and laptop without overflow | Inspect both themes at 320, 390, 768, and 1440px. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T114 | JavaScript disabled retains all 15 complete chapter images, text, and links | Disable JavaScript and inspect/decode all chapter images at phone width. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T115 | All references resolve and every tracked image is below 500 KB | Request source files, parse local references, and compare all image sizes with the 500 KB limit. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T116 | No JavaScript exceptions or console errors during normal interactions | Collect exceptions and normal-page console errors during interactions; raw-image favicon requests are logged separately. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+
+| T117 | Core/Home regression | Rerun all-page core suite and Home story/portrait/theme suite. | Existing navigation, keyboard, contact behavior, and Home interactions still work. | Pass locally: 41 core + 15 Home cases. |
+| T118 | Direct-file opening | Open projects.html via file URL at phone width, focus chapter links, switch reduced motion, decode all originals. | All 15 images work without a server or JS exceptions. | Pass locally. |
+| T119 | Live new-story retest | Deploy to Pages; rerun the 16-case project suite against its public URL. | All new-story checks pass on published source. | Pending deployment. |
+| T120 | Fresh live accessibility | Run Lighthouse on all five live pages after publishing shared CSS/JS. | Accessibility at least 90 on every page. | Pending deployment. |
+
+### Failures and fixes in this update
+
+- Initial mobile focus correction used a stage position outside the viewport, allowing a link to remain obscured. Use header height plus stage height as the safe offset. Reserve two caption lines so scene changes cannot grow the panel over the link. Retest: all full-image keyboard links passed locally.
+- A distant tiller bounding-box query timed out once in the first run. Subsequent initialized-mode, forward/reverse/jump, and resize checks passed. No site exception was observed in that case.
+- Native smooth focus scrolling was checked prematurely by the first harness; it now waits for the focused control to settle in the visible safe area, including after Back navigation and viewport changes.
+- Opening a raw image caused Chrome to request /favicon.ico (404). The website HTML uses assets/images/favicon.svg. The raw-image-only browser request is excluded from the normal-page console assertion, with its URL retained in response logs. No JavaScript exception is excluded.
+- Core regression initially failed because generated project contact subjects used internal IDs. Restored the existing descriptive project names; full core retest: 41/41 passed.
+- Visual review found small full screenshots and poor illuminated-photo framing on phones. CSS-only detail framing now shows useful content, while full-image links and static modes retain complete frames. Final phone/laptop captures reviewed.
+
+Static reference check: 153 references, 43 image files (including documentation screenshots), no broken references, every image below 500 KB. New image maximum: 327,122 bytes. The original source frames and product screenshot colors are preserved. No project media remains pending.
+
+Owner review, physical-device demonstration, JavaScript explanation, optional HafizAI link/release confirmation, and assignment submission remain personal steps. See CODE_REVIEW.md and HANDOFF.md.

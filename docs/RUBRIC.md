@@ -5,8 +5,8 @@ Checked against the supplied 100-point Personal Portfolio Website Development an
 | Rubric requirement | Points | Evidence / status |
 | --- | ---: | --- |
 | Five pages, linked from every navigation | 6 | Home, About, Projects, Skills, and Contact; all five destinations checked from each page on phone and laptop. |
-| At least three projects, descriptions, images, applicable links | 7 | Four described projects, descriptive image alternatives, and working project/contact links. Protolight has genuine photos/CAD. Three other projects use clearly labeled illustrations while owner media is pending; a public HafizAI product URL has not been supplied. |
-| No placeholder text or empty sections | 4 | Personal and project descriptions are written from the supplied sources; no empty sections or lorem ipsum. The three pending-media captions remain honest about illustrative placeholders. Replace those figures when the owner supplies the media. |
+| At least three projects, descriptions, images, applicable links | 7 | Four described projects, descriptive image alternatives, and working project/contact links. Protolight has genuine photos/CAD. The badge, HafizAI, and tiller now have actual supplied photos/screenshots and 15 scroll chapters; a public HafizAI product URL has not been supplied. |
+| No placeholder text or empty sections | 4 | Personal and project descriptions are written from the supplied sources; no empty sections or lorem ipsum. All four project sections now contain actual media with source captions; no placeholder project figures remain. |
 | Contact details or functional static form | 3 | Public email/profile links; validated form creates an encoded email draft. It never sends or stores messages. |
 | Semantic HTML5 | 5 | Landmarks and meaningful elements on every page; corrected figure/caption structure and named signal group. All five pages checked with the W3C HTML checker. |
 | One h1, ordered headings | 2 | Structure checks on every page. |
@@ -32,7 +32,7 @@ Checked against the supplied 100-point Personal Portfolio Website Development an
 
 ## Remaining owner items
 
-- Supply the badge, HafizAI, and soil-tilling project photos/screenshots; supply a HafizAI public link if one should be shown. Until then the figures remain explicitly illustrative.
+- Optionally supply a verified public HafizAI link and current launch status if they should appear. All required project media has been supplied.
 - Personally review AGENTS.md and the source, practice the keyboard and JavaScript explanations, and demonstrate on a physical phone and laptop.
 - Upload the report to the course assignment. No classroom demo or course submission is claimed by automated checks.
 
@@ -42,3 +42,8 @@ The external email-app handoff is checked as a correctly encoded mailto link. Se
 ## November 5 recheck
 
 Added the privacy-safe resume PDF to About and Contact. The original private resume was not published. Fresh checks against deployed commit a118bac passed all 124 browser cases (41 core, 22 theme/layout, 15 story/gesture, 42 expanded, and four resume downloads). See [new evidence](resume-rubric-results.json) and the November 5 section in TESTING.md. These automated passes do not guarantee the instructor's score for illustrative media, personal review, commit-process expectations, or the classroom demo.
+
+
+## Project media continuation
+
+The owner supplied the remaining media on November 5. Badge (4 chapters), HafizAI (7 chapters), and tiller (4 chapters) use actual photos/screenshots. Earlier references to pending illustrative media are historical. See HANDOFF.md for the latest verification status and remaining owner steps.

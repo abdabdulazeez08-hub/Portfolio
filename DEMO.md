@@ -35,3 +35,12 @@ Show TESTING.md and the Lighthouse accessibility scores. Mention the 320px overf
 - Open the site on a physical phone and your laptop, and practice Tab/Enter/Escape yourself.
 - Upload output/pdf/portfolio-report.pdf to the assignment. Submission to the course is a personal step, not performed by this site.
 - The existing commits are dated honestly. Review the actual commit history against your course's process requirements.
+
+
+## New project stories
+
+Open Projects and scroll through the badge (4 chapters), HafizAI (7), and tiller (4). Show forward and reverse scrolling. On a phone, the sticky image shows a detail; each full-image link opens the complete supplied photograph/screenshot. Reduce motion to put each image back beside its chapter.
+
+Explain the `mediaStories` block in script.js: each original chapter keeps its image, caption, and text; a decorative duplicate provides the sticky display. Cached document coordinates locate chapter centers. Native scroll position selects the nearest center in one requestAnimationFrame callback. Resize, fonts, restored pages, and motion changes invalidate the cache. IntersectionObserver wakes nearby stories; it does not choose the chapter. The visual therefore reverses without depending on earlier scroll events. Short viewports and reduced motion use static flow.
+
+Use CODE_REVIEW.md for personal review. Automated checks do not complete your own review or the classroom explanation.

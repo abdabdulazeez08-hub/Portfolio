@@ -16,4 +16,32 @@ The owner supplied the Protolight capstone notebook and graduation photograph on
 | protolight-v1-small.webp | Responsive 720 × 540 edition of the same earlier prototype photograph; resized and compressed without cropping or retouching. |
 | protolight-assembly.svg | Original explanatory vector reconstruction of the actual L-shaped prototype, LED channels, control circuit, and exposed sensors. It is not an actual CAD export or product photograph. |
 
-The badge, HafizAI, and soil-tilling illustration placeholders remain clearly labeled until the owner supplies their actual media. Every published image stays below 500 KB. All portrait cropping is visual framing in the website, not retouching or AI alteration of the face.
+The three older placeholder SVGs were replaced and removed on November 5 after the owner supplied actual media. Every published image stays below 500 KB. All portrait cropping is visual framing in the website, not retouching or AI alteration of the face.
+
+
+## November 5 project media
+
+18 files were selected from the supplied 22 images. Repeated badge angles were omitted. All files preserve the complete frame, normalize EXIF orientation, remove metadata, and use WebP compression. Mobile sticky panels frame details with CSS; full-image links and static layouts show complete frames. The supplied HafizAI purple interface is preserved as source evidence; the surrounding portfolio keeps its teal/burgundy palette.
+
+| Published asset | Supplied source |
+| --- | --- |
+| tiller-overview.webp | Screenshot 2026-11-05 201519.png |
+| tiller-side.webp | Screenshot 2026-11-05 201701.png |
+| tiller-rear.webp | Screenshot 2026-11-05 201711.png |
+| tiller-drive.webp | Screenshot 2026-11-05 201725.png |
+| badge-exterior.webp | IMG_0360.jpeg |
+| badge-interior.webp | IMG_0362.jpeg |
+| badge-back.webp | IMG_0363.jpeg |
+| badge-finished.webp | IMG_0365.jpeg |
+| badge-lit.webp | IMG_0367.jpeg |
+| hafizai-recitation.webp | AI Recitiation.PNG |
+| hafizai-community.webp | Community Leaderboard.PNG |
+| hafizai-logo.webp | HafizAI Logo.png |
+| hafizai-tracker.webp | Memorization Tracker.PNG |
+| hafizai-practice.webp | Practice Page.PNG |
+| hafizai-quran.webp | Quran Page.PNG |
+| hafizai-score.webp | Recitation Score.PNG |
+| hafizai-coach.webp | Sheik AI Page.PNG |
+| hafizai-waitlist.webp | Waitlist Page.png |
+
+See [exact dimensions and file sizes](project-media.json). The badge photographs show a printed display assembly and edge-lit acrylic, not a full-size vehicle. The tiller images are CAD screenshots, not fabricated-machine photographs. App session scores and leaderboard numbers are captured interface values; no general accuracy or adoption claims are inferred. Original source files and local source folders are not published.

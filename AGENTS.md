@@ -20,3 +20,7 @@ Complete one task at a time. Inspect changes and run checks appropriate to each 
 
 ## Hosting and documentation
 Use the existing public GitHub repository and GitHub Pages from main, root. Preserve the repository's current name and URL casing. No Sites-hosting migration is needed because this assignment explicitly requires GitHub Pages. Include README.md, at least 12 test cases, a 1–2-page report with genuine screenshots, and demo notes. Report remaining personal-content and live-verification gaps explicitly.
+
+
+## Continuation documents and project stories
+Read HANDOFF.md for the current implementation and verification status, CODE_REVIEW.md for the owner walkthrough, and docs/MEDIA.md for source provenance. Projects now includes actual badge photographs, HafizAI screenshots, and four tiller CAD views. Preserve the 15 chapter images and copy in document order; the sticky stage is an aria-hidden decorative duplicate. Cache geometry and derive the selected scene from native scroll position. Full-image links must remain keyboard accessible below the mobile sticky panel. Reduced motion, short screens, print, and JavaScript-off use static chapter flow. Keep source product colors in genuine screenshots without restyling the portfolio to match them.

@@ -520,3 +520,113 @@ if (contactForm) {
     draftLink.focus();
   });
 }
+
+// Each project keeps its original image and copy in document order. The visual
+// stage is a decorative duplicate; screen readers read the original chapter.
+// Cached chapter centers determine state, so reversing or jumping needs no history.
+const mediaStories = [...document.querySelectorAll('[data-media-story]')].map(root => {
+  const steps = [...root.querySelectorAll('[data-media-step]')];
+  const stage = document.createElement('div');
+  stage.className = 'media-stage';
+  stage.setAttribute('aria-hidden', 'true');
+  const head = document.createElement('div');
+  head.className = 'media-stage-head';
+  const kind = document.createElement('span');
+  kind.textContent = root.classList.contains('media-story-app') ? 'Inside the application' : root.classList.contains('media-story-cad') ? 'Inside the CAD assembly' : 'Inside the physical build';
+  const count = document.createElement('span');
+  head.append(kind, count);
+  const images = document.createElement('div');
+  images.className = 'media-stage-images';
+  const scenes = steps.map(step => {
+    const img = step.querySelector('.media-inline img').cloneNode(false);
+    img.alt = '';
+    img.className = 'media-stage-scene';
+    images.append(img);
+    return img;
+  });
+  const caption = document.createElement('p');
+  caption.className = 'media-stage-caption';
+  stage.append(head, images, caption);
+  root.prepend(stage);
+  root.addEventListener('focusin', event => {
+    if (root.dataset.storyMode !== 'scroll' || !mobileQuery.matches || !event.target.closest('.media-step')) return;
+    requestAnimationFrame(() => {
+      const bounds = event.target.getBoundingClientRect();
+      const safeTop = header.offsetHeight + stage.offsetHeight + 20;
+      if (bounds.top < safeTop || bounds.bottom > innerHeight - 20) {
+        scrollTo({top: scrollY + bounds.top - safeTop, behavior: 'instant'});
+      }
+    });
+  });
+  return {root, steps, stage, scenes, caption, count, centers: [], active: -1, near: true, dirty: true, mode: ''};
+});
+let mediaFrame = 0;
+const shortStoryQuery = matchMedia('(max-height: 600px)');
+function renderMediaStories() {
+  mediaFrame = 0;
+  const mode = document.documentElement.dataset.motion === 'reduced' || shortStoryQuery.matches ? 'static' : 'scroll';
+  // Set modes first; geometry is then measured together after layout changes.
+  mediaStories.forEach(story => {
+    if (story.mode !== mode) {
+      story.mode = mode;
+      story.root.dataset.storyMode = mode;
+      story.dirty = true;
+    }
+  });
+  const updates = [];
+  mediaStories.forEach(story => {
+    if (!story.near || mode !== 'scroll') return;
+    if (story.dirty) {
+      story.centers = story.steps.map(step => {
+        const r = step.getBoundingClientRect();
+        return scrollY + r.top + r.height / 2;
+      });
+      const safeTop = header.offsetHeight + story.stage.offsetHeight;
+      story.readingLine = mobileQuery.matches ? safeTop + Math.max(40, (innerHeight - safeTop) / 2) : innerHeight / 2;
+      story.dirty = false;
+    }
+    const focus = scrollY + story.readingLine;
+    let active = 0;
+    story.centers.forEach((center, i) => {
+      if (Math.abs(center - focus) < Math.abs(story.centers[active] - focus)) active = i;
+    });
+    updates.push({story, active});
+  });
+  updates.forEach(({story, active}) => {
+    if (story.active === active) return;
+    story.active = active;
+    story.root.dataset.activeStep = String(active);
+    story.scenes.forEach((scene, i) => scene.classList.toggle('is-active', i === active));
+    story.count.textContent = `${String(active + 1).padStart(2, '0')} / ${String(story.steps.length).padStart(2, '0')}`;
+    story.caption.textContent = story.steps[active].querySelector('figcaption').textContent;
+  });
+}
+function queueMediaStories(measure = false) {
+  if (measure) mediaStories.forEach(story => { story.dirty = true; });
+  if (mediaStories.length && !mediaFrame) mediaFrame = requestAnimationFrame(renderMediaStories);
+}
+if (mediaStories.length) {
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const story = mediaStories.find(s => s.root === entry.target);
+        story.near = entry.isIntersecting;
+        if (story.near) story.dirty = true;
+      });
+      queueMediaStories();
+    }, {rootMargin: '600px 0px'});
+    mediaStories.forEach(story => observer.observe(story.root));
+  }
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(() => queueMediaStories(true));
+    mediaStories.forEach(story => observer.observe(story.root));
+    observer.observe(header);
+  }
+  addEventListener('scroll', () => queueMediaStories(), {passive: true});
+  addEventListener('resize', () => queueMediaStories(true));
+  addEventListener('pageshow', () => queueMediaStories(true));
+  shortStoryQuery.addEventListener('change', () => queueMediaStories(true));
+  document.addEventListener('portfolio:motion', () => queueMediaStories(true));
+  document.fonts.ready.then(() => queueMediaStories(true));
+  queueMediaStories(true);
+}

@@ -1,0 +1,90 @@
+{
+  "base": "http://127.0.0.1:8000/",
+  "testedAt": "2026-11-06T02:40:25.516Z",
+  "results": [
+    {
+      "id": "project-content",
+      "what": "All three projects use actual source images, descriptive alternatives, ordered headings, and 15 chapters",
+      "result": "Pass"
+    },
+    {
+      "id": "badge-laptop-scroll",
+      "what": "Forward, reverse, distant jumps, decoded media, caption, and native scroll agree",
+      "result": "Pass"
+    },
+    {
+      "id": "hafizai-laptop-scroll",
+      "what": "Forward, reverse, distant jumps, decoded media, caption, and native scroll agree",
+      "result": "Pass"
+    },
+    {
+      "id": "tiller-laptop-scroll",
+      "what": "Forward, reverse, distant jumps, decoded media, caption, and native scroll agree",
+      "result": "Fail",
+      "error": "locator.boundingBox: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-media-story=\"tiller\"]').locator('.media-stage')\u001b[22m\n"
+    },
+    {
+      "id": "badge-phone-scroll",
+      "what": "Forward, reverse, distant jumps, decoded media, caption, and native scroll agree",
+      "result": "Pass"
+    },
+    {
+      "id": "hafizai-phone-scroll",
+      "what": "Forward, reverse, distant jumps, decoded media, caption, and native scroll agree",
+      "result": "Pass"
+    },
+    {
+      "id": "tiller-phone-scroll",
+      "what": "Forward, reverse, distant jumps, decoded media, caption, and native scroll agree",
+      "result": "Pass"
+    },
+    {
+      "id": "resize-recalculate",
+      "what": "Resize between phone and laptop at distant chapters and verify current state",
+      "result": "Pass"
+    },
+    {
+      "id": "full-image-keyboard",
+      "what": "Every full-image link works with focus and Enter; focus clears the sticky panel",
+      "result": "Fail",
+      "error": "badge link 0 obscured"
+    },
+    {
+      "id": "reduced-motion-static",
+      "what": "OS reduced motion restores every image beside its chapter and removes sticky visuals",
+      "result": "Pass"
+    },
+    {
+      "id": "motion-control-static",
+      "what": "Footer motion control switches between static and sticky stories",
+      "result": "Pass"
+    },
+    {
+      "id": "short-landscape-flow",
+      "what": "Short landscape uses normal chapter flow with every original image",
+      "result": "Pass"
+    },
+    {
+      "id": "themes-and-small-screens",
+      "what": "Both themes fit phone, landscape, tablet, and laptop without overflow",
+      "result": "Pass"
+    },
+    {
+      "id": "no-javascript",
+      "what": "JavaScript disabled retains all 15 complete chapter images, text, and links",
+      "result": "Pass"
+    },
+    {
+      "id": "static-assets",
+      "what": "All references resolve and every tracked image is below 500 KB",
+      "result": "Pass"
+    },
+    {
+      "id": "console-clean",
+      "what": "No JavaScript exceptions or console errors during normal interactions",
+      "result": "Pass"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": []
+}
