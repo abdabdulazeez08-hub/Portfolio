@@ -6,24 +6,50 @@ document.body.classList.add("js-ready");
 const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const motionButton = document.querySelector(".motion-toggle");
 let userReducedMotion = false;
-try { userReducedMotion = localStorage.getItem("portfolio-reduced-motion") === "true"; } catch { /* Private browsing may block storage. */ }
+let hasUserMotionPreference = false;
+try {
+  const savedMotion = localStorage.getItem("portfolio-reduced-motion");
+  hasUserMotionPreference = savedMotion !== null;
+  userReducedMotion = savedMotion === "true";
+} catch { /* Private browsing may block storage. */ }
 
 function updateMotion() {
-  const reduced = motionQuery.matches || userReducedMotion;
+  const reduced = hasUserMotionPreference ? userReducedMotion : motionQuery.matches;
   document.documentElement.dataset.motion = reduced ? "reduced" : "full";
   motionButton.hidden = false;
   motionButton.setAttribute("aria-pressed", String(reduced));
-  motionButton.textContent = motionQuery.matches ? "Motion reduced by system" : reduced ? "Enable motion" : "Reduce motion";
-  motionButton.disabled = motionQuery.matches;
-  motionButton.title = motionQuery.matches ? "Your device’s reduced-motion preference is respected." : "Change animation preference";
+  motionButton.textContent = reduced ? "Enable motion" : "Reduce motion";
+  motionButton.disabled = false;
+  motionButton.title = !hasUserMotionPreference && motionQuery.matches
+    ? "Your device requests reduced motion. Choose this control to override that default."
+    : "Change animation preference";
+  document.querySelectorAll(".story-motion-note").forEach(note => {
+    note.hidden = !reduced;
+    const message = note.querySelector(".story-motion-message");
+    const enable = note.querySelector(".story-motion-enable");
+    if (message) message.textContent = !hasUserMotionPreference && motionQuery.matches
+      ? "Your device requests reduced motion, so this story starts in a static layout."
+      : "Scroll storytelling is paused by your saved motion setting.";
+    if (enable) enable.hidden = false;
+  });
   document.dispatchEvent(new Event("portfolio:motion"));
 }
 motionButton.addEventListener("click", () => {
-  userReducedMotion = !userReducedMotion;
+  const reduced = hasUserMotionPreference ? userReducedMotion : motionQuery.matches;
+  hasUserMotionPreference = true;
+  userReducedMotion = !reduced;
   try { localStorage.setItem("portfolio-reduced-motion", String(userReducedMotion)); } catch { /* Preference still applies for this page. */ }
   updateMotion();
 });
 motionQuery.addEventListener("change", updateMotion);
+document.querySelectorAll(".story-motion-enable").forEach(button => {
+  button.addEventListener("click", () => {
+    hasUserMotionPreference = true;
+    userReducedMotion = false;
+    try { localStorage.setItem("portfolio-reduced-motion", "false"); } catch { /* Current page still updates. */ }
+    updateMotion();
+  });
+});
 updateMotion();
 
 // A native button controls the mobile navigation. Escape returns focus to it.
@@ -309,7 +335,11 @@ function restorePreferences() {
     delete document.documentElement.dataset.themeAnimating;
     applyTheme(theme);
   }
-  try { userReducedMotion = localStorage.getItem("portfolio-reduced-motion") === "true"; } catch { /* Keep the current choice when storage is unavailable. */ }
+  try {
+    const savedMotion = localStorage.getItem("portfolio-reduced-motion");
+    hasUserMotionPreference = savedMotion !== null;
+    userReducedMotion = savedMotion === "true";
+  } catch { /* Keep the current choice when storage is unavailable. */ }
   updateMotion();
 }
 window.addEventListener("pageshow", event => { if (event.persisted) restorePreferences(); });
@@ -537,16 +567,27 @@ const mediaStories = [...document.querySelectorAll('[data-media-story]')].map(ro
   head.append(kind, count);
   const images = document.createElement('div');
   images.className = 'media-stage-images';
-  const scenes = steps.map(step => {
+  const scenes = steps.map((step, index) => {
     const img = step.querySelector('.media-inline img').cloneNode(false);
     img.alt = '';
     img.className = 'media-stage-scene';
+    if (root.dataset.mediaStory === 'badge' && index === 0) {
+      img.src = 'assets/images/badge-cutout.png';
+      img.removeAttribute('srcset');
+      img.width = 500;
+      img.height = 442;
+      img.classList.add('is-cutout');
+    }
     images.append(img);
     return img;
   });
   const caption = document.createElement('p');
   caption.className = 'media-stage-caption';
-  stage.append(head, images, caption);
+  const progress = document.createElement('div');
+  progress.className = 'media-stage-progress';
+  const progressBar = document.createElement('span');
+  progress.append(progressBar);
+  stage.append(head, images, progress, caption);
   root.prepend(stage);
   root.addEventListener('focusin', event => {
     if (root.dataset.storyMode !== 'scroll' || !mobileQuery.matches || !event.target.closest('.media-step')) return;
@@ -558,7 +599,7 @@ const mediaStories = [...document.querySelectorAll('[data-media-story]')].map(ro
       }
     });
   });
-  return {root, steps, stage, scenes, caption, count, centers: [], active: -1, near: true, dirty: true, mode: ''};
+  return {root, steps, stage, scenes, caption, count, progressBar, centers: [], active: -1, near: true, dirty: true, mode: ''};
 });
 let mediaFrame = 0;
 const shortStoryQuery = matchMedia('(max-height: 600px)');
@@ -597,8 +638,12 @@ function renderMediaStories() {
     story.active = active;
     story.root.dataset.activeStep = String(active);
     story.scenes.forEach((scene, i) => scene.classList.toggle('is-active', i === active));
+    story.steps.forEach((step, i) => step.classList.toggle('is-active', i === active));
     story.count.textContent = `${String(active + 1).padStart(2, '0')} / ${String(story.steps.length).padStart(2, '0')}`;
-    story.caption.textContent = story.steps[active].querySelector('figcaption').textContent;
+    story.progressBar.style.width = `${((active + 1) / story.steps.length) * 100}%`;
+    story.caption.textContent = story.root.dataset.mediaStory === 'badge' && active === 0
+      ? 'Presentation cutout / derived from the linked original exterior photograph'
+      : story.steps[active].querySelector('figcaption').textContent;
   });
 }
 function queueMediaStories(measure = false) {

@@ -13,6 +13,16 @@ Read this file first, then AGENTS.md. This is the durable handoff requested by t
 - All paths are relative. Double-clicking index.html must work, as must hosting under `/Portfolio/`.
 - Workflow: one task at a time, test/inspect, clear commit, normal push to origin/main. Never force-push, reset history, or backdate. Existing work dates are genuine (October 29/30 and November 5, 2026).
 
+## Latest owner-requested scroll and presentation repair
+
+The owner reported that scrollytelling appeared to be missing and that the Projects hierarchy and images felt unpolished. Fresh inspection reproduced the primary cause: Windows requested reduced motion, and the former implementation silently forced the Home and Projects stories into static document flow while disabling the footer control.
+
+The current source keeps the OS setting as its initial accessible default, but an explicit visitor choice can now override it persistently. Home and Projects show a contextual explanation plus an Enable scroll story/stories control. The footer motion control also remains usable. Choosing the override restores the sticky Home stage and all three Projects stages. Projects now opens with a four-project directory, explicit scroll-story counts, a stronger start action, active-chapter rules, sticky-stage progress, and clearer scroll cues.
+
+`assets/images/badge-cutout.png` is an AI-assisted background extraction from the actual `badge-finished.webp` photograph. It is used only as a labeled presentation layer on Home, at the Projects introduction, and in the first decorative badge stage. Untouched source photographs remain in the ordered chapters and full-image links. The cutout is 500 x 442, 396,389 bytes, transparent, and recorded in `docs/project-media.json` and `docs/MEDIA.md`.
+
+Focused dependency-free Chrome checks passed at 1440 x 1000 and 390 x 844: a fresh reduced-motion profile began static with a visible recovery control; activating it changed all Projects stories to scroll mode, restored stage display/progress, hid the notice, and caused no horizontal overflow. The Home visual returned to sticky mode. Light and dark phone captures and desktop Home/Projects captures were visually reviewed. Static references, JavaScript syntax, JSON, HTTP responses, one-h1 structure, and the 500 KB image limit passed. The full Playwright suite was not rerun because this machine has no Playwright module; the failed dependency launch and focused retests are recorded in TESTING.md. The existing report PDF contains genuine earlier screenshots and was not regenerated because its documented Python/rendering dependencies are unavailable here.
+
 ## What was already complete
 
 All five pages, real resume-grounded descriptions, four projects, local Archivo, responsive navigation, prominent LinkedIn, light/dark controls, sun/moon reveal, OS and persistent preferences, reduced-motion control, pausable skills ribbon, fine-pointer-only halo preserving the native cursor, two circular portraits, static contact validation/email drafting, and the six-chapter Protolight home story.

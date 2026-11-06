@@ -8,7 +8,7 @@ Say your name and discipline. Explain that the site has five separate HTML pages
 
 ## 0:40-1:20 - Show the story
 
-Scroll down through Protolight's six chapters: sense, respond, design, wire, refine, and build, then scroll back up to reverse them. Explain the actual L-shaped enclosure, three LED strips, environmental inputs, and Arduino output. The final stage reveals the real prototype photo. On mobile, a compact sticky visual remains above the story; reduced motion uses ordinary flow. Show the Reduce motion button in the footer.
+Scroll down through Protolight's six chapters: sense, respond, design, wire, refine, and build, then scroll back up to reverse them. Explain the actual L-shaped enclosure, three LED strips, environmental inputs, and Arduino output. The final stage reveals the real prototype photo. On mobile, a compact sticky visual remains above the story. Reduced motion starts in ordinary flow; the contextual Enable scroll story control demonstrates the explicit visitor override, and the footer control can return to reduced motion.
 
 ## 1:20-2:00 - Navigate with the keyboard
 

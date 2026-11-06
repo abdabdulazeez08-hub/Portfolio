@@ -142,5 +142,13 @@
     "height": 641,
     "bytes": 24792,
     "treatment": "EXIF orientation normalized; resized and WebP compressed. Full frame preserved, no retouching. Metadata not copied."
+  },
+  {
+    "asset": "assets/images/badge-cutout.png",
+    "source": "assets/images/badge-finished.webp",
+    "width": 500,
+    "height": 442,
+    "bytes": 396389,
+    "treatment": "AI-assisted background extraction for presentation. Room and floor removed; transparent PNG resized for the web. Labeled as a derived cutout; original supplied photographs remain published and linked."
   }
 ]
