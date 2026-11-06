@@ -52,7 +52,7 @@ All placeholder project SVGs (badge.svg, hafizai.svg, tiller.svg) were replaced 
 - `docs/testing-results.json`: October evidence. `docs/resume-rubric-results.json`: earlier November resume evidence. New project result files are separate.
 - `CODE_REVIEW.md`: owner's checklist and JavaScript walkthrough. `DEMO.md`: three-minute demo guide. Neither claims the owner has completed those steps.
 - `docs/RUBRIC.md`: assignment criteria and gaps.
-- `output/pdf/portfolio-report.pdf`: two-page submission report. Final update status is recorded below.
+- `output/pdf/portfolio-report.pdf`: two-page submission report. Refreshed with the new stories and live captures; review/verification is recorded below.
 - `tools/serve.cjs`: optional localhost-only development server; no server is deployed.
 - `tools/verify-project-stories.cjs`: reproducible optional Playwright checks; test libraries are development tools, not website dependencies.
 - `.qa/`: ignored scratch work and earlier machine-specific browser/report scripts. Do not stage the whole directory or treat it as portable tooling.
@@ -90,7 +90,15 @@ Lighthouse is an optional installed CLI used for live audits. No audit dependenc
 
 Initial new-story tests caught a mobile focus offset based on the offscreen stage position, and later a wrapping-caption height change. Fixed the offset and reserved caption height. An early distant-chapter geometry query timed out once; subsequent state checks wait for initialized scroll mode. An old core test caught shortened project-contact subjects; restored the descriptive project names. A browser raw-image favicon request and premature native-smooth-scroll assertion were harness issues, not hidden site passes; the harness now records/handles them explicitly. Initial/second result files are retained alongside final results.
 
-FINAL_VERIFICATION_PENDING
+Final verification: source commit **0667bda** was pushed to origin/main and its actual project-story markup was verified live before testing. All **72 live browser cases passed**: 16 new-story, 41 all-page core, and 15 Home/theme/portrait cases. All five pages scored **100 accessibility, performance, best practices, and SEO** in the fresh light/default Lighthouse sample. These are point-in-time measurements, not a guarantee of future performance or a grade. Historical dark-theme evidence remains dated separately.
+
+- New local/live suite: docs/project-story-local-results.json and docs/project-story-live-results.json.
+- Current core/Home/Lighthouse evidence and source version: docs/project-story-regression-results.json.
+- Initial failures: docs/project-story-initial-results.json and docs/project-story-second-results.json.
+- Direct-file check passed locally: all 15 originals decode; no JS exceptions. Static check passed: 153 HTML references, 43 image files including screenshots, every image under 500 KB. New source assets total about 2 MB; largest 327,122 bytes.
+- All six new phone/laptop captures in docs/screenshots were refreshed from the live suite. The two-page portfolio-report.pdf was regenerated, extracted, rendered, and visually reviewed with those genuine captures. It includes the required overview, challenges, Codex mistake/fix, screenshot evidence, and repository/live links at the top.
+- Report regeneration is optional development tooling: tools/make-report.py needs reportlab and pypdf, reads the recorded live evidence, and expects repository-root cwd. A renderer such as pypdfium2 or Poppler is needed for visual QA. Do not silently change the report without rendering and reviewing both pages.
+- Final report/evidence changes do not alter the tested HTML/CSS/JS. The final documentation push is followed by a live report-byte comparison and public handoff check. No classroom demonstration, personal review, or course submission has been claimed.
 
 ## Remaining work and decisions
 

@@ -34,7 +34,8 @@ Use small, descriptive commits and normal pushes. Do not force-push or backdate 
 - [TESTING.md](TESTING.md): live test plan, results, failures, fixes, and retests.
 - [Submission report](output/pdf/portfolio-report.pdf): two-page report with real screenshots of the live site at desktop and phone viewport sizes.
 - [DEMO.md](DEMO.md): a three-minute demonstration outline and JavaScript explanations.
-- [Test evidence](docs/testing-results.json): browser-check results and Lighthouse scores.
+- [Current story evidence](docs/project-story-regression-results.json) and [live story checks](docs/project-story-live-results.json): the new update, source version, and fresh Lighthouse scores.
+- [Earlier test evidence](docs/testing-results.json): historical browser-check results and Lighthouse scores.
 - [Rubric checklist](docs/RUBRIC.md): every grading criterion, its evidence, and the remaining owner media/demo/submission steps.
 
 The owner must personally review AGENTS.md and the code, practice the keyboard demo on actual devices, and upload the report to the course assignment.

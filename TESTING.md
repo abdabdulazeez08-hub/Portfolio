@@ -175,31 +175,31 @@ Fresh live Lighthouse (November 5, 2026, light/default theme): Home 100 accessib
 
 ## Actual project media and scrollytelling update
 
-Local execution: November 5, 2026, America/New_York. The new source replaces three placeholders with 18 supplied-photo/screenshot assets and 15 chapters. Detailed results: [local](docs/project-story-local-results.json), [initial failures](docs/project-story-initial-results.json), [second attempt](docs/project-story-second-results.json). All rows below are local until the live retest is recorded.
+Local execution: November 5, 2026, America/New_York. The new source replaces three placeholders with 18 supplied-photo/screenshot assets and 15 chapters. Detailed results: [local](docs/project-story-local-results.json), [initial failures](docs/project-story-initial-results.json), [second attempt](docs/project-story-second-results.json). The 16 new-story cases were repeated on live GitHub Pages against source commit 0667bda. The raw evidence uses UTC timestamps (November 6 UTC is still November 5 in America/New_York).
 
 | ID | What is tested | Steps | Expected result | Actual result |
 | --- | --- | --- | --- | --- |
-| T101 | All three projects use actual source images, descriptive alternatives, ordered headings, and 15 chapters | Inspect all project headings, source captions, original images, and chapter count. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T102 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | At 1440 x 1000, scroll all four badge chapters forward/back, then jump between distant chapters. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T103 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat all seven HafizAI chapters at 1440 x 1000. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T104 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat all four tiller chapters at 1440 x 1000. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T105 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat badge directions and jumps at 390 x 844. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T106 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat HafizAI directions and jumps at 390 x 844. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T107 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat tiller directions and jumps at 390 x 844. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T108 | Resize between phone and laptop at distant chapters and verify current state | Resize between 390, 1440, and 320px; select the last chapter of each story. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T109 | Every full-image link works with focus and Enter; focus clears the sticky panel | At phone/laptop widths, focus every full-image link, wait for native focus scrolling, press Enter, decode the opened image, and return. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T110 | OS reduced motion restores every image beside its chapter and removes sticky visuals | Emulate OS reduced motion, inspect all 15 original images and absence of sticky panels. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T111 | Footer motion control switches between static and sticky stories | Toggle the footer motion control both directions. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T112 | Short landscape uses normal chapter flow with every original image | Resize to 844 x 390 and inspect chapter images and page width. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T113 | Both themes fit phone, landscape, tablet, and laptop without overflow | Inspect both themes at 320, 390, 768, and 1440px. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T114 | JavaScript disabled retains all 15 complete chapter images, text, and links | Disable JavaScript and inspect/decode all chapter images at phone width. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T115 | All references resolve and every tracked image is below 500 KB | Request source files, parse local references, and compare all image sizes with the 500 KB limit. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
-| T116 | No JavaScript exceptions or console errors during normal interactions | Collect exceptions and normal-page console errors during interactions; raw-image favicon requests are logged separately. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally |
+| T101 | All three projects use actual source images, descriptive alternatives, ordered headings, and 15 chapters | Inspect all project headings, source captions, original images, and chapter count. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T102 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | At 1440 x 1000, scroll all four badge chapters forward/back, then jump between distant chapters. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T103 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat all seven HafizAI chapters at 1440 x 1000. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T104 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat all four tiller chapters at 1440 x 1000. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T105 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat badge directions and jumps at 390 x 844. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T106 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat HafizAI directions and jumps at 390 x 844. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T107 | Forward, reverse, distant jumps, decoded media, caption, and native scroll agree | Repeat tiller directions and jumps at 390 x 844. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T108 | Resize between phone and laptop at distant chapters and verify current state | Resize between 390, 1440, and 320px; select the last chapter of each story. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T109 | Every full-image link works with focus and Enter; focus clears the sticky panel | At phone/laptop widths, focus every full-image link, wait for native focus scrolling, press Enter, decode the opened image, and return. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T110 | OS reduced motion restores every image beside its chapter and removes sticky visuals | Emulate OS reduced motion, inspect all 15 original images and absence of sticky panels. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T111 | Footer motion control switches between static and sticky stories | Toggle the footer motion control both directions. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T112 | Short landscape uses normal chapter flow with every original image | Resize to 844 x 390 and inspect chapter images and page width. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T113 | Both themes fit phone, landscape, tablet, and laptop without overflow | Inspect both themes at 320, 390, 768, and 1440px. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T114 | JavaScript disabled retains all 15 complete chapter images, text, and links | Disable JavaScript and inspect/decode all chapter images at phone width. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T115 | All references resolve and every tracked image is below 500 KB | Request source files, parse local references, and compare all image sizes with the 500 KB limit. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
+| T116 | No JavaScript exceptions or console errors during normal interactions | Collect exceptions and normal-page console errors during interactions; raw-image favicon requests are logged separately. | Matching images/state; readable usable content; no overflow or errors as applicable. | Pass locally and live |
 
-| T117 | Core/Home regression | Rerun all-page core suite and Home story/portrait/theme suite. | Existing navigation, keyboard, contact behavior, and Home interactions still work. | Pass locally: 41 core + 15 Home cases. |
+| T117 | Core/Home regression | Rerun all-page core suite and Home story/portrait/theme suite. | Existing navigation, keyboard, contact behavior, and Home interactions still work. | Pass locally and live: 41 core + 15 Home cases. |
 | T118 | Direct-file opening | Open projects.html via file URL at phone width, focus chapter links, switch reduced motion, decode all originals. | All 15 images work without a server or JS exceptions. | Pass locally. |
-| T119 | Live new-story retest | Deploy to Pages; rerun the 16-case project suite against its public URL. | All new-story checks pass on published source. | Pending deployment. |
-| T120 | Fresh live accessibility | Run Lighthouse on all five live pages after publishing shared CSS/JS. | Accessibility at least 90 on every page. | Pending deployment. |
+| T119 | Live new-story retest | Deploy to Pages; rerun the 16-case project suite against its public URL. | All new-story checks pass on published source. | Pass live: 16/16 new-story cases; all five pages scored 100 accessibility. |
+| T120 | Fresh live accessibility | Run Lighthouse on all five live pages after publishing shared CSS/JS. | Accessibility at least 90 on every page. | Pass: Home 100, About 100, Projects 100, Skills 100, Contact 100. |
 
 ### Failures and fixes in this update
 
@@ -213,3 +213,13 @@ Local execution: November 5, 2026, America/New_York. The new source replaces thr
 Static reference check: 153 references, 43 image files (including documentation screenshots), no broken references, every image below 500 KB. New image maximum: 327,122 bytes. The original source frames and product screenshot colors are preserved. No project media remains pending.
 
 Owner review, physical-device demonstration, JavaScript explanation, optional HafizAI link/release confirmation, and assignment submission remain personal steps. See CODE_REVIEW.md and HANDOFF.md.
+
+
+### Final live evidence
+
+- [New-story live results](docs/project-story-live-results.json): 16/16 passed.
+- [Core/Home and Lighthouse summaries](docs/project-story-regression-results.json): 41 core + 15 Home cases passed live. All five live pages scored 100 accessibility, performance, best practices, and SEO in this light/default-theme sample. Historical dark-theme scores retain their earlier dates.
+- Normal page interactions produced no JavaScript exceptions. All 15 full-image links were exercised with focus/Enter at phone and laptop widths.
+- Genuine 1440 x 1000 and 390 x 844 captures of badge, HafizAI, and tiller were generated by the live suite, reviewed, and used in the refreshed two-page report. Mobile framing now shows the illuminated acrylic and review card clearly.
+- The refreshed report was extracted and rendered as two pages; both page images were inspected for clipping, overlap, and readability. It contains links, features, challenges, a concrete Codex mistake/fix, genuine screenshots, and remaining personal steps.
+- Source commit 0667bda is the tested website code. The subsequent evidence/report commit changes documentation and report tooling only.
