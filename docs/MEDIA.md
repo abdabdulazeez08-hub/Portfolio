@@ -34,7 +34,7 @@ The three older placeholder SVGs were replaced and removed on November 5 after t
 | badge-back.webp | IMG_0363.jpeg |
 | badge-finished.webp | IMG_0365.jpeg |
 | badge-lit.webp | IMG_0367.jpeg |
-| badge-cutout.png | AI-assisted background extraction derived from badge-finished.webp for the Home preview, Projects introduction, and first decorative sticky-stage scene. The physical prototype is preserved, the room and floor are removed, and the result is labeled as a presentation cutout. Untouched supplied photographs remain in the story and full-image links. |
+| badge-cutout.webp | AI-assisted background extraction derived from badge-finished.webp for the Home preview, Projects introduction, and first decorative sticky-stage scene. The physical prototype and transparency are preserved; the derived cutout was converted from PNG to a smaller WebP for faster phone loading. Untouched supplied photographs remain in the story and full-image links. |
 | hafizai-recitation.webp | AI Recitiation.PNG |
 | hafizai-community.webp | Community Leaderboard.PNG |
 | hafizai-logo.webp | HafizAI Logo.png |

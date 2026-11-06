@@ -574,7 +574,7 @@ const mediaStories = [...document.querySelectorAll('[data-media-story]')].map(ro
     img.alt = '';
     img.className = 'media-stage-scene';
     if (root.dataset.mediaStory === 'badge' && index === 0) {
-      img.src = 'assets/images/badge-cutout.png';
+      img.src = 'assets/images/badge-cutout.webp';
       img.removeAttribute('srcset');
       img.width = 500;
       img.height = 442;
