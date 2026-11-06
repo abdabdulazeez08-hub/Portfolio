@@ -3,7 +3,6 @@
 // All five HTML pages work on their own. JavaScript adds optional interactions.
 document.body.classList.add("js-ready");
 
-const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const motionButton = document.querySelector(".motion-toggle");
 let userReducedMotion = false;
 let hasUserMotionPreference = false;
@@ -14,34 +13,29 @@ try {
 } catch { /* Private browsing may block storage. */ }
 
 function updateMotion() {
-  const reduced = hasUserMotionPreference ? userReducedMotion : motionQuery.matches;
+  const reduced = hasUserMotionPreference ? userReducedMotion : false;
   document.documentElement.dataset.motion = reduced ? "reduced" : "full";
   motionButton.hidden = false;
   motionButton.setAttribute("aria-pressed", String(reduced));
   motionButton.textContent = reduced ? "Enable motion" : "Reduce motion";
   motionButton.disabled = false;
-  motionButton.title = !hasUserMotionPreference && motionQuery.matches
-    ? "Your device requests reduced motion. Choose this control to override that default."
-    : "Change animation preference";
+  motionButton.title = "Change animation preference";
   document.querySelectorAll(".story-motion-note").forEach(note => {
     note.hidden = !reduced;
     const message = note.querySelector(".story-motion-message");
     const enable = note.querySelector(".story-motion-enable");
-    if (message) message.textContent = !hasUserMotionPreference && motionQuery.matches
-      ? "Your device requests reduced motion, so this story starts in a static layout."
-      : "Scroll storytelling is paused by your saved motion setting.";
+    if (message) message.textContent = "Scroll storytelling is paused by your saved motion setting.";
     if (enable) enable.hidden = false;
   });
   document.dispatchEvent(new Event("portfolio:motion"));
 }
 motionButton.addEventListener("click", () => {
-  const reduced = hasUserMotionPreference ? userReducedMotion : motionQuery.matches;
+  const reduced = hasUserMotionPreference ? userReducedMotion : false;
   hasUserMotionPreference = true;
   userReducedMotion = !reduced;
   try { localStorage.setItem("portfolio-reduced-motion", String(userReducedMotion)); } catch { /* Preference still applies for this page. */ }
   updateMotion();
 });
-motionQuery.addEventListener("change", updateMotion);
 document.querySelectorAll(".story-motion-enable").forEach(button => {
   button.addEventListener("click", () => {
     hasUserMotionPreference = true;
@@ -241,6 +235,7 @@ if (storyVisual) {
 // Saved theme takes precedence; without a saved choice, follow the device theme.
 const themeButton = document.querySelector(".theme-toggle");
 const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
 let themePreference = null;
 function readThemePreference() {
   try {
@@ -273,7 +268,6 @@ function animateTheme(theme) {
     return;
   }
   document.documentElement.dataset.themeAnimating = theme;
-  themeButton.animate([{ transform: "rotate(-25deg) scale(.85)" }, { transform: "rotate(0) scale(1)" }], { duration: 600, easing: "cubic-bezier(.22,.68,.2,1)" });
   const finish = () => {
     if (sequence === themeSequence) {
       delete document.documentElement.dataset.themeAnimating;
@@ -281,6 +275,14 @@ function animateTheme(theme) {
       themeTransition = null;
     }
   };
+  // Root view-transition snapshots can disturb 3D portrait compositing in mobile
+  // Chromium. Apply the palette directly on touch layouts; portrait state stays put.
+  if (mobileQuery.matches || coarsePointerQuery.matches) {
+    applyTheme(theme);
+    finish();
+    return;
+  }
+  themeButton.animate([{ transform: "rotate(-25deg) scale(.85)" }, { transform: "rotate(0) scale(1)" }], { duration: 600, easing: "cubic-bezier(.22,.68,.2,1)" });
   if (!document.startViewTransition) {
     document.documentElement.classList.add("theme-fallback");
     applyTheme(theme);

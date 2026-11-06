@@ -17,7 +17,7 @@ This is a guide for Abdallah's personal review. It does not assert that the revi
 
 | Feature | Where to find it | What to understand |
 | --- | --- | --- |
-| Motion preference | `motionQuery`, `updateMotion` | OS reduced motion supplies the initial default. An explicit stored visitor choice can select static or scroll behavior, and contextual recovery buttons expose that choice beside the stories. A custom event tells both story engines to recalculate. |
+| Motion preference | `updateMotion` | Motion starts enabled. The footer control stores an explicit reduced/full choice, contextual recovery buttons can restore the stories, and a custom event tells both story engines to recalculate. |
 | Mobile menu | `menuOpen`, `updateMenu` | The viewport media query decides whether the menu button is needed. The button changes hidden/expanded states. Escape returns focus; outside clicks and leaving focus close the menu. |
 | Reading progress | `updateProgress`, `queueProgress` | Scroll distance divided by available document distance gives a 0-1 value. CSS scroll timelines are preferred; one queued frame supplies a fallback. |
 | Protolight story | `renderStory`, `queueStory` | On Projects, cached chapter centers plus a reading line select the active chapter and continuous progress. Progress drives the explanatory assembly and real-image crossfades. The state is derived from scroll position, so scrolling backward reverses it. |
@@ -34,7 +34,7 @@ This is a guide for Abdallah's personal review. It does not assert that the revi
 3. The code measures the center of each chapter in document coordinates, caching those measurements until layout changes.
 4. During native scrolling, one requestAnimationFrame compares the reading position with the centers. The nearest chapter controls the image, caption, and count. It does not depend on which chapter was entered earlier.
 5. The observer only wakes stories near the viewport. Resizing, font completion, page restoration, and motion changes request fresh measurements.
-6. Reduced motion and screens at most 600px tall use static chapters. A visitor can explicitly opt back into motion even when the OS default is reduced; short screens remain static. On phones, a focus handler places a focused chapter link beneath the compact sticky image. The fixed caption allowance prevents a wrapped caption from changing that safe area.
+6. The footer's reduced-motion choice and screens at most 600px tall use static chapters; short screens remain static even if motion is otherwise enabled. On phones, each active copy block has a sticky safe area beneath the compact image panel, and focus handling places chapter links in that same safe zone. The fixed caption allowance prevents a wrapped caption from changing it.
 
 Be ready to answer: Why cache geometry? Why requestAnimationFrame? Why use aria-hidden on duplicates? Why does reverse scrolling work? What happens without JavaScript? Why can't the form send email directly? What does encodeURIComponent prevent?
 

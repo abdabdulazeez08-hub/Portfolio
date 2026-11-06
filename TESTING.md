@@ -262,3 +262,31 @@ The owner requested that Protolight no longer sit beside the name in the Home ba
 The first direct-file attempt used Chrome `--dump-dom` in a way that returned an empty process stream, so it did not produce evidence. The retest used an isolated remote-debugging profile with `scriptEnabled=false` and directly inspected the loaded file DOM; T132 records that passing retest. The first Pages source-check command also reused PowerShell's read-only `$HOME` variable and failed before checking Home; it was corrected to task-scoped variable names, then both live pages passed T135. These were harness failures, not hidden site passes. The dependency-based Playwright suite was not run because this machine has no Playwright module. Lighthouse was unavailable as a preinstalled CLI, so version 13.0.1 was run temporarily through `npx` without adding a repository dependency; T137 records the fresh results.
 
 The existing two-page report contains genuine earlier project-story screenshots but predates this final Home/Projects relocation. No Python runtime is installed on this machine, so the report generator and renderer could not be rerun here. The report remains usable for the assignment, but refreshing its Home/Projects screenshots is recommended if a current-state report is required.
+
+
+## November 5, 2026 - Home content made personal
+
+The owner rejected the generic engineering-practice map and Observe / Model / Build / Test section because they did not say enough about him. Home now uses only supplied resume/project facts: the hero's Current chapter panel covers NJIT, Mechanical Engineering Technology, expected May 2030, and HafizAI; the lower personal feature covers ten years of Taekwondo and a black belt, an online resale business since 2023, and ICPC youth-program community work.
+
+| ID | What is tested | Expected | Actual result |
+| --- | --- | --- | --- |
+| T138 | Personal Home content and source grounding | Inspect the new hero and lower feature against About/resume facts; search for the rejected map/process copy. | Pass locally. Every claim already appears in supplied content; the generic practice map, process sequence, and duplicate About teaser are removed. |
+| T139 | Responsive Home rendering in both themes | Review the hero and personal feature at 1440 x 1000 and 390 x 844 in light and dark modes. | Pass locally. Both sections remain readable, retain the established palette, and have no horizontal overflow. |
+| T140 | Static rubric regression | Repeat page headings, stylesheet, inline-style, alt, reference, image-size, story-count, JavaScript syntax, and HTTP checks. | Pass locally. All five pages retain one h1 and ordered headings; 61 references resolve; all 32 published assets/images remain below 500 KB; Projects still contains all four stories and 21 chapters. |
+
+Live deployment markers and a fresh Home accessibility audit are pending the source commit and Pages publication; no live pass is claimed in this subsection yet.
+
+
+## November 6, 2026 - final interaction and layout pass
+
+The owner requested a final phone/laptop sweep, motion enabled by default, a footer-only opt-out, no mobile text over project images, and no portrait changes when switching theme.
+
+| ID | What is tested | Expected | Actual result |
+| --- | --- | --- | --- |
+| T141 | Motion default and footer opt-out | In fresh phone and laptop profiles that request reduced motion, open the site, use the footer control twice, and reload. | Pass locally. The site began with `data-motion="full"` and “Reduce motion”; the footer changed it to reduced/“Enable motion,” then restored and persisted full motion. |
+| T142 | Theme changes preserve portrait state | On Home and About at phone width, toggle theme once and rapidly, select the graduation portrait, then toggle theme again. | Pass locally on both pages. Professional remained professional through theme changes; graduation remained selected after the later change; no theme transition state remained stuck. |
+| T143 | Mobile story image/copy separation | Measure the sticky visual bottom and active-copy top for all 21 chapters at 390 x 844. | Initial measurement: Fail for the 15 badge/HafizAI/tiller chapters; copy began 93px inside the stage. Added an isolated opaque stage and a sticky copy safe area. Retest: Pass; those chapters retain a 27px gap, and Protolight's minimum gap is 12px. Reviewed badge, recitation, and tiller captures show complete headings and no overlay. |
+| T144 | Complete five-page phone/laptop scroll sweep | Scroll every page from top to bottom at 390 x 844 and 1440 x 1000; inspect top/middle/bottom captures and check viewport overflow, decoded images, clipped text, visible text/image intersections, h1 count, and console errors. | Pass locally: 10 page/viewport combinations, one h1 each, motion full, zero horizontal overflow, zero broken images, zero clipped text, zero visible text/image intersections, and zero console/runtime errors. |
+| T145 | Final static and HTTP regression | Syntax-check both scripts; parse every local reference, heading, image alternative, stylesheet, story count, and image size; request all five local pages. | Pass locally. All pages returned 200; 61 references resolve; four stories/21 chapters remain; all 32 published assets/images are below 500 KB (largest 412,362 bytes). |
+
+The first fresh-browser interaction attempt failed because the earlier localhost preview process had ended and Chrome loaded an error page. The preview was restarted, the isolated profiles were reloaded, and T141-T144 then passed. This was a harness failure and is not counted as a site pass. Live deployment, final live interaction checks, and fresh Lighthouse results are added after publication; no live result for this final source is claimed yet.

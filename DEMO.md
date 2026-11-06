@@ -4,11 +4,11 @@ Use the live site: https://abdabdulazeez08-hub.github.io/Portfolio/
 
 ## 0:00-0:40 - Introduce the site
 
-Say your name and discipline. Explain that the site has five separate HTML pages, shared CSS, and vanilla JavaScript. Show the homepage on a laptop and an actual phone. Point out the engineering-practice map beside the introduction. Hover or swipe the circular portrait, then show its keyboard control. Switch light/dark mode to show the sun/moon reveal, and point out the skills ribbon's pause control. All four projects use supplied photographs, screenshots, or CAD.
+Say your name and discipline. Explain that the site has five separate HTML pages, shared CSS, and vanilla JavaScript. Show the homepage on a laptop and an actual phone. Point out the Current chapter panel with NJIT, your degree, expected graduation, and HafizAI, then the personal section on discipline, ownership, and community. Hover or swipe the circular portrait, then show its keyboard control. Switch light/dark mode to show the sun/moon reveal, and point out the skills ribbon's pause control. All four projects use supplied photographs, screenshots, or CAD.
 
 ## 0:40-1:20 - Show the story
 
-Open Projects and scroll through Protolight's six chapters: sense, respond, design, wire, refine, and build, then scroll back up to reverse them. Explain the actual L-shaped enclosure, three LED strips, environmental inputs, and Arduino output. Briefly show that the badge, HafizAI, and tiller continue as three more scroll stories on the same page. On mobile, compact sticky visuals remain above the story. Reduced motion starts in ordinary flow; the contextual Enable scroll stories control demonstrates the explicit visitor override, and the footer control can return to reduced motion.
+Open Projects and scroll through Protolight's six chapters: sense, respond, design, wire, refine, and build, then scroll back up to reverse them. Explain the actual L-shaped enclosure, three LED strips, environmental inputs, and Arduino output. Briefly show that the badge, HafizAI, and tiller continue as three more scroll stories on the same page. On mobile, compact sticky visuals remain above a separate safe copy area. Motion starts enabled; the footer Reduce motion control switches every story to ordinary flow, and its Enable motion state restores the scroll experience.
 
 ## 1:20-2:00 - Navigate with the keyboard
 

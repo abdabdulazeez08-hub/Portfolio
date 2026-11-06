@@ -5,6 +5,10 @@
   try { saved = localStorage.getItem("portfolio-theme"); } catch { /* Storage is optional. */ }
   const dark = saved === "dark" || (saved !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
   document.documentElement.dataset.theme = dark ? "dark" : "light";
+  let reducedMotion = false;
+  try { reducedMotion = localStorage.getItem("portfolio-reduced-motion") === "true"; } catch { /* Storage is optional. */ }
+  // Motion starts enabled unless the visitor explicitly turns it off in the footer.
+  document.documentElement.dataset.motion = reducedMotion ? "reduced" : "full";
   const color = document.querySelector('meta[name="theme-color"]');
   if (color) color.content = dark ? "#14252d" : "#edf4f2";
   // If the enhancement script cannot load, restore the visible native navigation.
