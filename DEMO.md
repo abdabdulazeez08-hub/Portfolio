@@ -4,11 +4,11 @@ Use the live site: https://abdabdulazeez08-hub.github.io/Portfolio/
 
 ## 0:00-0:40 - Introduce the site
 
-Say your name and discipline. Explain that the site has five separate HTML pages, shared CSS, and vanilla JavaScript. Show the homepage on a laptop and an actual phone. Hover or swipe the circular portrait, then show its keyboard control. Switch light/dark mode to show the sun/moon reveal, and point out the skills ribbon's pause control. Protolight uses real project photos/CAD; the other projects still use labeled placeholders.
+Say your name and discipline. Explain that the site has five separate HTML pages, shared CSS, and vanilla JavaScript. Show the homepage on a laptop and an actual phone. Point out the engineering-practice map beside the introduction. Hover or swipe the circular portrait, then show its keyboard control. Switch light/dark mode to show the sun/moon reveal, and point out the skills ribbon's pause control. All four projects use supplied photographs, screenshots, or CAD.
 
 ## 0:40-1:20 - Show the story
 
-Scroll down through Protolight's six chapters: sense, respond, design, wire, refine, and build, then scroll back up to reverse them. Explain the actual L-shaped enclosure, three LED strips, environmental inputs, and Arduino output. The final stage reveals the real prototype photo. On mobile, a compact sticky visual remains above the story. Reduced motion starts in ordinary flow; the contextual Enable scroll story control demonstrates the explicit visitor override, and the footer control can return to reduced motion.
+Open Projects and scroll through Protolight's six chapters: sense, respond, design, wire, refine, and build, then scroll back up to reverse them. Explain the actual L-shaped enclosure, three LED strips, environmental inputs, and Arduino output. Briefly show that the badge, HafizAI, and tiller continue as three more scroll stories on the same page. On mobile, compact sticky visuals remain above the story. Reduced motion starts in ordinary flow; the contextual Enable scroll stories control demonstrates the explicit visitor override, and the footer control can return to reduced motion.
 
 ## 1:20-2:00 - Navigate with the keyboard
 
@@ -31,7 +31,7 @@ Show TESTING.md and the Lighthouse accessibility scores. Mention the 320px overf
 ## Before class
 
 - Review AGENTS.md and all source code yourself, as required by the assignment.
-- Replace the remaining badge, HafizAI, and soil-tilling visual placeholders when media is available; keep each under 500 KB and update alt text. Protolight already includes its actual media.
+- Confirm the project descriptions and supplied media are accurate; all required project visuals are present and each published image remains under 500 KB.
 - Open the site on a physical phone and your laptop, and practice Tab/Enter/Escape yourself.
 - Upload output/pdf/portfolio-report.pdf to the assignment. Submission to the course is a personal step, not performed by this site.
 - The existing commits are dated honestly. Review the actual commit history against your course's process requirements.

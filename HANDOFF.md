@@ -13,19 +13,19 @@ Read this file first, then AGENTS.md. This is the durable handoff requested by t
 - All paths are relative. Double-clicking index.html must work, as must hosting under `/Portfolio/`.
 - Workflow: one task at a time, test/inspect, clear commit, normal push to origin/main. Never force-push, reset history, or backdate. Existing work dates are genuine (October 29/30 and November 5, 2026).
 
-## Latest owner-requested scroll and presentation repair
+## Latest owner-requested story relocation and presentation repair
 
-The owner reported that scrollytelling appeared to be missing and that the Projects hierarchy and images felt unpolished. Fresh inspection reproduced the primary cause: Windows requested reduced motion, and the former implementation silently forced the Home and Projects stories into static document flow while disabling the footer control.
+The owner asked to remove Protolight from the Home banner and to put every project's scrollytelling on Projects. Home now introduces Abdallah beside a code-native four-discipline engineering-practice map and closes with an Observe / Model / Build / Test process. It contains no scrollytelling. Projects contains all four stories in one ordered page: Protolight (6 chapters), vehicle badge (4), HafizAI (7), and soil tiller (4).
 
-The current source keeps the OS setting as its initial accessible default, but an explicit visitor choice can now override it persistently. Home and Projects show a contextual explanation plus an Enable scroll story/stories control. The footer motion control also remains usable. Choosing the override restores the sticky Home stage and all three Projects stages. Projects now opens with a four-project directory, explicit scroll-story counts, a stronger start action, active-chapter rules, sticky-stage progress, and clearer scroll cues.
+The source keeps the OS motion setting as its initial accessible default, but an explicit visitor choice can override it persistently. Projects shows a contextual explanation plus an Enable scroll stories control. The footer motion control also remains usable. Choosing the override restores Protolight's sticky assembly and the other three sticky stages. Projects opens with a four-project directory, explicit scroll-story counts, a stronger start action, active-chapter rules, sticky-stage progress, and clear scroll cues.
 
 `assets/images/badge-cutout.png` is an AI-assisted background extraction from the actual `badge-finished.webp` photograph. It is used only as a labeled presentation layer on Home, at the Projects introduction, and in the first decorative badge stage. Untouched source photographs remain in the ordered chapters and full-image links. The cutout is 500 x 442, 396,389 bytes, transparent, and recorded in `docs/project-media.json` and `docs/MEDIA.md`.
 
-Focused dependency-free Chrome checks passed at 1440 x 1000 and 390 x 844: a fresh reduced-motion profile began static with a visible recovery control; activating it changed all Projects stories to scroll mode, restored stage display/progress, hid the notice, and caused no horizontal overflow. The Home visual returned to sticky mode. Light and dark phone captures and desktop Home/Projects captures were visually reviewed. Static references, JavaScript syntax, JSON, HTTP responses, one-h1 structure, and the 500 KB image limit passed. The full Playwright suite was not rerun because this machine has no Playwright module; the failed dependency launch and focused retests are recorded in TESTING.md. The existing report PDF contains genuine earlier screenshots and was not regenerated because its documented Python/rendering dependencies are unavailable here.
+Focused dependency-free Chrome checks passed locally at 1440 x 1000 and 390 x 844: a fresh reduced-motion profile began static with a visible recovery control; activating it changed all four Projects stories to scroll behavior, hid the notice, and caused no horizontal overflow. Protolight selected Sense through Build in both directions at both sizes. At 900 x 500, the short-screen rule correctly retained ordinary document flow even after the visitor enabled motion. Home and Projects captures were visually reviewed. Static references, JavaScript syntax, JSON, HTTP responses, one-h1 structure, and the 500 KB image limit are rerun before final handoff. The full Playwright suite is unavailable on this machine because it has no Playwright module. The existing report PDF contains genuine earlier screenshots and was not regenerated because no Python runtime is installed here.
 
 ## What was already complete
 
-All five pages, real resume-grounded descriptions, four projects, local Archivo, responsive navigation, prominent LinkedIn, light/dark controls, sun/moon reveal, OS and persistent preferences, reduced-motion control, pausable skills ribbon, fine-pointer-only halo preserving the native cursor, two circular portraits, static contact validation/email drafting, and the six-chapter Protolight home story.
+All five pages, real resume-grounded descriptions, four projects, local Archivo, responsive navigation, prominent LinkedIn, light/dark controls, sun/moon reveal, OS and persistent preferences, reduced-motion control, pausable skills ribbon, fine-pointer-only halo preserving the native cursor, two circular portraits, static contact validation/email drafting, and 21 scroll chapters grouped on Projects.
 
 The October work added actual Protolight notebook photos/CAD and reliable reverse-scroll behavior. A November resume task created `output/pdf/abdallah-abdulazeez-resume.pdf` and linked it from About and Contact. Its private contact header was removed before rebuilding. The original resume is not published. Do not add phone numbers, postal/home details, or the original resume.
 
@@ -43,13 +43,13 @@ The owner supplied 22 images and asked to use as many as useful, make the remain
 | HafizAI | 7: tracker, practice, Quran reader, recitation feedback, captured session result, Sheik AI, community. Also supplied logo and waitlist-page capture. | Sole designer/developer using AI-assisted tools. Screenshots show interface features. They do not establish aggregate recognition accuracy, audience metrics, or current launch status. |
 | Tiller | 4: overview, side/chain path, opposite angle, mechanism view. Four actual CAD screenshots. | Imported VEX component library arranged into a full CAD vehicle/drivetrain/digging assembly. Not a fabricated or field-tested machine. |
 
-All placeholder project SVGs (badge.svg, hafizai.svg, tiller.svg) were replaced and removed. Protolight's explanatory assembly SVG remains correctly labeled as a reconstruction. The Home badge preview is now an actual photo. All new stories live on Projects; the existing six-chapter Protolight story stays on Home.
+All placeholder project SVGs (badge.svg, hafizai.svg, tiller.svg) were replaced and removed. Protolight's explanatory assembly SVG remains correctly labeled as a reconstruction. The Home badge preview is now an actual photo. All four stories, including the six-chapter Protolight sequence, live on Projects.
 
 ## Files and architecture
 
-- `index.html`: introduction, portraits, skills ribbon, two selected previews, six Protolight chapters.
+- `index.html`: introduction, portraits, engineering-practice map, skills ribbon, selected previews, and Observe / Model / Build / Test process.
 - `about.html`: education, experience, interests, portraits, public-resume download.
-- `projects.html`: static Protolight case study/gallery plus 15 new chapters under `#badge`, `#hafizai`, and `#tiller`. `data-media-story`, `data-media-step`, `.media-inline`, and `.media-full-link` are the new hooks.
+- `projects.html`: all 21 scroll chapters: Protolight under `#protolight`, then the badge, HafizAI, and tiller stories. Protolight uses `.story-step`; the other stories use `data-media-story`, `data-media-step`, `.media-inline`, and `.media-full-link`.
 - `skills.html`: source-grounded technical skills.
 - `contact.html`: email, LinkedIn, GitHub, resume, validated static email-draft form.
 - `styles.css`: original shared design followed by project-story styles near the end. Mint/navy/teal/burgundy/ochre; original app purple is retained only inside authentic app assets.
@@ -67,9 +67,9 @@ All placeholder project SVGs (badge.svg, hafizai.svg, tiller.svg) were replaced 
 - `tools/verify-project-stories.cjs`: reproducible optional Playwright checks; test libraries are development tools, not website dependencies.
 - `.qa/`: ignored scratch work and earlier machine-specific browser/report scripts. Do not stage the whole directory or treat it as portable tooling.
 
-## How the new story engine works
+## How the project story engines work
 
-Original figures remain inside the chapters in HTML. JavaScript creates a decorative `aria-hidden` sticky stage containing duplicate images. Normal enhanced layouts visually clip original figures without removing their accessible text. Static modes show the originals and hide the stage.
+Protolight uses its existing explanatory assembly/CAD/photo stage, now relocated intact to Projects. Its state is derived from six cached chapter centers, so fast jumps and reverse scrolling remain reliable. The badge, HafizAI, and tiller retain original figures inside their HTML chapters while JavaScript creates decorative `aria-hidden` sticky stages containing duplicate images. Normal enhanced layouts visually clip original figures without removing their accessible text. Static modes show the originals and hide the stages.
 
 The renderer caches document coordinates of chapter centers. A passive scroll event queues one animation frame for all new stories. The reading line is the viewport center on desktop and below the sticky panel on phone. The nearest center selects one image and the matching source caption/count. It works forward, backward, after a distant jump, and after resizing. IntersectionObserver only gates nearby work. ResizeObserver, viewport events, font readiness, motion changes, and pageshow invalidate geometry.
 
